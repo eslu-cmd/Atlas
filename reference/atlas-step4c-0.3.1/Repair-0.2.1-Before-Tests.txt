@@ -1,0 +1,157 @@
+test_R1_approval_evidence_is_not_replaced_by_correction_note (test_repairs_021.RepairTests)
+H07: preserve signed approval evidence; reassociation evidence stays on event. ... FAIL
+test_R1_failed_reassociation_preserves_evidence_and_active_state (test_repairs_021.RepairTests) ... ok
+test_R1_replacement_retrieval_exposes_incoming_correction_provenance (test_repairs_021.RepairTests)
+Replacement opens the approval document and explicitly withdrawn predecessor. ... ERROR
+test_R1_successive_corrections_and_handoff_provenance_survive_reopen (test_repairs_021.RepairTests)
+Successive explicit corrections keep both notes and the original signed evidence. ... ERROR
+test_R2_exact_product_and_business_distinctions_are_not_erased (test_repairs_021.RepairTests)
+Missing scope and different job/request/client or snapshot links stay distinct. ... ok
+test_R2_explicit_inherited_contradictions_remain_rejected (test_repairs_021.RepairTests) ... ok
+test_R2_handoff_accepts_equivalent_quote_and_approval_context (test_repairs_021.RepairTests) ... ERROR
+test_R2_sample_approval_accepts_redundant_resolved_scope (test_repairs_021.RepairTests)
+Same job/request/client via inheritance or explicit links is equivalent. ... ERROR
+test_R3_changed_composition_does_not_inherit_approval (test_repairs_021.RepairTests) ... ERROR
+test_R3_kit_samples_notes_acceptance_and_client_approval_persist (test_repairs_021.RepairTests)
+Kit sampling owns a permanent kit; samples/decisions retain the exact composition. ... ERROR
+test_R3_sequence_has_exactly_one_permanent_owner (test_repairs_021.RepairTests) ... ERROR
+test_R3_wrong_kit_client_customization_and_sequence_labels (test_repairs_021.RepairTests) ... ERROR
+
+======================================================================
+ERROR: test_R1_replacement_retrieval_exposes_incoming_correction_provenance (test_repairs_021.RepairTests)
+Replacement opens the approval document and explicitly withdrawn predecessor.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 48, in test_R1_replacement_retrieval_exposes_incoming_correction_provenance
+    provenance=history['correction_provenance']
+KeyError: 'correction_provenance'
+
+======================================================================
+ERROR: test_R1_successive_corrections_and_handoff_provenance_survive_reopen (test_repairs_021.RepairTests)
+Successive explicit corrections keep both notes and the original signed evidence.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 71, in test_R1_successive_corrections_and_handoff_provenance_survive_reopen
+    provenance=actual['correction_provenance']
+KeyError: 'correction_provenance'
+
+======================================================================
+ERROR: test_R2_handoff_accepts_equivalent_quote_and_approval_context (test_repairs_021.RepairTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 114, in test_R2_handoff_accepts_equivalent_quote_and_approval_context
+    handoff=self.add('handoff',{'qualifications':[]},context=redundant,quote=quote,approvals=[approval])
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_records.py", line 25, in add
+    def add(self,kind,data,**refs): return self.s.add(kind,data,refs,**self.meta)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 156, in add
+    self._validate(kind,data,refs)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 270, in _validate
+    if one('quote'): need(self.same_context(one('context'),self.one(one('quote'),'context')), 'Handoff quote context mismatch')
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 25, in need
+    raise RecordError(message)
+atlas.records.RecordError: Handoff quote context mismatch
+
+======================================================================
+ERROR: test_R2_sample_approval_accepts_redundant_resolved_scope (test_repairs_021.RepairTests)
+Same job/request/client via inheritance or explicit links is equivalent.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 103, in test_R2_sample_approval_accepts_redundant_resolved_scope
+    approval=self.approval(context=redundant,sample=sample)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_records.py", line 32, in approval
+    return self.add('approval',{'type':kind,'decision':decision,'actor_name':'Illustrative actor'},context=context or self.a['context'],evidence=self.ev,**({'sample':sample} if sample else {}))
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_records.py", line 25, in add
+    def add(self,kind,data,**refs): return self.s.add(kind,data,refs,**self.meta)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 156, in add
+    self._validate(kind,data,refs)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 262, in _validate
+    if one('sample'): need(self.same_context(one('context'),self.one(one('sample'),'context')), 'Approval sample context mismatch')
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 25, in need
+    raise RecordError(message)
+atlas.records.RecordError: Approval sample context mismatch
+
+======================================================================
+ERROR: test_R3_changed_composition_does_not_inherit_approval (test_repairs_021.RepairTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 202, in test_R3_changed_composition_does_not_inherit_approval
+    k=self.kit_fixture(); sequence=self.kit_sequence(k)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 167, in kit_sequence
+    return self.add('sequence',{'label':label},kit=k['kit'],job=k['job'])
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_records.py", line 25, in add
+    def add(self,kind,data,**refs): return self.s.add(kind,data,refs,**self.meta)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 142, in add
+    need(isinstance(links,dict) and links.keys() <= edge_rules.keys(), 'Unsupported relationship')
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 25, in need
+    raise RecordError(message)
+atlas.records.RecordError: Unsupported relationship
+
+======================================================================
+ERROR: test_R3_kit_samples_notes_acceptance_and_client_approval_persist (test_repairs_021.RepairTests)
+Kit sampling owns a permanent kit; samples/decisions retain the exact composition.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 171, in test_R3_kit_samples_notes_acceptance_and_client_approval_persist
+    k=self.kit_fixture(); sequence=self.kit_sequence(k)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 167, in kit_sequence
+    return self.add('sequence',{'label':label},kit=k['kit'],job=k['job'])
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_records.py", line 25, in add
+    def add(self,kind,data,**refs): return self.s.add(kind,data,refs,**self.meta)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 142, in add
+    need(isinstance(links,dict) and links.keys() <= edge_rules.keys(), 'Unsupported relationship')
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 25, in need
+    raise RecordError(message)
+atlas.records.RecordError: Unsupported relationship
+
+======================================================================
+ERROR: test_R3_sequence_has_exactly_one_permanent_owner (test_repairs_021.RepairTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 193, in test_R3_sequence_has_exactly_one_permanent_owner
+    valid=self.kit_sequence(k)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 167, in kit_sequence
+    return self.add('sequence',{'label':label},kit=k['kit'],job=k['job'])
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_records.py", line 25, in add
+    def add(self,kind,data,**refs): return self.s.add(kind,data,refs,**self.meta)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 142, in add
+    need(isinstance(links,dict) and links.keys() <= edge_rules.keys(), 'Unsupported relationship')
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 25, in need
+    raise RecordError(message)
+atlas.records.RecordError: Unsupported relationship
+
+======================================================================
+ERROR: test_R3_wrong_kit_client_customization_and_sequence_labels (test_repairs_021.RepairTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 221, in test_R3_wrong_kit_client_customization_and_sequence_labels
+    k=self.kit_fixture(); sequence=self.kit_sequence(k)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 167, in kit_sequence
+    return self.add('sequence',{'label':label},kit=k['kit'],job=k['job'])
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_records.py", line 25, in add
+    def add(self,kind,data,**refs): return self.s.add(kind,data,refs,**self.meta)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 142, in add
+    need(isinstance(links,dict) and links.keys() <= edge_rules.keys(), 'Unsupported relationship')
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/atlas/records.py", line 25, in need
+    raise RecordError(message)
+atlas.records.RecordError: Unsupported relationship
+
+======================================================================
+FAIL: test_R1_approval_evidence_is_not_replaced_by_correction_note (test_repairs_021.RepairTests)
+H07: preserve signed approval evidence; reassociation evidence stays on event.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-2/outputs/atlas-step4b/tests/test_repairs_021.py", line 36, in test_R1_approval_evidence_is_not_replaced_by_correction_note
+    self.assertEqual(self.s.get(replacement['record'])['links']['evidence'],[signed['assertion']])
+AssertionError: Lists differ: ['a8772c1d-15aa-43d7-b3cb-32150bb26030'] != ['40bcef9a-ecd0-4f9e-9f27-b472b7551a61']
+
+First differing element 0:
+'a8772c1d-15aa-43d7-b3cb-32150bb26030'
+'40bcef9a-ecd0-4f9e-9f27-b472b7551a61'
+
+- ['a8772c1d-15aa-43d7-b3cb-32150bb26030']
++ ['40bcef9a-ecd0-4f9e-9f27-b472b7551a61']
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.520s
+
+FAILED (failures=1, errors=8)

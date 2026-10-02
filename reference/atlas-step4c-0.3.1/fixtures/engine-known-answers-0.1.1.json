@@ -1,0 +1,972 @@
+[
+  {
+    "test": "test_engine.EngineTests.test_W01_independent_diameters",
+    "input": {
+      "fields": {
+        "MA": "APTX",
+        "AR": "CUB",
+        "CA": {
+          "value": "0.5",
+          "unit": "L"
+        },
+        "FI": {
+          "value": "98.125",
+          "unit": "mm"
+        }
+      }
+    },
+    "expected": "A1!APTX.CUB.XXX.M500.R98",
+    "actual": "A1!APTX.CUB.XXX.M500.R98",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W01_independent_diameters",
+    "input": {
+      "fields": {
+        "MA": "APTX",
+        "AR": "CUB",
+        "CA": {
+          "value": "0.5",
+          "unit": "L"
+        },
+        "FI": {
+          "value": "98.125",
+          "unit": "mm"
+        }
+      }
+    },
+    "expected": "A1!APTX.CUB.XXX.M500.R98_125",
+    "actual": "A1!APTX.CUB.XXX.M500.R98_125",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W02_W03_printing_context_separate",
+    "input": {
+      "fields": {
+        "MA": "APPX",
+        "AR": "CUB",
+        "CA": "M500"
+      }
+    },
+    "expected": "A1!APPX.CUB.XXX.M500.X",
+    "actual": "A1!APPX.CUB.XXX.M500.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W04_scopes_and_layers",
+    "input": {
+      "fields": {
+        "MA": "BKRX",
+        "AR": "BGX",
+        "CF": "XXT"
+      },
+      "groups": [
+        {
+          "scope": "INSIDE",
+          "node": {
+            "fields": {
+              "MA": "BKRX",
+              "CL": "BROWN"
+            }
+          }
+        }
+      ]
+    },
+    "expected": "A1!BKRX.BGX.XXT.X.X~S(INSIDE){CL:BROWN.MA:BKRX}",
+    "actual": "A1!BKRX.BGX.XXT.X.X~S(INSIDE){CL:BROWN.MA:BKRX}",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W04_scopes_and_layers",
+    "input": {
+      "fields": {
+        "MA": "BKRX",
+        "AR": "BGX",
+        "CF": "XXT"
+      },
+      "groups": [
+        {
+          "scope": "INSIDE",
+          "node": {
+            "fields": {
+              "MA": "BKRX",
+              "CL": "WHITE"
+            }
+          }
+        }
+      ]
+    },
+    "expected": "A1!BKRX.BGX.XXT.X.X~S(INSIDE){CL:WHITE.MA:BKRX}",
+    "actual": "A1!BKRX.BGX.XXT.X.X~S(INSIDE){CL:WHITE.MA:BKRX}",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W04_scopes_and_layers",
+    "input": {
+      "fields": {
+        "MA": "BKRX",
+        "AR": "BGX",
+        "CF": "XLX"
+      },
+      "groups": [
+        {
+          "direction": "O",
+          "layers": [
+            {
+              "fields": {
+                "MA": "BKRX"
+              }
+            },
+            {
+              "fields": {
+                "MA": "APTX"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "expected": "A1!BKRX.BGX.XLX.X.X~L(O){MA:BKRX;MA:APTX}",
+    "actual": "A1!BKRX.BGX.XLX.X.X~L(O){MA:BKRX;MA:APTX}",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W04_scopes_and_layers",
+    "input": {
+      "fields": {
+        "MA": "BKRX",
+        "AR": "BGX",
+        "CF": "XLX"
+      },
+      "groups": [
+        {
+          "direction": "X",
+          "layers": [
+            {
+              "fields": {
+                "MA": "BKRX"
+              }
+            },
+            {
+              "fields": {
+                "MA": "APTX"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "expected": "A1!BKRX.BGX.XLX.X.X~L(X){MA:APTX;MA:BKRX}",
+    "actual": "A1!BKRX.BGX.XLX.X.X~L(X){MA:APTX;MA:BKRX}",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W05_clarification_descriptions_differ",
+    "input": {
+      "fields": {
+        "MA": "BKWX",
+        "AR": "CUB",
+        "CA": "M500"
+      }
+    },
+    "expected": "A1!BKWX.CUB.XXX.M500.X",
+    "actual": "A1!BKWX.CUB.XXX.M500.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W05_clarification_descriptions_differ",
+    "input": {
+      "fields": {
+        "MA": "BKWP",
+        "AR": "CUB",
+        "CA": "M500"
+      }
+    },
+    "expected": "A1!BKWP.CUB.XXX.M500.X",
+    "actual": "A1!BKWP.CUB.XXX.M500.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W07_separate_components",
+    "input": {
+      "fields": {
+        "MA": "ACPX",
+        "AR": "CYX",
+        "CF": "XXS"
+      }
+    },
+    "expected": "A1!ACPX.CYX.XXS.X.X",
+    "actual": "A1!ACPX.CYX.XXS.X.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W07_separate_components",
+    "input": {
+      "fields": {
+        "MA": "ACPX",
+        "AR": "CYX",
+        "CF": "XXF"
+      }
+    },
+    "expected": "A1!ACPX.CYX.XXF.X.X",
+    "actual": "A1!ACPX.CYX.XXF.X.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W07_separate_components",
+    "input": {
+      "fields": {
+        "MA": "ACPX",
+        "AR": "CYX",
+        "CF": "XXN"
+      }
+    },
+    "expected": "A1!ACPX.CYX.XXN.X.X",
+    "actual": "A1!ACPX.CYX.XXN.X.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W07_separate_components",
+    "input": {
+      "fields": {
+        "MA": "BTSX",
+        "AR": "NPX"
+      }
+    },
+    "expected": "A1!BTSX.NPX.XXX.X.X",
+    "actual": "A1!BTSX.NPX.XXX.X.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_W08_unresolved_ounces",
+    "input": {
+      "fields": {
+        "AR": "CUX",
+        "UT": [
+          [
+            "CA",
+            "16 oz"
+          ]
+        ]
+      }
+    },
+    "expected": "A1!XXXX.CUX.XXX.X.X+UT:CA=16%20oz",
+    "actual": "A1!XXXX.CUX.XXX.X.X+UT:CA=16%20oz",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_dimensions_and_targets",
+    "input": {
+      "fields": {
+        "AR": "BGX",
+        "DM": {
+          "WIDTH": "20",
+          "HEIGHT": {
+            "value": "2",
+            "unit": "in"
+          }
+        },
+        "TO": [
+          [
+            "DM_HEIGHT",
+            "1",
+            "2"
+          ]
+        ]
+      }
+    },
+    "expected": "A1!XXXX.BGX.XXX.X.X+DM:HEIGHT=50_8,WIDTH=20.TO:[DM_HEIGHT,1,2]",
+    "actual": "A1!XXXX.BGX.XXX.X.X+DM:HEIGHT=50_8,WIDTH=20.TO:[DM_HEIGHT,1,2]",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_exact_units_and_thickness",
+    "input": {
+      "fields": {
+        "MA": "APTX",
+        "TH": {
+          "value": "30",
+          "unit": "um"
+        },
+        "GW": {
+          "value": "0.01",
+          "unit": "kg"
+        },
+        "FI": {
+          "value": "3",
+          "unit": "in"
+        }
+      }
+    },
+    "expected": "A1!APTX.XXX.XXX.X.R76_2+GW:10.TH:0_03",
+    "actual": "A1!APTX.XXX.XXX.X.R76_2+GW:10.TH:0_03",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_exact_units_and_thickness",
+    "input": {
+      "fields": {
+        "AR": "CUX",
+        "CA": {
+          "value": "1",
+          "unit": "US_fl_oz"
+        }
+      }
+    },
+    "expected": "A1!XXXX.CUX.XXX.M29_5735295625.X",
+    "actual": "A1!XXXX.CUX.XXX.M29_5735295625.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_exact_units_and_thickness",
+    "input": {
+      "fields": {
+        "AR": "CUX",
+        "CA": {
+          "value": "1",
+          "unit": "IMP_fl_oz"
+        }
+      }
+    },
+    "expected": "A1!XXXX.CUX.XXX.M28_4130625.X",
+    "actual": "A1!XXXX.CUX.XXX.M28_4130625.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_exact_units_and_thickness",
+    "input": {
+      "fields": {
+        "AR": "BGX",
+        "CA": {
+          "value": "1",
+          "unit": "kg"
+        }
+      }
+    },
+    "expected": "A1!XXXX.BGX.XXX.G1000.X",
+    "actual": "A1!XXXX.BGX.XXX.G1000.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_intervals_fraction_count",
+    "input": {
+      "fields": {
+        "AR": "CUX",
+        "CA": "M1/3",
+        "FI": "R098_0-99_00"
+      }
+    },
+    "expected": "A1!XXXX.CUX.XXX.M1/3.R98-99",
+    "actual": "A1!XXXX.CUX.XXX.M1/3.R98-99",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_intervals_fraction_count",
+    "input": {
+      "fields": {
+        "AR": "BGX",
+        "CA": "N2-2"
+      }
+    },
+    "expected": "A1!XXXX.BGX.XXX.N2.X",
+    "actual": "A1!XXXX.BGX.XXX.N2.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_layer_repeats_reverse",
+    "input": {
+      "fields": {
+        "MA": "BKRX",
+        "AR": "BGX"
+      },
+      "groups": [
+        {
+          "direction": "X",
+          "layers": [
+            {
+              "fields": {
+                "MA": "BKRX"
+              }
+            },
+            {
+              "fields": {
+                "MA": "APEX"
+              }
+            },
+            {
+              "fields": {
+                "MA": "APEX"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "expected": "A1!BKRX.BGX.XXX.X.X~L(X){MA:APEX;MA:APEX;MA:BKRX}",
+    "actual": "A1!BKRX.BGX.XXX.X.X~L(X){MA:APEX;MA:APEX;MA:BKRX}",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_layer_repeats_reverse",
+    "input": {
+      "fields": {
+        "MA": "BKRX",
+        "AR": "BGX"
+      },
+      "groups": [
+        {
+          "direction": "I",
+          "layers": [
+            {
+              "fields": {
+                "MA": "APEX"
+              }
+            },
+            {
+              "fields": {
+                "MA": "BKRX"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "expected": "A1!BKRX.BGX.XXX.X.X~L(O){MA:BKRX;MA:APEX}",
+    "actual": "A1!BKRX.BGX.XXX.X.X~L(O){MA:BKRX;MA:APEX}",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_lid_function_without_saleability",
+    "input": {
+      "fields": {
+        "AR": "CUX",
+        "FR": "CLOSURE",
+        "LP": "D",
+        "AP": "STRAW_HOLE"
+      }
+    },
+    "expected": "A1!XXXX.CUX.XXX.X.X+AP:STRAW_HOLE.FR:CLOSURE.LP:D",
+    "actual": "A1!XXXX.CUX.XXX.X.X+AP:STRAW_HOLE.FR:CLOSURE.LP:D",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_lid_function_without_saleability",
+    "input": {
+      "fields": {
+        "AR": "CUL",
+        "CF": "XXD",
+        "FR": "CLOSURE"
+      }
+    },
+    "expected": "A1!XXXX.CUL.XXD.X.X",
+    "actual": "A1!XXXX.CUL.XXD.X.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_multiple_features",
+    "input": {
+      "fields": {
+        "AR": "BGX",
+        "CF": "XXZ",
+        "FX": [
+          "W",
+          "T"
+        ]
+      }
+    },
+    "expected": "A1!XXXX.BGX.XXT.X.X+FX:W,Z",
+    "actual": "A1!XXXX.BGX.XXT.X.X+FX:W,Z",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_multiple_features",
+    "input": {
+      "fields": {
+        "AR": "BGX",
+        "CF": "XXN",
+        "FX": [
+          "W"
+        ]
+      }
+    },
+    "expected": "A1!XXXX.BGX.XXN.X.X+FX:W",
+    "actual": "A1!XXXX.BGX.XXN.X.X+FX:W",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_nested_no_inheritance_and_merge",
+    "input": {
+      "fields": {
+        "MA": "BKRX",
+        "AR": "BGX"
+      },
+      "groups": [
+        {
+          "scope": "INSIDE",
+          "node": {
+            "fields": {
+              "CL": "WHITE"
+            }
+          }
+        },
+        {
+          "scope": "INSIDE",
+          "node": {
+            "fields": {
+              "OP": "OPAQUE",
+              "CL": "BROWN"
+            }
+          }
+        }
+      ]
+    },
+    "expected": "A1!BKRX.BGX.XXX.X.X~S(INSIDE){CL:WHITE.OP:OPAQUE}",
+    "actual": "A1!BKRX.BGX.XXX.X.X~S(INSIDE){CL:WHITE.OP:OPAQUE}",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_nested_no_inheritance_and_merge",
+    "input": {
+      "fields": {
+        "MA": "APTX"
+      },
+      "groups": [
+        {
+          "scope": "BODY",
+          "node": {
+            "fields": {},
+            "groups": [
+              {
+                "scope": "OUTSIDE",
+                "node": {
+                  "fields": {
+                    "CL": "RED"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "expected": "A1!APTX.XXX.XXX.X.X~S(BODY){-~S(OUTSIDE){CL:RED}}",
+    "actual": "A1!APTX.XXX.XXX.X.X~S(BODY){-~S(OUTSIDE){CL:RED}}",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_tolerance_qualification",
+    "input": {
+      "fields": {
+        "AR": "CUX",
+        "CA": "M500",
+        "QC": [
+          [
+            "CA",
+            "TARGET",
+            "FILL",
+            "20 °C"
+          ]
+        ],
+        "TO": [
+          [
+            "CA",
+            "5",
+            "10"
+          ]
+        ]
+      }
+    },
+    "expected": "A1!XXXX.CUX.XXX.M500.X+QC:[CA,TARGET,FILL,20%20%C2%B0C].TO:[CA,5,10]",
+    "actual": "A1!XXXX.CUX.XXX.M500.X+QC:[CA,TARGET,FILL,20%20%C2%B0C].TO:[CA,5,10]",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_tolerance_qualification",
+    "input": {
+      "fields": {
+        "AR": "CUX",
+        "CA": "M500",
+        "QC": [
+          [
+            "CA",
+            "REPORTED",
+            "UNKNOWN",
+            "-"
+          ]
+        ]
+      }
+    },
+    "expected": "A1!XXXX.CUX.XXX.M500.X",
+    "actual": "A1!XXXX.CUX.XXX.M500.X",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_unknown_na_other",
+    "input": {
+      "fields": {
+        "AR": "BGX",
+        "CA": "0",
+        "FI": "0"
+      }
+    },
+    "expected": "A1!XXXX.BGX.XXX.0.0",
+    "actual": "A1!XXXX.BGX.XXX.0.0",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_unknown_na_other",
+    "input": {
+      "fields": {
+        "MA": "A99X",
+        "OT": [
+          [
+            "MA_GRADE",
+            "novel polymer"
+          ]
+        ]
+      }
+    },
+    "expected": "A1!A99X.XXX.XXX.X.X+OT:MA_GRADE=novel%20polymer",
+    "actual": "A1!A99X.XXX.XXX.X.X+OT:MA_GRADE=novel%20polymer",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_utf8_structural_escaping",
+    "input": {
+      "fields": {
+        "AR": "BGX",
+        "UT": [
+          [
+            "DM",
+            "é .,:;{}[]()%+~|/=中文"
+          ]
+        ]
+      }
+    },
+    "expected": "A1!XXXX.BGX.XXX.X.X+UT:DM=%C3%A9%20%2E%2C%3A%3B%7B%7D%5B%5D%28%29%25%2B%7E%7C%2F%3D%E4%B8%AD%E6%96%87",
+    "actual": "A1!XXXX.BGX.XXX.X.X+UT:DM=%C3%A9%20%2E%2C%3A%3B%7B%7D%5B%5D%28%29%25%2B%7E%7C%2F%3D%E4%B8%AD%E6%96%87",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_workbook_expected_codes",
+    "input": {
+      "fields": {
+        "MA": "APSX",
+        "AR": "BWX",
+        "FR": "CLOSURE",
+        "OP": "CLEAR",
+        "GW": {
+          "value": "3.3",
+          "unit": "g"
+        },
+        "NC": "6oz",
+        "UT": [
+          [
+            "DM",
+            "90 mm; dimension role unspecified"
+          ]
+        ],
+        "LP": "D"
+      }
+    },
+    "expected": "A1!APSX.BWX.XXX.X.X+FR:CLOSURE.GW:3_3.LP:D.NC:6oz.OP:CLEAR.UT:DM=90%20mm%3B%20dimension%20role%20unspecified",
+    "actual": "A1!APSX.BWX.XXX.X.X+FR:CLOSURE.GW:3_3.LP:D.NC:6oz.OP:CLEAR.UT:DM=90%20mm%3B%20dimension%20role%20unspecified",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_workbook_expected_codes",
+    "input": {
+      "fields": {
+        "MA": "APSX",
+        "AR": "BWX",
+        "FR": "CLOSURE",
+        "OP": "CLEAR",
+        "GW": {
+          "value": "3.3",
+          "unit": "g"
+        },
+        "NC": "6oz",
+        "UT": [
+          [
+            "DM",
+            "90 mm; dimension role unspecified"
+          ],
+          [
+            "LP",
+            "Half Dome"
+          ]
+        ]
+      }
+    },
+    "expected": "A1!APSX.BWX.XXX.X.X+FR:CLOSURE.GW:3_3.NC:6oz.OP:CLEAR.UT:DM=90%20mm%3B%20dimension%20role%20unspecified,LP=Half%20Dome",
+    "actual": "A1!APSX.BWX.XXX.X.X+FR:CLOSURE.GW:3_3.NC:6oz.OP:CLEAR.UT:DM=90%20mm%3B%20dimension%20role%20unspecified,LP=Half%20Dome",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_workbook_expected_codes",
+    "input": {
+      "fields": {
+        "MA": "JMPX",
+        "AR": "POX",
+        "CF": "XXS",
+        "NC": "20 Serve",
+        "UT": [
+          [
+            "DM",
+            "216 x 278 x 76mm; dimension roles unspecified"
+          ]
+        ]
+      }
+    },
+    "expected": "A1!JMPX.POX.XXS.X.X+NC:20%20Serve.UT:DM=216%20x%20278%20x%2076mm%3B%20dimension%20roles%20unspecified",
+    "actual": "A1!JMPX.POX.XXS.X.X+NC:20%20Serve.UT:DM=216%20x%20278%20x%2076mm%3B%20dimension%20roles%20unspecified",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_workbook_expected_codes",
+    "input": {
+      "fields": {
+        "MA": "BKWX",
+        "AR": "BGX",
+        "DM": {
+          "HEIGHT": {
+            "value": "7.5",
+            "unit": "in"
+          },
+          "WIDTH": {
+            "value": "5.75",
+            "unit": "in"
+          },
+          "GUSSET": {
+            "value": "1.375",
+            "unit": "in"
+          }
+        },
+        "GS": {
+          "value": "30",
+          "unit": "gsm"
+        }
+      }
+    },
+    "expected": "A1!BKWX.BGX.XXX.X.X+DM:GUSSET=34_925,HEIGHT=190_5,WIDTH=146_05.GS:30",
+    "actual": "A1!BKWX.BGX.XXX.X.X+DM:GUSSET=34_925,HEIGHT=190_5,WIDTH=146_05.GS:30",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_workbook_expected_codes",
+    "input": {
+      "fields": {
+        "MA": "BWXX",
+        "AR": "WRX",
+        "GS": "60",
+        "UT": [
+          [
+            "DM",
+            "12x12 mm; dimension roles unspecified"
+          ]
+        ]
+      }
+    },
+    "expected": "A1!BWXX.WRX.XXX.X.X+GS:60.UT:DM=12x12%20mm%3B%20dimension%20roles%20unspecified",
+    "actual": "A1!BWXX.WRX.XXX.X.X+GS:60.UT:DM=12x12%20mm%3B%20dimension%20roles%20unspecified",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_workbook_expected_codes",
+    "input": {
+      "fields": {
+        "MA": "BWXX",
+        "AR": "WRX",
+        "GS": "60",
+        "UT": [
+          [
+            "DM",
+            "12x12 mm; dimension roles unspecified"
+          ]
+        ]
+      }
+    },
+    "expected": "A1!BWXX.WRX.XXX.X.X+GS:60.UT:DM=12x12%20mm%3B%20dimension%20roles%20unspecified",
+    "actual": "A1!BWXX.WRX.XXX.X.X+GS:60.UT:DM=12x12%20mm%3B%20dimension%20roles%20unspecified",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_workbook_expected_codes",
+    "input": {
+      "fields": {
+        "MA": "BKCX",
+        "CL": "WHITE",
+        "FS": "RECYCLED",
+        "GS": "60",
+        "UT": [
+          [
+            "DM",
+            "4.25 x 2.5 x 3.75 inches; dimension roles unspecified"
+          ],
+          [
+            "FS",
+            "100% recycled; post-consumer share unspecified"
+          ]
+        ]
+      },
+      "groups": [
+        {
+          "scope": "INSIDE",
+          "node": {
+            "fields": {
+              "MA": "XXXG"
+            }
+          }
+        }
+      ]
+    },
+    "expected": "A1!BKCX.XXX.XXX.X.X+CL:WHITE.FS:RECYCLED.GS:60.UT:DM=4%2E25%20x%202%2E5%20x%203%2E75%20inches%3B%20dimension%20roles%20unspecified,FS=100%25%20recycled%3B%20post-consumer%20share%20unspecified~S(INSIDE){MA:XXXG}",
+    "actual": "A1!BKCX.XXX.XXX.X.X+CL:WHITE.FS:RECYCLED.GS:60.UT:DM=4%2E25%20x%202%2E5%20x%203%2E75%20inches%3B%20dimension%20roles%20unspecified,FS=100%25%20recycled%3B%20post-consumer%20share%20unspecified~S(INSIDE){MA:XXXG}",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_workbook_expected_codes",
+    "input": {
+      "fields": {
+        "MA": "BKRX",
+        "AR": "BGX",
+        "CL": "WHITE",
+        "GS": "80",
+        "NC": "16LB",
+        "UT": [
+          [
+            "CF",
+            "SOS"
+          ]
+        ],
+        "DM": {
+          "WIDTH": {
+            "value": "7.75",
+            "unit": "in"
+          },
+          "DEPTH": {
+            "value": "4.75",
+            "unit": "in"
+          },
+          "HEIGHT": {
+            "value": "16",
+            "unit": "in"
+          }
+        }
+      }
+    },
+    "expected": "A1!BKRX.BGX.XXX.X.X+CL:WHITE.DM:DEPTH=120_65,HEIGHT=406_4,WIDTH=196_85.GS:80.NC:16LB.UT:CF=SOS",
+    "actual": "A1!BKRX.BGX.XXX.X.X+CL:WHITE.DM:DEPTH=120_65,HEIGHT=406_4,WIDTH=196_85.GS:80.NC:16LB.UT:CF=SOS",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_workbook_expected_codes",
+    "input": {
+      "fields": {
+        "MA": "BKRX",
+        "AR": "CUX",
+        "CF": "XSX",
+        "CL": "WHITE",
+        "DM": {
+          "TOP_DIA": "90",
+          "HEIGHT": "152"
+        },
+        "UT": [
+          [
+            "CA",
+            "20oz"
+          ],
+          [
+            "TR",
+            "cold beverage use"
+          ],
+          [
+            "MA_TREATMENT",
+            "18PE +18PE; side/order and quantity units unspecified"
+          ]
+        ]
+      },
+      "groups": [
+        {
+          "direction": "X",
+          "layers": [
+            {
+              "fields": {
+                "MA": "BKRX",
+                "GS": "260"
+              }
+            },
+            {
+              "fields": {
+                "MA": "APEX"
+              }
+            },
+            {
+              "fields": {
+                "MA": "APEX"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "expected": "A1!BKRX.CUX.XSX.X.X+CL:WHITE.DM:HEIGHT=152,TOP_DIA=90.UT:CA=20oz,MA_TREATMENT=18PE%20%2B18PE%3B%20side%2Forder%20and%20quantity%20units%20unspecified,TR=cold%20beverage%20use~L(X){GS:260.MA:BKRX;MA:APEX;MA:APEX}",
+    "actual": "A1!BKRX.CUX.XSX.X.X+CL:WHITE.DM:HEIGHT=152,TOP_DIA=90.UT:CA=20oz,MA_TREATMENT=18PE%20%2B18PE%3B%20side%2Forder%20and%20quantity%20units%20unspecified,TR=cold%20beverage%20use~L(X){GS:260.MA:BKRX;MA:APEX;MA:APEX}",
+    "pass": true
+  },
+  {
+    "test": "test_engine.EngineTests.test_workbook_expected_codes",
+    "input": {
+      "fields": {
+        "MA": "BKRX",
+        "AR": "CUX",
+        "CF": "XSX",
+        "CL": "WHITE",
+        "DM": {
+          "TOP_DIA": "105",
+          "HEIGHT": "178"
+        },
+        "UT": [
+          [
+            "CA",
+            "32oz"
+          ],
+          [
+            "TR",
+            "cold beverage use"
+          ],
+          [
+            "MA_TREATMENT",
+            "18PE +18PE; side/order and quantity units unspecified"
+          ]
+        ]
+      },
+      "groups": [
+        {
+          "direction": "X",
+          "layers": [
+            {
+              "fields": {
+                "MA": "BKRX",
+                "GS": "280"
+              }
+            },
+            {
+              "fields": {
+                "MA": "APEX"
+              }
+            },
+            {
+              "fields": {
+                "MA": "APEX"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "expected": "A1!BKRX.CUX.XSX.X.X+CL:WHITE.DM:HEIGHT=178,TOP_DIA=105.UT:CA=32oz,MA_TREATMENT=18PE%20%2B18PE%3B%20side%2Forder%20and%20quantity%20units%20unspecified,TR=cold%20beverage%20use~L(X){GS:280.MA:BKRX;MA:APEX;MA:APEX}",
+    "actual": "A1!BKRX.CUX.XSX.X.X+CL:WHITE.DM:HEIGHT=178,TOP_DIA=105.UT:CA=32oz,MA_TREATMENT=18PE%20%2B18PE%3B%20side%2Forder%20and%20quantity%20units%20unspecified,TR=cold%20beverage%20use~L(X){GS:280.MA:BKRX;MA:APEX;MA:APEX}",
+    "pass": true
+  }
+]

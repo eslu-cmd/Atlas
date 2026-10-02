@@ -1,0 +1,13 @@
+{
+  "criteria": [
+    {
+      "field": "AR_CLASS",
+      "value": "CU"
+    }
+  ],
+  "types": [
+    "offering",
+    "specification",
+    "triage"
+  ]
+}

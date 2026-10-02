@@ -1,0 +1,33 @@
+code,canonical_phrase,default_capacity_measure,can_carry_role_L,status
+CU,Cup,floz,yes,ACTIVE
+BW,Bowl,floz,yes,ACTIVE
+CT,Container,floz,yes,ACTIVE
+CL,Clamshell,floz,yes,ACTIVE
+TB,Tub,floz,yes,ACTIVE
+JR,Jar,floz,yes,ACTIVE
+BO,Bottle,mL,yes,ACTIVE
+CN,Can,mL,yes,ACTIVE
+BK,Bucket or pail,L,yes,ACTIVE
+PL,Plate,none,no,ACTIVE
+TR,Tray,none,yes,ACTIVE
+BX,Box,floz,no,ACTIVE
+CR,Carton,floz,no,ACTIVE
+BB,Bag-in-box,L,no,ACTIVE
+BG,Bag,floz,no,ACTIVE
+PO,Pouch,floz,no,ACTIVE
+SC,Sack,floz,no,ACTIVE
+WR,Wrap or sheet,none,no,ACTIVE
+FM,Film or roll stock,none,no,ACTIVE
+LN,Liner,none,no,ACTIVE
+NP,Napkin or tissue,none,no,ACTIVE
+CY,Cutlery,none,no,ACTIVE
+SR,Straw,none,no,ACTIVE
+ST,Stirrer,none,no,ACTIVE
+SL,Sleeve or jacket,none,no,ACTIVE
+CB,Cup carrier,none,no,ACTIVE
+GV,Glove,none,no,ACTIVE
+PF,Preform,g,no,ACTIVE
+PN,Pan,floz,yes,ACTIVE
+DP,Dispenser,none,no,ACTIVE
+99,OTHER article class (see facet OT),(measure undetermined until the class is known),yes,RESERVED-OTHER
+XX,UNKNOWN article class,(measure undetermined until the class is known),yes,RESERVED-UNKNOWN

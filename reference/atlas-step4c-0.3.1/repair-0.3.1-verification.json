@@ -1,0 +1,30 @@
+{
+  "version": "0.3.1",
+  "before": {
+    "version": "0.3.0",
+    "existing_tests_passed": 126,
+    "new_regressions": 20,
+    "failures": 12,
+    "errors": 0,
+    "passes": 8
+  },
+  "after": {
+    "tests": 146,
+    "failures": 0,
+    "errors": 0,
+    "known_answers_unchanged": true
+  },
+  "dispositions": {
+    "R1_known_OTHER": "fixed",
+    "R2_feature_scope_and_uncertainty": "fixed",
+    "R3_numeric_zero": "fixed",
+    "R4_approval_iteration_scope": "fixed"
+  },
+  "runtime_code_changes": [
+    "atlas/intake.py",
+    "atlas/search.py"
+  ],
+  "engine_dictionary_source_fixtures_unchanged": true,
+  "original_tests_unchanged": true,
+  "limits": "Local candidate; no deployment, full application certification or next-stage work."
+}

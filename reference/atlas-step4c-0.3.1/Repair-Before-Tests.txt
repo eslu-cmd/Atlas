@@ -1,0 +1,167 @@
+test_new_reference_only_role_cannot_disable_existing_code (test_engine.RepairRegressionTests) ... FAIL
+test_numeric_minimum_and_new_bound_are_incompatible (test_engine.RepairRegressionTests) ... test_other_field_semantic_properties_are_preserved (test_engine.RepairRegressionTests) ... FAIL
+test_raw_scope_container_types_rejected_before_merge (test_engine.RepairRegressionTests) ... test_repeated_scope_unsupported_child_rejected_both_orders (test_engine.RepairRegressionTests) ... test_restrictive_numeric_maximum_is_incompatible (test_engine.RepairRegressionTests) ... FAIL
+test_standalone_unsupported_child_rejected (test_engine.RepairRegressionTests) ... ok
+test_supported_field_additions_and_retirement_remain_compatible (test_engine.RepairRegressionTests) ... ok
+test_valid_scope_merge_still_allowed_both_orders (test_engine.RepairRegressionTests) ... ok
+
+======================================================================
+ERROR: test_raw_scope_container_types_rejected_before_merge (test_engine.RepairRegressionTests) (bad={'fields': []}, reverse=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 272, in test_raw_scope_container_types_rejected_before_merge
+    self.e.encode(node({'MA':'APTX'},groups))
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 299, in encode
+    body=self.fragment(copy.deepcopy(facts),root=True)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 278, in fragment
+    a=self.merge_local(scopes[name].get('fields',{}),child.get('fields',{}))
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 226, in merge_local
+    for key,value in right.items():
+AttributeError: 'list' object has no attribute 'items'
+
+======================================================================
+ERROR: test_raw_scope_container_types_rejected_before_merge (test_engine.RepairRegressionTests) (bad={'fields': []}, reverse=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 272, in test_raw_scope_container_types_rejected_before_merge
+    self.e.encode(node({'MA':'APTX'},groups))
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 299, in encode
+    body=self.fragment(copy.deepcopy(facts),root=True)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 278, in fragment
+    a=self.merge_local(scopes[name].get('fields',{}),child.get('fields',{}))
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 227, in merge_local
+    if key not in result:result[key]=copy.deepcopy(value);continue
+TypeError: list indices must be integers or slices, not str
+
+======================================================================
+ERROR: test_raw_scope_container_types_rejected_before_merge (test_engine.RepairRegressionTests) (bad={'groups': {}}, reverse=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 272, in test_raw_scope_container_types_rejected_before_merge
+    self.e.encode(node({'MA':'APTX'},groups))
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 299, in encode
+    body=self.fragment(copy.deepcopy(facts),root=True)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 279, in fragment
+    scopes[name]={'fields':a,'groups':scopes[name].get('groups',[])+child.get('groups',[])}
+TypeError: can only concatenate list (not "dict") to list
+
+======================================================================
+ERROR: test_raw_scope_container_types_rejected_before_merge (test_engine.RepairRegressionTests) (bad={'groups': {}}, reverse=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 272, in test_raw_scope_container_types_rejected_before_merge
+    self.e.encode(node({'MA':'APTX'},groups))
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 299, in encode
+    body=self.fragment(copy.deepcopy(facts),root=True)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 279, in fragment
+    scopes[name]={'fields':a,'groups':scopes[name].get('groups',[])+child.get('groups',[])}
+TypeError: unsupported operand type(s) for +: 'dict' and 'list'
+
+======================================================================
+ERROR: test_raw_scope_container_types_rejected_before_merge (test_engine.RepairRegressionTests) (bad=[], reverse=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 272, in test_raw_scope_container_types_rejected_before_merge
+    self.e.encode(node({'MA':'APTX'},groups))
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 299, in encode
+    body=self.fragment(copy.deepcopy(facts),root=True)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 278, in fragment
+    a=self.merge_local(scopes[name].get('fields',{}),child.get('fields',{}))
+AttributeError: 'list' object has no attribute 'get'
+
+======================================================================
+ERROR: test_raw_scope_container_types_rejected_before_merge (test_engine.RepairRegressionTests) (bad=[], reverse=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 272, in test_raw_scope_container_types_rejected_before_merge
+    self.e.encode(node({'MA':'APTX'},groups))
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 299, in encode
+    body=self.fragment(copy.deepcopy(facts),root=True)
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/atlas/engine.py", line 278, in fragment
+    a=self.merge_local(scopes[name].get('fields',{}),child.get('fields',{}))
+AttributeError: 'list' object has no attribute 'get'
+
+======================================================================
+FAIL: test_new_reference_only_role_cannot_disable_existing_code (test_engine.RepairRegressionTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 240, in test_new_reference_only_role_cannot_disable_existing_code
+    with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
+AssertionError: SpecError not raised
+
+======================================================================
+FAIL: test_numeric_minimum_and_new_bound_are_incompatible (test_engine.RepairRegressionTests) (field='PR', key='minimum')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 228, in test_numeric_minimum_and_new_bound_are_incompatible
+    with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
+AssertionError: SpecError not raised
+
+======================================================================
+FAIL: test_numeric_minimum_and_new_bound_are_incompatible (test_engine.RepairRegressionTests) (field='GW', key='maximum')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 228, in test_numeric_minimum_and_new_bound_are_incompatible
+    with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
+AssertionError: SpecError not raised
+
+======================================================================
+FAIL: test_other_field_semantic_properties_are_preserved (test_engine.RepairRegressionTests) (key='ordering')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 233, in test_other_field_semantic_properties_are_preserved
+    with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
+AssertionError: SpecError not raised
+
+======================================================================
+FAIL: test_other_field_semantic_properties_are_preserved (test_engine.RepairRegressionTests) (key='unknown')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 233, in test_other_field_semantic_properties_are_preserved
+    with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
+AssertionError: SpecError not raised
+
+======================================================================
+FAIL: test_other_field_semantic_properties_are_preserved (test_engine.RepairRegressionTests) (key='not_applicable')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 233, in test_other_field_semantic_properties_are_preserved
+    with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
+AssertionError: SpecError not raised
+
+======================================================================
+FAIL: test_other_field_semantic_properties_are_preserved (test_engine.RepairRegressionTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 235, in test_other_field_semantic_properties_are_preserved
+    with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
+AssertionError: SpecError not raised
+
+======================================================================
+FAIL: test_repeated_scope_unsupported_child_rejected_both_orders (test_engine.RepairRegressionTests) (order=[{'scope': 'BODY', 'node': {'fields': {'CL': 'WHITE'}}}, {'scope': 'BODY', 'node': {'fields': {'OP': 'OPAQUE'}, 'unsupported_extra': 'must not disappear'}}])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 257, in test_repeated_scope_unsupported_child_rejected_both_orders
+    self.e.encode(node({'MA':'APTX'},ordered))
+AssertionError: SpecError not raised
+
+======================================================================
+FAIL: test_repeated_scope_unsupported_child_rejected_both_orders (test_engine.RepairRegressionTests) (order=[{'scope': 'BODY', 'node': {'fields': {'OP': 'OPAQUE'}, 'unsupported_extra': 'must not disappear'}}, {'scope': 'BODY', 'node': {'fields': {'CL': 'WHITE'}}}])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 257, in test_repeated_scope_unsupported_child_rejected_both_orders
+    self.e.encode(node({'MA':'APTX'},ordered))
+AssertionError: SpecError not raised
+
+======================================================================
+FAIL: test_restrictive_numeric_maximum_is_incompatible (test_engine.RepairRegressionTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final/outputs/atlas-step4a/tests/test_engine.py", line 220, in test_restrictive_numeric_maximum_is_incompatible
+    with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
+AssertionError: SpecError not raised
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.147s
+
+FAILED (failures=10, errors=6)

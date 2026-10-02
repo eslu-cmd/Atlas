@@ -1,0 +1,42 @@
+{
+  "records_version": "0.2.1",
+  "engine_version": "0.1.1",
+  "dictionary_release": "0.1.0-local-candidate",
+  "initial_workspace_matched_deposited_files": 62,
+  "baseline_tests_reproduced": 72,
+  "repair_before": {
+    "tests": 12,
+    "failures": 1,
+    "errors": 8,
+    "passes": 3
+  },
+  "after": {
+    "tests": 84,
+    "failures": 0,
+    "errors": 0,
+    "engine": 47,
+    "original_records": 25,
+    "repair_regressions": 12
+  },
+  "protected_files_unchanged": {
+    "atlas/__init__.py": true,
+    "atlas/__main__.py": true,
+    "atlas/demo.py": true,
+    "atlas/engine.py": true,
+    "dictionary/REFERENCE.md": true,
+    "dictionary/atlas-A1-0.1.0.json": true,
+    "examples/illustrative.sqlite": true,
+    "examples/reviewed-batch.sqlite": true,
+    "fixtures/create-offering.json": true,
+    "fixtures/cup.json": true,
+    "fixtures/engine-known-answers-0.1.1.json": true,
+    "fixtures/verified-batch.json": true,
+    "fixtures/verified-results.json": true,
+    "run_tests.py": true,
+    "tests/test_engine.py": true,
+    "tests/test_records.py": true
+  },
+  "original_delivery_manifest_files": 61,
+  "original_delivery_unchanged": true,
+  "known_answers_unchanged": true
+}

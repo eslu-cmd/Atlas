@@ -1,0 +1,273 @@
+{
+  "status": "ok",
+  "query": {
+    "criteria": [
+      {
+        "field": "AR_CLASS",
+        "value": "CU"
+      },
+      {
+        "field": "CA",
+        "value": {
+          "value": "0.5",
+          "unit": "L"
+        }
+      }
+    ],
+    "types": [
+      "offering"
+    ],
+    "evidence": {
+      "approval": "client_approval"
+    }
+  },
+  "results": [
+    {
+      "id": "dcd3022b-d916-4ab4-adf7-e60c428a69bd:118159c1-13db-49a1-91fb-5cab9106dcce:38bf67ce-42ed-4311-b006-01298913cb7f",
+      "type": "offering",
+      "product": "dcd3022b-d916-4ab4-adf7-e60c428a69bd",
+      "version": "118159c1-13db-49a1-91fb-5cab9106dcce",
+      "supplier": "92950f2d-afae-43f8-9621-dcc01189aeaa",
+      "association": "38bf67ce-42ed-4311-b006-01298913cb7f",
+      "specification": "f1da532c-9274-4531-a3ab-57ee62519250",
+      "current": true,
+      "code": "A1!APTX.CUB.XXX.M500.R98",
+      "readable": [
+        "product: material = Polymer; PET (polyethylene terephthalate); UNKNOWN treatment",
+        "product: article = Cup; base / body sold on its own",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+        "product: Local capacity = 500 mL capacity",
+        "product: Local fitment = 98 mm circular rim/opening diameter"
+      ],
+      "facts": {
+        "fields": {
+          "MA": "APTX",
+          "AR": "CUB",
+          "CF": "XXX",
+          "CA": "M500",
+          "FI": "R98"
+        }
+      },
+      "classification": "match",
+      "explanations": [
+        {
+          "state": "satisfies",
+          "reason": "Recorded value comparison",
+          "recorded": "CU",
+          "required": "CU",
+          "criterion": {
+            "field": "AR_CLASS",
+            "value": "CU"
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Entire product interval must lie within requested interval",
+          "recorded_interval": [
+            "500",
+            "500"
+          ],
+          "required_interval": [
+            "500",
+            "500"
+          ],
+          "unit": "mL",
+          "criterion": {
+            "field": "CA",
+            "value": {
+              "value": "0.5",
+              "unit": "L"
+            }
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Evidence in this exact context/iteration",
+          "criterion": "approval",
+          "records": [
+            "8e14838b-6fcf-4245-9755-aa4fa22041f7"
+          ],
+          "context": "f649d8eb-4c08-4a33-9dd9-e13da4bb5077",
+          "sample": null
+        },
+        {
+          "state": "satisfies",
+          "reason": "Evidence alternatives evaluated separately",
+          "context_alternatives": [
+            [
+              {
+                "state": "satisfies",
+                "reason": "Evidence in this exact context/iteration",
+                "criterion": "approval",
+                "records": [
+                  "8e14838b-6fcf-4245-9755-aa4fa22041f7"
+                ],
+                "context": "f649d8eb-4c08-4a33-9dd9-e13da4bb5077",
+                "sample": null
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc08e45e-85ef-42a6-aabc-42cb2c0718a0:ad2ffa12-723a-4bfe-8606-a3082f34707e:2d9a5834-4711-4649-a80a-c87f47354837",
+      "type": "offering",
+      "product": "bc08e45e-85ef-42a6-aabc-42cb2c0718a0",
+      "version": "ad2ffa12-723a-4bfe-8606-a3082f34707e",
+      "supplier": "38524c9e-dc47-4945-bd8d-ba3bdff81f74",
+      "association": "2d9a5834-4711-4649-a80a-c87f47354837",
+      "specification": "f1da532c-9274-4531-a3ab-57ee62519250",
+      "current": true,
+      "code": "A1!APTX.CUB.XXX.M500.R98",
+      "readable": [
+        "product: material = Polymer; PET (polyethylene terephthalate); UNKNOWN treatment",
+        "product: article = Cup; base / body sold on its own",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+        "product: Local capacity = 500 mL capacity",
+        "product: Local fitment = 98 mm circular rim/opening diameter"
+      ],
+      "facts": {
+        "fields": {
+          "MA": "APTX",
+          "AR": "CUB",
+          "CF": "XXX",
+          "CA": "M500",
+          "FI": "R98"
+        }
+      },
+      "classification": "match",
+      "explanations": [
+        {
+          "state": "satisfies",
+          "reason": "Recorded value comparison",
+          "recorded": "CU",
+          "required": "CU",
+          "criterion": {
+            "field": "AR_CLASS",
+            "value": "CU"
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Entire product interval must lie within requested interval",
+          "recorded_interval": [
+            "500",
+            "500"
+          ],
+          "required_interval": [
+            "500",
+            "500"
+          ],
+          "unit": "mL",
+          "criterion": {
+            "field": "CA",
+            "value": {
+              "value": "0.5",
+              "unit": "L"
+            }
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Evidence in this exact context/iteration",
+          "criterion": "approval",
+          "records": [
+            "e6d5418b-1f9c-4dce-84d6-1d6db14429e7"
+          ],
+          "context": "c8614041-e38b-460a-b7cb-6306522d20cd",
+          "sample": null
+        },
+        {
+          "state": "satisfies",
+          "reason": "Evidence alternatives evaluated separately",
+          "context_alternatives": [
+            [
+              {
+                "state": "satisfies",
+                "reason": "Evidence in this exact context/iteration",
+                "criterion": "approval",
+                "records": [
+                  "e6d5418b-1f9c-4dce-84d6-1d6db14429e7"
+                ],
+                "context": "c8614041-e38b-460a-b7cb-6306522d20cd",
+                "sample": null
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e39420de-44e6-4f24-b818-95241335b97b:0c409540-b168-42bc-9453-5c6af9e4d088:360b76a2-1240-4728-8a23-264347fc3fca",
+      "type": "offering",
+      "product": "e39420de-44e6-4f24-b818-95241335b97b",
+      "version": "0c409540-b168-42bc-9453-5c6af9e4d088",
+      "supplier": "92950f2d-afae-43f8-9621-dcc01189aeaa",
+      "association": "360b76a2-1240-4728-8a23-264347fc3fca",
+      "specification": "f1da532c-9274-4531-a3ab-57ee62519250",
+      "current": true,
+      "code": "A1!APTX.CUB.XXX.M500.R98",
+      "readable": [
+        "product: material = Polymer; PET (polyethylene terephthalate); UNKNOWN treatment",
+        "product: article = Cup; base / body sold on its own",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+        "product: Local capacity = 500 mL capacity",
+        "product: Local fitment = 98 mm circular rim/opening diameter"
+      ],
+      "facts": {
+        "fields": {
+          "MA": "APTX",
+          "AR": "CUB",
+          "CF": "XXX",
+          "CA": "M500",
+          "FI": "R98"
+        }
+      },
+      "classification": "potential",
+      "explanations": [
+        {
+          "state": "satisfies",
+          "reason": "Recorded value comparison",
+          "recorded": "CU",
+          "required": "CU",
+          "criterion": {
+            "field": "AR_CLASS",
+            "value": "CU"
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Entire product interval must lie within requested interval",
+          "recorded_interval": [
+            "500",
+            "500"
+          ],
+          "required_interval": [
+            "500",
+            "500"
+          ],
+          "unit": "mL",
+          "criterion": {
+            "field": "CA",
+            "value": {
+              "value": "0.5",
+              "unit": "L"
+            }
+          }
+        },
+        {
+          "state": "gap",
+          "reason": "No recorded context with selected scope/evidence",
+          "criterion": "approval"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "match": 2,
+    "potential": 1,
+    "contradiction": 0
+  },
+  "boundary": "Selected criteria satisfaction is not description equality, supplier identity, fit, approval, or availability."
+}

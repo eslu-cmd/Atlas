@@ -1,0 +1,278 @@
+{
+  "preview": "98b1bfa2-cf7e-4881-98ca-4d386ed9bc20",
+  "source": {
+    "id": "1178ddff-bf41-4812-9a66-d8c0ea3e0e87",
+    "kind": "triage",
+    "data": {
+      "label": "ILLUSTRATIVE intake: 500 mL PET cup",
+      "snapshot": {
+        "facts": {
+          "fields": {
+            "AR": "CUB",
+            "CA": "M500",
+            "FI": "R98",
+            "MA": "APTX"
+          }
+        },
+        "kind": "supplier_statement",
+        "label": "ILLUSTRATIVE intake: 500 mL PET cup",
+        "locator": {
+          "page": 1,
+          "paragraph": 2
+        },
+        "source": {
+          "title": "ILLUSTRATIVE quotation",
+          "uri": "illustrative://step4c/quote"
+        },
+        "statements": [
+          {
+            "statement": "500 mL PET cup body; 98 mm rim; offering reference ILLUSTRATIVE-REVIEWED",
+            "supplied": {
+              "cached": null,
+              "capacity": "500 mL",
+              "formula": null,
+              "rim": "98 mm"
+            },
+            "uncertainty": "stated"
+          }
+        ]
+      },
+      "status": "unresolved"
+    },
+    "actor": "ILLUSTRATIVE CLI reviewer",
+    "recorded_at": "2026-10-01T11:38:52.331978+00:00",
+    "reason": "Explicit synthetic demonstration; not workbook product facts",
+    "effective_at": null,
+    "provenance": "illustrative",
+    "links": {
+      "assertions": [
+        "4a9514b9-144f-416c-a573-133ce64d7313"
+      ],
+      "location": [
+        "f83668a5-f953-40d8-be49-51e049426e91"
+      ]
+    }
+  },
+  "code": "A1!APTX.CUB.XXX.M500.R98",
+  "readable": [
+    "product: material = Polymer; PET (polyethylene terephthalate); UNKNOWN treatment",
+    "product: article = Cup; base / body sold on its own",
+    "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+    "product: Local capacity = 500 mL capacity",
+    "product: Local fitment = 98 mm circular rim/opening diameter"
+  ],
+  "candidates": [
+    {
+      "id": "f1da532c-9274-4531-a3ab-57ee62519250",
+      "code": "A1!APTX.CUB.XXX.M500.R98",
+      "readable": [
+        "product: material = Polymer; PET (polyethylene terephthalate); UNKNOWN treatment",
+        "product: article = Cup; base / body sold on its own",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+        "product: Local capacity = 500 mL capacity",
+        "product: Local fitment = 98 mm circular rim/opening diameter"
+      ],
+      "facts": {
+        "fields": {
+          "MA": "APTX",
+          "AR": "CUB",
+          "CF": "XXX",
+          "CA": "M500",
+          "FI": "R98"
+        }
+      },
+      "classification": "match",
+      "explanations": [
+        {
+          "state": "satisfies",
+          "reason": "Recorded value comparison",
+          "recorded": "A",
+          "required": "A",
+          "criterion": {
+            "field": "MA_FAMILY",
+            "value": "A",
+            "scope": []
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Recorded value comparison",
+          "recorded": "APT",
+          "required": "APT",
+          "criterion": {
+            "field": "MA_GRADE",
+            "value": "APT",
+            "scope": []
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Recorded value comparison",
+          "recorded": "CU",
+          "required": "CU",
+          "criterion": {
+            "field": "AR_CLASS",
+            "value": "CU",
+            "scope": []
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Recorded value comparison",
+          "recorded": "B",
+          "required": "B",
+          "criterion": {
+            "field": "AR_ROLE",
+            "value": "B",
+            "scope": []
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Entire product interval must lie within requested interval",
+          "recorded_interval": [
+            "500",
+            "500"
+          ],
+          "required_interval": [
+            "500",
+            "500"
+          ],
+          "unit": "mL",
+          "criterion": {
+            "field": "CA",
+            "value": "M500",
+            "scope": []
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Entire product interval must lie within requested interval",
+          "recorded_interval": [
+            "98",
+            "98"
+          ],
+          "required_interval": [
+            "98",
+            "98"
+          ],
+          "unit": "mm",
+          "criterion": {
+            "field": "FI",
+            "value": "R98",
+            "scope": []
+          }
+        }
+      ],
+      "equal_description": true
+    }
+  ],
+  "differences": [
+    {
+      "specification": "f1da532c-9274-4531-a3ab-57ee62519250",
+      "equal_description": true,
+      "intake_facts": {
+        "fields": {
+          "MA": "APTX",
+          "AR": "CUB",
+          "CF": "XXX",
+          "CA": "M500",
+          "FI": "R98"
+        }
+      },
+      "candidate_facts": {
+        "fields": {
+          "MA": "APTX",
+          "AR": "CUB",
+          "CF": "XXX",
+          "CA": "M500",
+          "FI": "R98"
+        }
+      },
+      "selected_criteria": [
+        {
+          "state": "satisfies",
+          "reason": "Recorded value comparison",
+          "recorded": "A",
+          "required": "A",
+          "criterion": {
+            "field": "MA_FAMILY",
+            "value": "A",
+            "scope": []
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Recorded value comparison",
+          "recorded": "APT",
+          "required": "APT",
+          "criterion": {
+            "field": "MA_GRADE",
+            "value": "APT",
+            "scope": []
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Recorded value comparison",
+          "recorded": "CU",
+          "required": "CU",
+          "criterion": {
+            "field": "AR_CLASS",
+            "value": "CU",
+            "scope": []
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Recorded value comparison",
+          "recorded": "B",
+          "required": "B",
+          "criterion": {
+            "field": "AR_ROLE",
+            "value": "B",
+            "scope": []
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Entire product interval must lie within requested interval",
+          "recorded_interval": [
+            "500",
+            "500"
+          ],
+          "required_interval": [
+            "500",
+            "500"
+          ],
+          "unit": "mL",
+          "criterion": {
+            "field": "CA",
+            "value": "M500",
+            "scope": []
+          }
+        },
+        {
+          "state": "satisfies",
+          "reason": "Entire product interval must lie within requested interval",
+          "recorded_interval": [
+            "98",
+            "98"
+          ],
+          "required_interval": [
+            "98",
+            "98"
+          ],
+          "unit": "mm",
+          "criterion": {
+            "field": "FI",
+            "value": "R98",
+            "scope": []
+          }
+        }
+      ]
+    }
+  ],
+  "uncertainty_facts": [],
+  "boundary": "Matching is not equality. A broader intake cannot establish an additional candidate characteristic."
+}

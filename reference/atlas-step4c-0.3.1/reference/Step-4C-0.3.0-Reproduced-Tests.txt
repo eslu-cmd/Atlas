@@ -1,0 +1,19 @@
+{
+  "version": "0.3.0",
+  "records_baseline": "0.2.1",
+  "engine": "0.1.1",
+  "dictionary": "A1 / 0.1.0-local-candidate",
+  "time_utc": "2026-10-01T16:39:54.488766+00:00",
+  "python": "3.9.6",
+  "sqlite": "3.43.2",
+  "inherited_tests": 84,
+  "new_tests": 42,
+  "total_tests": 126,
+  "failures": 0,
+  "errors": 0,
+  "known_answers_unchanged": true,
+  "known_answers": 44,
+  "source_fixture": "test_30 uses the preserved batch; other tests are illustrative",
+  "success": true,
+  "boundary": "Local intake/search evidence only; not all AT-01\u201324 workflows, shared editing, cloud deployment or recovery."
+}

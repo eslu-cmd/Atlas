@@ -1,0 +1,15 @@
+code,canonical_phrase,status
+A,Polymer,ACTIVE
+B,Paper and Paperboard,ACTIVE
+C,Molded Fiber and Agri-Residue,ACTIVE
+D,Metal,ACTIVE
+E,Textile and Nonwoven,ACTIVE
+F,Wood and Natural Solid,ACTIVE
+G,Glass and Ceramic,ACTIVE
+H,Elastomer and Dipped Film,ACTIVE
+J,Multi-Material Laminate,ACTIVE
+K,Ancillary and Coating Material,ACTIVE
+L,Consumable and Ingredient,ACTIVE
+9,OTHER material family (see facet OT),RESERVED-OTHER
+X,UNKNOWN material family,RESERVED-UNKNOWN
+0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE

@@ -1,0 +1,23 @@
+test_R1_approval_evidence_is_not_replaced_by_correction_note (test_repairs_021.RepairTests)
+H07: preserve signed approval evidence; reassociation evidence stays on event. ... ok
+test_R1_failed_reassociation_preserves_evidence_and_active_state (test_repairs_021.RepairTests) ... ok
+test_R1_replacement_retrieval_exposes_incoming_correction_provenance (test_repairs_021.RepairTests)
+Replacement opens the approval document and explicitly withdrawn predecessor. ... ok
+test_R1_successive_corrections_and_handoff_provenance_survive_reopen (test_repairs_021.RepairTests)
+Successive explicit corrections keep both notes and the original signed evidence. ... ok
+test_R2_exact_product_and_business_distinctions_are_not_erased (test_repairs_021.RepairTests)
+Missing scope and different job/request/client or snapshot links stay distinct. ... ok
+test_R2_explicit_inherited_contradictions_remain_rejected (test_repairs_021.RepairTests) ... ok
+test_R2_handoff_accepts_equivalent_quote_and_approval_context (test_repairs_021.RepairTests) ... ok
+test_R2_sample_approval_accepts_redundant_resolved_scope (test_repairs_021.RepairTests)
+Same job/request/client via inheritance or explicit links is equivalent. ... ok
+test_R3_changed_composition_does_not_inherit_approval (test_repairs_021.RepairTests) ... ok
+test_R3_kit_samples_notes_acceptance_and_client_approval_persist (test_repairs_021.RepairTests)
+Kit sampling owns a permanent kit; samples/decisions retain the exact composition. ... ok
+test_R3_sequence_has_exactly_one_permanent_owner (test_repairs_021.RepairTests) ... ok
+test_R3_wrong_kit_client_customization_and_sequence_labels (test_repairs_021.RepairTests) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.599s
+
+OK

@@ -1,0 +1,27 @@
+{
+  "review": "2f2b314e-07b0-460f-bac6-92f55ae508b3",
+  "query": {
+    "criteria": [
+      {
+        "field": "MA_GRADE",
+        "value": "APT"
+      },
+      {
+        "field": "AR_CLASS",
+        "value": "CU"
+      },
+      {
+        "field": "CA",
+        "value": {
+          "value": "500",
+          "unit": "mL"
+        }
+      }
+    ]
+  },
+  "confirmed": true,
+  "acknowledged": [],
+  "actor": "ILLUSTRATIVE CLI reviewer",
+  "reason": "Explicit synthetic demonstration; not workbook product facts",
+  "provenance": "illustrative"
+}

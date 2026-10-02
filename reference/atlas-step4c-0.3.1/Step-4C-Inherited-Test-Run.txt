@@ -1,0 +1,84 @@
+{
+  "time_utc": "2026-10-01T16:42:16.461073+00:00",
+  "implementation": "0.2.1",
+  "engine_version": "0.1.1",
+  "dictionary_release": "0.1.0-local-candidate",
+  "python": "3.9.6",
+  "sqlite": "3.43.2",
+  "storage": "on-disk SQLite; Supabase/Postgres not executed",
+  "engine_tests": 47,
+  "record_tests": 37,
+  "original_record_tests": 25,
+  "repair_regression_tests": 12,
+  "total_tests": 84,
+  "failures": 0,
+  "errors": 0,
+  "known_answers": 44,
+  "known_answers_unchanged": true,
+  "success": true,
+  "boundary": "Record-layer evidence, not completion of all 24 acceptance workflows, shared editing, deployment or recovery."
+}
+test_01_shared_spec_separate_histories_and_cross_links_rejected (test_records.RecordTests)
+AT-15/19, T04.1: equal descriptions never share vendor evidence. ... ok
+test_02_clarification_preserves_original_quote_and_other_vendor (test_records.RecordTests)
+AT-13, T04.7: H01 keeps identity/version and old quote association. ... ok
+test_03_physical_artwork_and_sample_changes_are_distinct (test_records.RecordTests)
+AT-16/15; H02, H03, H09 and T04.2/3. ... ok
+test_04_kit_revisions_retain_membership_and_unknown_quantity (test_records.RecordTests)
+AT-07, H10, T04.4: no combined spec, quantity or sale inference. ... ok
+test_05_packing_and_commercial_revisions_preserve_supplied_values (test_records.RecordTests)
+AT-17/08, H04/H05: retain discrepancies without recalculation. ... ok
+test_06_proof_internal_acceptance_client_approval_and_context (test_records.RecordTests)
+AT-15/19: three evidence types; no cross-client/artwork transfer. ... ok
+test_07_misplaced_evidence_corrected_or_unresolved_with_trail (test_records.RecordTests)
+AT-18/15, H07: withdrawal, explicit reassociation and no guessed destination. ... ok
+test_08_historical_retrieval_survives_reopen (test_records.RecordTests)
+AT-13/18/21: original context and labelled corrections persist. ... ok
+test_09_atomic_rollback_references_and_immutable_storage (test_records.RecordTests)
+Transaction boundary; local persistence only, not AT-24 recovery. ... ok
+test_10_disproved_claim_correction_removes_current_indication (test_records.RecordTests)
+AT-14, H06 preserves old meanings and claims, changes only association. ... ok
+test_11_pair_specific_compatibility_never_transfers (test_records.RecordTests)
+AT-05/A12: exact version pair, claimed versus confirmed. ... ok
+test_12_source_batch_preserved_without_product_invention (test_records.RecordTests)
+AT-04/08/20: exact reviewed batch, 10 descriptions, two triage cases. ... ok
+test_13_findings_uncertainty_attachments_and_sampling_notes (test_records.RecordTests)
+A04–06/H09: facts retain location, uncertainty and later findings. ... ok
+test_14_request_job_handoff_and_capability_scope (test_records.RecordTests)
+AT-01/12/21 record coverage; no search or operations execution. ... ok
+test_15_identity_resolution_requires_evidence_and_keeps_references (test_records.RecordTests)
+AT-18/H08: no equal-spec merge; explicit resolution retains old IDs. ... ok
+test_16_dictionary_release_preserved_and_duplicate_meaning_rejected (test_records.RecordTests)
+AT-22: full issued ID and supporting dictionary persist together. ... ok
+test_17_failed_correction_leaves_no_partial_replacement (test_records.RecordTests) ... ok
+test_18_cli_persistence_and_atomic_apply (test_records.RecordTests) ... ok
+test_19_revision_lineage_rejects_cross_product_and_cross_version (test_records.RecordTests) ... ok
+test_20_sku_and_sample_labels_are_locally_scoped (test_records.RecordTests) ... ok
+test_21_sampling_retrieval_exposes_photos_requests_and_decisions (test_records.RecordTests) ... ok
+test_22_later_dictionary_cannot_reinterpret_issued_meaning (test_records.RecordTests) ... ok
+test_23_failed_kit_revision_rolls_back_new_component (test_records.RecordTests) ... ok
+test_24_history_follows_multiple_corrections_without_rewriting_original (test_records.RecordTests) ... ok
+test_25_retrospective_quote_still_shows_prior_correction_to_its_context (test_records.RecordTests) ... ok
+test_R1_approval_evidence_is_not_replaced_by_correction_note (test_repairs_021.RepairTests)
+H07: preserve signed approval evidence; reassociation evidence stays on event. ... ok
+test_R1_failed_reassociation_preserves_evidence_and_active_state (test_repairs_021.RepairTests) ... ok
+test_R1_replacement_retrieval_exposes_incoming_correction_provenance (test_repairs_021.RepairTests)
+Replacement opens the approval document and explicitly withdrawn predecessor. ... ok
+test_R1_successive_corrections_and_handoff_provenance_survive_reopen (test_repairs_021.RepairTests)
+Successive explicit corrections keep both notes and the original signed evidence. ... ok
+test_R2_exact_product_and_business_distinctions_are_not_erased (test_repairs_021.RepairTests)
+Missing scope and different job/request/client or snapshot links stay distinct. ... ok
+test_R2_explicit_inherited_contradictions_remain_rejected (test_repairs_021.RepairTests) ... ok
+test_R2_handoff_accepts_equivalent_quote_and_approval_context (test_repairs_021.RepairTests) ... ok
+test_R2_sample_approval_accepts_redundant_resolved_scope (test_repairs_021.RepairTests)
+Same job/request/client via inheritance or explicit links is equivalent. ... ok
+test_R3_changed_composition_does_not_inherit_approval (test_repairs_021.RepairTests) ... ok
+test_R3_kit_samples_notes_acceptance_and_client_approval_persist (test_repairs_021.RepairTests)
+Kit sampling owns a permanent kit; samples/decisions retain the exact composition. ... ok
+test_R3_sequence_has_exactly_one_permanent_owner (test_repairs_021.RepairTests) ... ok
+test_R3_wrong_kit_client_customization_and_sequence_labels (test_repairs_021.RepairTests) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 2.551s
+
+OK

@@ -1,0 +1,52 @@
+test_all_legacy_rows_have_disposition (test_engine.AdditionalTests) ... ok
+test_construction_and_feedstock (test_engine.AdditionalTests) ... ok
+test_dictionary_rule_changes_rejected (test_engine.AdditionalTests) ... ok
+test_json_duplicate_cli_fails (test_engine.AdditionalTests) ... ok
+test_no_silent_empty_or_extra_input (test_engine.AdditionalTests) ... ok
+test_numeric_unknown_standards_fail_explicitly (test_engine.AdditionalTests) ... ok
+test_percentage_tolerance_bounds (test_engine.AdditionalTests) ... ok
+test_repeated_scope_intervals (test_engine.AdditionalTests) ... ok
+test_retained_core_vocabulary_execution (test_engine.AdditionalTests) ... ok
+test_scope_complementary_facts (test_engine.AdditionalTests) ... ok
+test_W01_independent_diameters (test_engine.EngineTests) ... ok
+test_W02_W03_printing_context_separate (test_engine.EngineTests) ... ok
+test_W04_scopes_and_layers (test_engine.EngineTests) ... ok
+test_W05_clarification_descriptions_differ (test_engine.EngineTests) ... ok
+test_W06_additive_dictionary_and_old_meanings (test_engine.EngineTests) ... ok
+test_W07_separate_components (test_engine.EngineTests) ... ok
+test_W08_unresolved_ounces (test_engine.EngineTests) ... ok
+test_canonical_and_complete_extensions (test_engine.EngineTests) ... ok
+test_consistency_and_applicability (test_engine.EngineTests) ... ok
+test_dictionary_only_subprocess (test_engine.EngineTests) ... ok
+test_dimensions_and_targets (test_engine.EngineTests) ... ok
+test_exact_numbers (test_engine.EngineTests) ... ok
+test_exact_units_and_thickness (test_engine.EngineTests) ... ok
+test_intervals_fraction_count (test_engine.EngineTests) ... ok
+test_layer_repeats_reverse (test_engine.EngineTests) ... ok
+test_lid_function_without_saleability (test_engine.EngineTests) ... ok
+test_malformed_unsupported_duplicates (test_engine.EngineTests) ... ok
+test_measurement_comparison (test_engine.EngineTests) ... ok
+test_multiple_features (test_engine.EngineTests) ... ok
+test_nested_no_inheritance_and_merge (test_engine.EngineTests) ... ok
+test_resource_refusal (test_engine.EngineTests) ... ok
+test_retired_entry_still_decodes (test_engine.EngineTests) ... ok
+test_tolerance_qualification (test_engine.EngineTests) ... ok
+test_unknown_na_other (test_engine.EngineTests) ... ok
+test_unresolved_units_fail (test_engine.EngineTests) ... ok
+test_utf8_structural_escaping (test_engine.EngineTests) ... ok
+test_workbook_expected_codes (test_engine.EngineTests) ... ok
+test_workbook_mapping_independent (test_engine.EngineTests) ... ok
+test_new_reference_only_role_cannot_disable_existing_code (test_engine.RepairRegressionTests) ... ok
+test_numeric_minimum_and_new_bound_are_incompatible (test_engine.RepairRegressionTests) ... ok
+test_other_field_semantic_properties_are_preserved (test_engine.RepairRegressionTests) ... ok
+test_raw_scope_container_types_rejected_before_merge (test_engine.RepairRegressionTests) ... ok
+test_repeated_scope_unsupported_child_rejected_both_orders (test_engine.RepairRegressionTests) ... ok
+test_restrictive_numeric_maximum_is_incompatible (test_engine.RepairRegressionTests) ... ok
+test_standalone_unsupported_child_rejected (test_engine.RepairRegressionTests) ... ok
+test_supported_field_additions_and_retirement_remain_compatible (test_engine.RepairRegressionTests) ... ok
+test_valid_scope_merge_still_allowed_both_orders (test_engine.RepairRegressionTests) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 0.417s
+
+OK

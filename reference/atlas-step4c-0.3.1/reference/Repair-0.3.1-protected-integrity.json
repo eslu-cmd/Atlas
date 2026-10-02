@@ -1,0 +1,18 @@
+{
+  "baseline": "0.3.0",
+  "sha256": {
+    "atlas/records.py": "9a622c37611782b56f00d39e9f3e41b8045f2dcf0e2533b5713c2c3b1f2eb5c9",
+    "tests/test_step4c.py": "6486aebd1b3664a84f6fb09d023699dbc0ea712bc4ab00e1b50f5feb08ae8a50",
+    "atlas/phrases.py": "ed25de867b913a4708ab75a2bf85d1eb8dceb62e46f1f7096b372e48bd293956",
+    "atlas/workflow_cli.py": "885ac78aab290ff8b022c35b49a1cb88ef4681a36d594cd30d3e1c57ab6f352b",
+    "dictionary/atlas-A1-0.1.0.json": "87ce94a1e79e34d31def4d504f3be0cb8496e1c589dbda5ad5f12a6ae751b559",
+    "dictionary/REFERENCE.md": "3d89f619de5c4bb28983659e6d82b5c34df6bfc667a266ee2583b9c6e9a1f6b2",
+    "fixtures/create-offering.json": "64e96d020fcd1de26afe3b71afec374a7dac49d3669243f6012f9c9e159a277f",
+    "fixtures/engine-known-answers-0.1.1.json": "00b0b426c01540955024cd2f5051f0d2eaba12ac795fb22dcdcb2caa6b96e8c5",
+    "fixtures/cup.json": "1a54248a664a943b2007bd71821117970fe5074aefb3a2e378cabc2d146d2055",
+    "fixtures/search-bags.json": "165e94cf16be28ebf6e1300795296dcc564ea334d9f779e96dbe5a064b08e539",
+    "fixtures/search-laminates.json": "569abf2c6be6a88f4c5b65fb7f5545093fa2fc8b28db7d1389c062ebda8c5f90",
+    "fixtures/verified-batch.json": "a9544fb2490e24e7ff190d61bccb3810f5cc6db8af7a57844654281f99ccafdb",
+    "fixtures/verified-results.json": "1fcb7059a2613cd7c1e2460af35f019eda5947768f69efefdb65f7136cc131e0"
+  }
+}

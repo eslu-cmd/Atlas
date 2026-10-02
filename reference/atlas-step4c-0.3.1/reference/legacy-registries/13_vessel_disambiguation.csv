@@ -1,0 +1,9 @@
+apply_in_this_order,code,article,rule
+1,CL,Clamshell,"one-piece, lid hinged to the base"
+2,BK,Bucket or pail,has a bail/handle and a capacity of 3 litres or more
+3,BO,Bottle,neck is materially narrower than the body
+4,JR,Jar,"rigid, wide mouth, reclosable, intended for repeated opening"
+5,CU,Cup,height is greater than its maximum width
+6,BW,Bowl,height is less than its maximum width and it has no separate rigid base
+7,TB,Tub,height is less than its maximum width and it is straight-walled and nestable
+8,CT,Container,anything else that holds food and is not covered above

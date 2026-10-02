@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source One Atlas — M1 proof</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+  <h1>Source One Atlas</h1>
+  <p class="sub">M1 deployment proof — not a production interface. Visual polish follows the Claude Design brief.</p>
+</header>
+
+<section id="health" class="panel">
+  <h2>1. Deployed service health</h2>
+  <p>Confirms the trusted Python service is running on the pinned Vercel runtime and knows the baseline versions.</p>
+  <button data-action="health">GET /api/health</button>
+  <pre data-output="health"></pre>
+</section>
+
+<section id="known-answers" class="panel">
+  <h2>2. Preserved engine reproduces 44 known answers</h2>
+  <p>The deployed service runs the preserved A1 engine against the pinned fixtures. 44/44 or the deployment is unusable.</p>
+  <button data-action="known-answers">GET /api/known_answers</button>
+  <div data-output="known-answers-summary"></div>
+  <details><summary>Per-test details</summary><pre data-output="known-answers-detail"></pre></details>
+</section>
+
+<section id="encode" class="panel">
+  <h2>3. Live encoding</h2>
+  <p>Submit a facts payload and get the canonical A1 code back from the deployed engine.</p>
+  <label>facts (JSON)
+    <textarea data-input="encode" rows="7">{
+  "fields": {
+    "MA": "APTX",
+    "AR": "CUB",
+    "CA": {"value": "0.5", "unit": "L"},
+    "FI": {"value": "9.8", "unit": "cm"}
+  }
+}</textarea>
+  </label>
+  <button data-action="encode">POST /api/encode</button>
+  <pre data-output="encode"></pre>
+</section>
+
+<section id="dictionary" class="panel">
+  <h2>4. Atomic dictionary allocation</h2>
+  <p>Allocates a (namespace, scope, token) atomically in Supabase. Re-submitting the same slot returns a conflict with the existing meaning. Shared-write enforcement starts here.</p>
+  <label>namespace <input data-input="alloc-namespace" value="A1"></label>
+  <label>scope     <input data-input="alloc-scope" value="demo"></label>
+  <label>token     <input data-input="alloc-token" value="M1"></label>
+  <label>meaning   <input data-input="alloc-meaning" value="M1 proof demo token"></label>
+  <label>actor     <input data-input="alloc-actor" value="flexi"></label>
+  <label>reason    <input data-input="alloc-reason" value="M1 proof demonstration"></label>
+  <button data-action="alloc">POST /api/dictionary_allocate</button>
+  <pre data-output="alloc"></pre>
+
+  <button data-action="alloc-list">GET /api/dictionary_allocate (recent)</button>
+  <pre data-output="alloc-list"></pre>
+</section>
+
+<section id="txn" class="panel">
+  <h2>5. Transactional write proof</h2>
+  <p>Three modes: <code>write</code> (insert+commit), <code>rollback</code> (insert+rollback — row must not persist), <code>retry</code> (same idempotency key twice — second returns the original). GET verifies durability.</p>
+  <label>idempotency key <input data-input="txn-key" value="m1-proof-1"></label>
+  <label>payload (JSON) <textarea data-input="txn-payload" rows="3">{"note": "M1 transactional write proof"}</textarea></label>
+  <label>actor <input data-input="txn-actor" value="flexi"></label>
+  <label>reason <input data-input="txn-reason" value="M1 proof"></label>
+
+  <div class="row">
+    <button data-action="txn-write">write</button>
+    <button data-action="txn-rollback">rollback</button>
+    <button data-action="txn-retry">retry</button>
+    <button data-action="txn-get">GET verify durability</button>
+  </div>
+  <pre data-output="txn"></pre>
+</section>
+
+<section id="unauthorized" class="panel">
+  <h2>6. Unauthorized-write rejection</h2>
+  <p>The browser attempts to insert directly into Supabase using the public anon key. RLS must reject the write (401/403). Only the trusted service (service role, server-side) can write.</p>
+  <button data-action="unauthorized">POST direct to Supabase (anon)</button>
+  <pre data-output="unauthorized"></pre>
+</section>
+
+<footer>
+  <p>Baseline reference: <code>reference/atlas-step4c-0.3.1/</code> — preserved, pristine. Full 146-test suite still green.</p>
+</footer>
+
+<script src="./app.js" defer></script>
+</body>
+</html>

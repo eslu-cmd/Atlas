@@ -1,0 +1,20 @@
+code,canonical_phrase,status
+N,no coating or barrier treatment,ACTIVE
+P,"PE coated, one side",ACTIVE
+Q,"PE coated, both sides",ACTIVE
+L,PLA coated,ACTIVE
+C,CPET coated,ACTIVE
+E,PET coated / PET lined,ACTIVE
+A,aqueous / water-based barrier coated,ACTIVE
+S,silicone coated,ACTIVE
+W,wax coated,ACTIVE
+G,greaseproof treated,ACTIVE
+F,foil laminated,ACTIVE
+B,BOPP / OPP laminated,ACTIVE
+M,metallized,ACTIVE
+V,varnished or lacquered,ACTIVE
+Z,anti-fog treated,ACTIVE
+T,clay / mineral coated,ACTIVE
+9,OTHER treatment (see facet OT),RESERVED-OTHER
+X,UNKNOWN treatment,RESERVED-UNKNOWN
+0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE

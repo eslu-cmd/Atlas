@@ -1,0 +1,170 @@
+--- 0.2.0/atlas/records.py
++++ 0.2.1/atlas/records.py
+@@ -13,7 +13,7 @@
+ from pathlib import Path
+ from .engine import Engine, exact, check_compatible
+ 
+-RECORD_VERSION = '0.2.0'
++RECORD_VERSION = '0.2.1'
+ ROOT = Path(__file__).resolve().parents[1]
+ UNCERTAINTY = {'not_supplied', 'explicitly_unknown', 'not_applicable', 'ambiguous', 'conflicting', 'unsupported', 'stated'}
+ 
+@@ -56,7 +56,7 @@
+ contract('packing', 'supplied', version=('version','?'), kit_revision=('kit_revision','?'), previous=('packing','?'), evidence=('assertion','*'))
+ contract('context', '', '', version=('version','?'), association=('association','?'), kit_revision=('kit_revision','?'), customization=('customization','?'), packing=('packing','?'), client=('client','?'), request=('request','?'), job=('job','?'))
+ contract('quote', 'supplied', 'discrepancies', context=('context','!'), previous=('quote','?'), evidence=('assertion','*'))
+-contract('sequence', 'label', product=('product','!'), client=('client','?'), request=('request','?'), job=('job','?'))
++contract('sequence', 'label', product=('product','?'), kit=('kit','?'), client=('client','?'), request=('request','?'), job=('job','?'))
+ contract('sample', 'label', 'received_at', sequence=('sequence','!'), context=('context','!'), previous=('sample','?'), evidence=('assertion','*'))
+ contract('sample_note', 'type text', sample=('sample','!'), attachments=('attachment','*'), evidence=('assertion','*'))
+ contract('approval', 'type decision actor_name', 'decision_at conditions', context=('context','!'), sample=('sample','?'), evidence=('assertion','+'))
+@@ -242,10 +242,15 @@
+             new_context=self.get(one('context'))['links']
+             need(self._target(old_context)==self._target(new_context), 'Commercial revision cannot move across versions or kit revisions')
+             need(self._business_scope(old_context)==self._business_scope(new_context), 'Commercial revision client/job mismatch')
++        if kind=='sequence':
++            need(bool(one('product')) != bool(one('kit')), 'Exactly one supplier product or supplier kit required')
+         if kind=='sample':
+             context=self.get(one('context'))['links']
+             sequence=self.get(one('sequence'))['links']
+-            need(context.get('version') and self.one(context['version'][0],'product')==sequence['product'][0], 'Sample sequence product mismatch')
++            if sequence.get('product'):
++                need(context.get('version') and self.one(context['version'][0],'product')==sequence['product'][0], 'Sample sequence product mismatch')
++            else:
++                need(context.get('kit_revision') and self.one(context['kit_revision'][0],'kit')==sequence['kit'][0], 'Sample sequence kit mismatch')
+             need(self._business_scope(context)==self._business_scope(sequence), 'Sample sequence client/job mismatch')
+             if previous: need(self.one(previous,'sequence')==one('sequence'), 'Sample sequence mismatch')
+         if kind=='sample_note':
+@@ -326,7 +331,12 @@
+         return self.add('specification',{'code':code},{'dictionary':dictionary},**meta)
+ 
+     def same_context(self,left,right):
+-        return self.get(left,'context')['links']==self.get(right,'context')['links']
++        left_links=self.get(left,'context')['links']
++        right_links=self.get(right,'context')['links']
++        business={'client','request','job'}
++        exact_links=lambda links: {k:v for k,v in links.items() if k not in business}
++        return (exact_links(left_links)==exact_links(right_links)
++                and self._business_scope(left_links)==self._business_scope(right_links))
+ 
+     def supplier_for(self,context):
+         links=self.get(context,'context')['links']
+@@ -371,7 +381,9 @@
+             prior=self.get(old,'approval')
+             new=None
+             if destination:
+-                refs={**prior['links'],'context':destination,'evidence':evidence}
++                # Retain the actual approval evidence. The H07 event separately
++                # owns the evidence authorizing reassociation.
++                refs={**prior['links'],'context':destination}
+                 refs.pop('sample',None)
+                 if sample: refs['sample']=sample
+                 new=self.add('approval',prior['data'],refs,**meta)
+@@ -413,10 +425,36 @@
+             for event in self.referring(rid,'old','event')+self.referring(rid,'assertion','finding'):
+                 corrections[event['id']]=event
+                 pending.extend(event['links'].get('new',[]))
++        # Incoming H07 events explain why this approval is at its current
++        # destination. Keep former (withdrawn) associations out of original_context.
++        provenance={}
++        incoming={}
++        approvals=[rid for rid,row in original.items() if row['kind']=='approval']
++        pending=list(approvals)
++        seen=set()
++        def provenance_visit(rid):
++            if rid in provenance: return
++            row=self.get(rid); provenance[rid]=row
++            for role,targets in row['links'].items():
++                if role=='previous': continue
++                for target in targets: provenance_visit(target)
++        while pending:
++            approval=pending.pop()
++            if approval in seen: continue
++            seen.add(approval)
++            for event in self.referring(approval,'new','event'):
++                if event['data']['type']!='H07': continue
++                incoming[event['id']]=event
++                provenance_visit(event['id'])
++                pending.extend(event['links']['old'])
++        approval_status={rid:self.is_active(rid) for rid in set(approvals)|{
++            rid for rid,row in provenance.items() if row['kind']=='approval'}}
+         return {'record':original[identity], 'original_context':original,
+                 'later_corrections':sorted(corrections.values(),key=lambda x:x['recorded_at']),
+                 'later_revisions':sorted(revisions.values(),key=lambda x:x['recorded_at']),
+-                'active':self.is_active(identity)}
++                'active':self.is_active(identity),
++                'correction_provenance':{'events':sorted(incoming.values(),key=lambda x:x['recorded_at']),
++                    'records':provenance,'approval_status':approval_status}}
+ 
+     def product_history(self,product):
+         self.get(product,'product')
+--- 0.2.0/atlas/records_cli.py
++++ 0.2.1/atlas/records_cli.py
+@@ -3,13 +3,13 @@
+ import json
+ import sqlite3
+ import sys
+-from .records import Store, RecordError
++from .records import Store, RecordError, RECORD_VERSION
+ from .engine import SpecError
+ from .batch import import_batch
+ from .demo import illustrative
+ 
+ def main(argv=None):
+-    p=argparse.ArgumentParser(description='Atlas persistent records 0.2.0 (local SQLite)')
++    p=argparse.ArgumentParser(description=f'Atlas persistent records {RECORD_VERSION} (local SQLite)')
+     p.add_argument('--db',required=True)
+     sub=p.add_subparsers(dest='action',required=True)
+     sub.add_parser('init'); sub.add_parser('import-reviewed'); sub.add_parser('demo')
+@@ -20,7 +20,7 @@
+     args=p.parse_args(argv)
+     try:
+         with Store(args.db) as store:
+-            if args.action=='init': result={'schema':1,'implementation':'0.2.0'}
++            if args.action=='init': result={'schema':1,'implementation':RECORD_VERSION}
+             elif args.action=='import-reviewed': result=import_batch(store)
+             elif args.action=='demo': result=illustrative(store)
+             elif args.action=='list': result=store.all(args.kind)
+--- 0.2.0/run_all_tests.py
++++ 0.2.1/run_all_tests.py
+@@ -12,6 +12,7 @@
+ sys.path.insert(0,str(ROOT/'tests'))
+ from atlas.records import RECORD_VERSION
+ import test_records
++import test_repairs_021
+ 
+ class Results(unittest.TextTestResult):
+     def __init__(self,*args,**kwargs):
+@@ -33,11 +34,13 @@
+ known_stable=engine['known_answers']==frozen
+ integrity=json.loads((ROOT/'reference/baseline-integrity.json').read_text())
+ hashes={f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest()==value for f,value in integrity['sha256'].items()}
+-result=unittest.TextTestRunner(verbosity=2,resultclass=Results).run(unittest.defaultTestLoader.loadTestsFromModule(test_records))
++suite=unittest.TestSuite([unittest.defaultTestLoader.loadTestsFromModule(module)
++                          for module in (test_records,test_repairs_021)])
++result=unittest.TextTestRunner(verbosity=2,resultclass=Results).run(suite)
+ success=baseline.returncode==0 and result.wasSuccessful() and known_stable and all(hashes.values()) and engine['tests_run']==47 and len(frozen)==44
+ report={'time_utc':datetime.now(timezone.utc).isoformat(),'implementation':RECORD_VERSION,'engine_version':engine['implementation'],
+     'dictionary_release':engine['dictionary_release'],'python':platform.python_version(),'sqlite':sqlite3.sqlite_version,
+-    'storage':'on-disk SQLite; Supabase/Postgres not executed','engine_tests':engine['tests_run'],'record_tests':result.testsRun,
++    'storage':'on-disk SQLite; Supabase/Postgres not executed','engine_tests':engine['tests_run'],'record_tests':result.testsRun,'original_record_tests':25,'repair_regression_tests':12,
+     'total_tests':engine['tests_run']+result.testsRun,'failures':len(result.failures)+engine['failures'],'errors':len(result.errors)+engine['errors'],
+     'known_answers':len(frozen),'known_answers_unchanged':known_stable,'baseline_files_unchanged':hashes,
+     'record_results':result.rows,'success':success,'boundary':'Record-layer evidence, not completion of all 24 acceptance workflows, shared editing, deployment or recovery.'}
+@@ -45,7 +48,7 @@
+ lines=['# Step 4B reproducible test execution','',f"{report['total_tests']} tests: {report['engine_tests']} baseline + {report['record_tests']} persistent-record tests. {report['failures']} failures; {report['errors']} errors.",
+     '',f"Python {report['python']}; SQLite {report['sqlite']}. {report['time_utc']}.",'',report['boundary'],'',
+     f"44 known answers unchanged: {known_stable}. Baseline file hashes unchanged: {all(hashes.values())}.",'',
+-    'Run `python3 run_all_tests.py`. Full expected/actual assertions are in `tests/test_records.py`; machine-readable execution is in `record-test-results.json`. Baseline known answers remain in `test-results.json`.','',
++    'Run `python3 run_all_tests.py`. Full expected/actual assertions are in `tests/test_records.py` and `tests/test_repairs_021.py`; machine-readable execution is in `record-test-results.json`. Baseline known answers remain in `test-results.json`.','',
+     '| Persistent test | Result |','|---|---|']
+ lines.extend('| '+r['test'].split('.')[-1]+' | '+r['status']+' |' for r in result.rows)
+ (ROOT/'Record-Test-Results.md').write_text('\n'.join(lines)+'\n')
+--- 0.2.0/schema/sqlite.sql
++++ 0.2.1/schema/sqlite.sql
+@@ -1,4 +1,4 @@
+--- Atlas records 0.2.0: immutable nodes and ordered, foreign-key-backed edges.
++-- Atlas records 0.2.1: immutable nodes and ordered, foreign-key-backed edges.
+ PRAGMA foreign_keys = ON;
+ CREATE TABLE IF NOT EXISTS records (
+  id TEXT PRIMARY KEY, kind TEXT NOT NULL, data TEXT NOT NULL CHECK(json_valid(data)),

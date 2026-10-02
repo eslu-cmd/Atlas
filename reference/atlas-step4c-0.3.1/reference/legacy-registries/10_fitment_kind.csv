@@ -1,0 +1,5 @@
+code,meaning,value_per_digit,status
+R,mm rim/opening diameter,0.01,ACTIVE
+9,OTHER fitment (see facet OT),,RESERVED-OTHER
+0,NOT APPLICABLE: no circular rim interface,,RESERVED-NOT-APPLICABLE
+X,UNKNOWN fitment,,RESERVED-UNKNOWN

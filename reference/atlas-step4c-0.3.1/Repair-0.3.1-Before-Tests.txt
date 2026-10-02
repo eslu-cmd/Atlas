@@ -1,0 +1,153 @@
+test_R1_amended_supported_preview_and_exact_reuse (test_repairs_031.Repair031Tests) ... ok
+test_R1_candidate_preview_explains_known_other_difference (test_repairs_031.Repair031Tests) ... FAIL
+test_R1_other_exact_reuse_and_unknown_enrichment (test_repairs_031.Repair031Tests) ... FAIL
+test_R1_reject_other_substitution_atomic_source_retained (test_repairs_031.Repair031Tests)
+Known OTHER is not unknown: reject PET substitution with no partial commit. ... FAIL
+test_R2_absent_compatible_window_is_gap (test_repairs_031.Repair031Tests) ... FAIL
+test_R2_article_stackable_is_not_sipper (test_repairs_031.Repair031Tests) ... FAIL
+test_R2_core_lid_and_missing_lp_do_not_borrow_article_features (test_repairs_031.Repair031Tests) ... FAIL
+test_R2_explicit_lp_dome_is_searchable (test_repairs_031.Repair031Tests) ... FAIL
+test_R2_explicit_negative_exclusion_na_and_valid_fx (test_repairs_031.Repair031Tests) ... FAIL
+test_R2_intake_preview_keeps_article_and_lid_features_separate (test_repairs_031.Repair031Tests) ... ok
+test_R3_ca_fi_applicability_unchanged (test_repairs_031.Repair031Tests) ... ok
+test_R3_nonzero_does_not_equal_zero (test_repairs_031.Repair031Tests) ... ok
+test_R3_zero_percent_is_numeric (test_repairs_031.Repair031Tests) ... FAIL
+test_R4_broad_approval_uses_approved_v2_despite_rejected_v1 (test_repairs_031.Repair031Tests) ... FAIL
+test_R4_explicit_iterations_and_sampling (test_repairs_031.Repair031Tests) ... ok
+test_R4_independent_sampling_efforts_with_reused_labels (test_repairs_031.Repair031Tests) ... FAIL
+test_R4_no_cross_supplier_client_or_customization_transfer (test_repairs_031.Repair031Tests) ... ok
+test_R4_physical_and_kit_revisions_do_not_inherit_approval (test_repairs_031.Repair031Tests) ... ok
+test_R4_same_iteration_conflict_and_withdrawal_remain_negative (test_repairs_031.Repair031Tests) ... ok
+test_R4_unsampled_decisions_have_separate_scope (test_repairs_031.Repair031Tests) ... FAIL
+
+======================================================================
+FAIL: test_R1_candidate_preview_explains_known_other_difference (test_repairs_031.Repair031Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 50, in test_R1_candidate_preview_explains_known_other_difference
+    self.assertEqual(pet['classification'],'contradiction')
+AssertionError: 'match' != 'contradiction'
+- match
++ contradiction
+
+
+======================================================================
+FAIL: test_R1_other_exact_reuse_and_unknown_enrichment (test_repairs_031.Repair031Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 72, in test_R1_other_exact_reuse_and_unknown_enrichment
+    with self.assertRaises(RecordError): self.commit(p,selected_specification=different,supported_code=self.s.get(different)['data']['code'])
+AssertionError: RecordError not raised
+
+======================================================================
+FAIL: test_R1_reject_other_substitution_atomic_source_retained (test_repairs_031.Repair031Tests)
+Known OTHER is not unknown: reject PET substitution with no partial commit.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 40, in test_R1_reject_other_substitution_atomic_source_retained
+    self.commit(p,'offering',supplier=self.a['supplier'],reference='OTHER-PET',selected_specification=self.f['specification'],supported_code='A1!APTX.CUB.XXX.M500.R98')
+AssertionError: RecordError not raised
+
+======================================================================
+FAIL: test_R2_absent_compatible_window_is_gap (test_repairs_031.Repair031Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 87, in test_R2_absent_compatible_window_is_gap
+    self.assertEqual(self.row(sid,[self.feature('BG',False,'W')],types=['specification'])['classification'],'potential')
+AssertionError: 'contradiction' != 'potential'
+- contradiction
++ potential
+
+
+======================================================================
+FAIL: test_R2_article_stackable_is_not_sipper (test_repairs_031.Repair031Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 76, in test_R2_article_stackable_is_not_sipper
+    self.assertEqual(self.row(sid,[self.feature('CU',True,'S')],types=['specification'])['classification'],'contradiction')
+AssertionError: 'match' != 'contradiction'
+- match
++ contradiction
+
+
+======================================================================
+FAIL: test_R2_core_lid_and_missing_lp_do_not_borrow_article_features (test_repairs_031.Repair031Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 106, in test_R2_core_lid_and_missing_lp_do_not_borrow_article_features
+    self.assertEqual(self.row(unknown,[self.feature('CU',True,'S')],types=['specification'])['classification'],'potential')
+AssertionError: 'match' != 'potential'
+- match
++ potential
+
+
+======================================================================
+FAIL: test_R2_explicit_lp_dome_is_searchable (test_repairs_031.Repair031Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 82, in test_R2_explicit_lp_dome_is_searchable
+    self.assertEqual(self.row(sid,[self.feature('BW',True,'D')],types=['specification'])['classification'],'match')
+AssertionError: 'potential' != 'match'
+- potential
++ match
+
+
+======================================================================
+FAIL: test_R2_explicit_negative_exclusion_na_and_valid_fx (test_repairs_031.Repair031Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 93, in test_R2_explicit_negative_exclusion_na_and_valid_fx
+    self.assertEqual(self.row(nohandle,[self.feature('BG',False,'W')],types=['specification'])['classification'],'potential')
+AssertionError: 'contradiction' != 'potential'
+- contradiction
++ potential
+
+
+======================================================================
+FAIL: test_R3_zero_percent_is_numeric (test_repairs_031.Repair031Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 121, in test_R3_zero_percent_is_numeric
+    self.assertEqual(r['classification'],'match'); self.assertEqual(r['explanations'][0]['recorded_interval'],['0','0'])
+AssertionError: 'contradiction' != 'match'
+- contradiction
++ match
+
+
+======================================================================
+FAIL: test_R4_broad_approval_uses_approved_v2_despite_rejected_v1 (test_repairs_031.Repair031Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 140, in test_R4_broad_approval_uses_approved_v2_despite_rejected_v1
+    self.assertEqual(r['classification'],'match')
+AssertionError: 'contradiction' != 'match'
+- contradiction
++ match
+
+
+======================================================================
+FAIL: test_R4_independent_sampling_efforts_with_reused_labels (test_repairs_031.Repair031Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 158, in test_R4_independent_sampling_efforts_with_reused_labels
+    self.assertEqual(self.offering_row(self.a['product'],[],evidence={'approval':'client_approval'})['classification'],'match')
+AssertionError: 'contradiction' != 'match'
+- contradiction
++ match
+
+
+======================================================================
+FAIL: test_R4_unsampled_decisions_have_separate_scope (test_repairs_031.Repair031Tests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c-031/tests/test_repairs_031.py", line 171, in test_R4_unsampled_decisions_have_separate_scope
+    self.assertEqual(self.offering_row(self.a['product'],[],evidence={'approval':'client_approval'})['classification'],'match')
+AssertionError: 'contradiction' != 'match'
+- contradiction
++ match
+
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.661s
+
+FAILED (failures=12)

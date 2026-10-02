@@ -1,0 +1,106 @@
+parent_family,code,full_prefix,canonical_phrase,status
+A,PT,APT,PET (polyethylene terephthalate),ACTIVE
+A,RP,ARP,rPET (recycled PET),ACTIVE
+A,CT,ACT,CPET (crystallized PET),ACTIVE
+A,AP,AAP,APET (amorphous PET),ACTIVE
+A,PP,APP,PP (polypropylene),ACTIVE
+A,MF,AMF,MFPP (mineral-filled polypropylene),ACTIVE
+A,PS,APS,"PS (polystyrene, general purpose)",ACTIVE
+A,HI,AHI,HIPS (high-impact polystyrene),ACTIVE
+A,OP,AOP,OPS (oriented polystyrene),ACTIVE
+A,EP,AEP,EPS (expanded polystyrene foam),ACTIVE
+A,PE,APE,"PE (polyethylene, grade unspecified)",ACTIVE
+A,HD,AHD,HDPE (high-density polyethylene),ACTIVE
+A,LD,ALD,LDPE (low-density polyethylene),ACTIVE
+A,LL,ALL,LLDPE (linear low-density polyethylene),ACTIVE
+A,PL,APL,PLA (polylactic acid),ACTIVE
+A,CP,ACP,CPLA (crystallized polylactic acid),ACTIVE
+A,PH,APH,PHA (polyhydroxyalkanoate),ACTIVE
+A,PM,APM,PSM (starch-based polymer blend),ACTIVE
+A,PB,APB,PBAT / PBS compostable copolyester,ACTIVE
+A,PC,APC,PC (polycarbonate),ACTIVE
+A,PV,APV,PVC (polyvinyl chloride),ACTIVE
+A,NY,ANY,PA (nylon / polyamide),ACTIVE
+A,AC,AAC,Acrylic / PMMA,ACTIVE
+A,MX,AMX,"Polymer blend, layers declared in facet LS",ACTIVE
+A,99,A99,OTHER polymer (see facet OT),RESERVED-OTHER
+A,XX,AXX,UNKNOWN polymer,RESERVED-UNKNOWN
+B,KR,BKR,"Kraft paper, bleach state unspecified",ACTIVE
+B,KB,BKB,Brown / natural unbleached kraft,ACTIVE
+B,KW,BKW,White bleached kraft,ACTIVE
+B,KV,BKV,Virgin kraft,ACTIVE
+B,KC,BKC,Recycled kraft,ACTIVE
+B,CS,BCS,Cup stock board,ACTIVE
+B,SB,BSB,SBS (solid bleached sulphate) board,ACTIVE
+B,CB,BCB,Corrugated board,ACTIVE
+B,FB,BFB,Folding boxboard / carton board,ACTIVE
+B,WB,BWB,White-back recycled board,ACTIVE
+B,GP,BGP,Greaseproof paper (inherently resistant),ACTIVE
+B,GL,BGL,Glassine / silicone release base,ACTIVE
+B,TS,BTS,Tissue paper,ACTIVE
+B,AL,BAL,Airlaid paper,ACTIVE
+B,WX,BWX,Wax-base paper,ACTIVE
+B,NP,BNP,Newsprint / mechanical pulp paper,ACTIVE
+B,PB,BPB,"Paperboard, type unspecified",ACTIVE
+B,99,B99,OTHER paper grade (see facet OT),RESERVED-OTHER
+B,XX,BXX,UNKNOWN paper grade,RESERVED-UNKNOWN
+C,BG,CBG,Bagasse (sugarcane fiber),ACTIVE
+C,BM,CBM,Bamboo fiber,ACTIVE
+C,WS,CWS,Wheat straw fiber,ACTIVE
+C,RS,CRS,Rice husk / rice straw fiber,ACTIVE
+C,PL,CPL,Palm leaf,ACTIVE
+C,WP,CWP,Molded wood pulp,ACTIVE
+C,GR,CGR,Grass fiber,ACTIVE
+C,SW,CSW,Seaweed-derived,ACTIVE
+C,MX,CMX,"Blended plant fiber, layers declared in facet LS",ACTIVE
+C,99,C99,OTHER plant fiber (see facet OT),RESERVED-OTHER
+C,XX,CXX,UNKNOWN plant fiber,RESERVED-UNKNOWN
+D,AL,DAL,Aluminum,ACTIVE
+D,AF,DAF,Aluminum foil,ACTIVE
+D,TP,DTP,Tinplate steel,ACTIVE
+D,SS,DSS,Stainless steel,ACTIVE
+D,99,D99,OTHER metal (see facet OT),RESERVED-OTHER
+D,XX,DXX,UNKNOWN metal,RESERVED-UNKNOWN
+E,PP,EPP,PP nonwoven (construction in the CFG block),ACTIVE
+E,PT,EPT,PET nonwoven,ACTIVE
+E,CT,ECT,Cotton,ACTIVE
+E,JT,EJT,Jute,ACTIVE
+E,99,E99,OTHER textile (see facet OT),RESERVED-OTHER
+E,XX,EXX,UNKNOWN textile,RESERVED-UNKNOWN
+F,BW,FBW,Birch / hardwood,ACTIVE
+F,BB,FBB,"Bamboo, solid",ACTIVE
+F,99,F99,OTHER wood (see facet OT),RESERVED-OTHER
+F,XX,FXX,UNKNOWN wood,RESERVED-UNKNOWN
+G,GL,GGL,Soda-lime glass,ACTIVE
+G,CR,GCR,Ceramic,ACTIVE
+G,99,G99,OTHER (see facet OT),RESERVED-OTHER
+G,XX,GXX,UNKNOWN glass or ceramic,RESERVED-UNKNOWN
+H,NI,HNI,Nitrile,ACTIVE
+H,LX,HLX,Natural rubber latex,ACTIVE
+H,VI,HVI,Vinyl (PVC glove film),ACTIVE
+H,PY,HPY,Poly / HDPE glove film,ACTIVE
+H,SI,HSI,Silicone elastomer,ACTIVE
+H,99,H99,OTHER elastomer (see facet OT),RESERVED-OTHER
+H,XX,HXX,UNKNOWN elastomer,RESERVED-UNKNOWN
+J,PF,JPF,Paper / foil laminate,ACTIVE
+J,PP,JPP,Paper / polymer laminate,ACTIVE
+J,MP,JMP,Metallized polyester laminate (mylar),ACTIVE
+J,NF,JNF,Nonwoven / foil / insulation laminate,ACTIVE
+J,MX,JMX,"Laminate, structure declared in facet LS",ACTIVE
+J,99,J99,OTHER laminate (see facet OT),RESERVED-OTHER
+J,XX,JXX,UNKNOWN laminate,RESERVED-UNKNOWN
+K,AD,KAD,Adhesive,ACTIVE
+K,IK,KIK,Ink,ACTIVE
+K,LB,KLB,Label stock,ACTIVE
+K,99,K99,OTHER ancillary (see facet OT),RESERVED-OTHER
+K,XX,KXX,UNKNOWN ancillary,RESERVED-UNKNOWN
+L,SY,LSY,Syrup or liquid sweetener,ACTIVE
+L,PW,LPW,Powder or dry ingredient,ACTIVE
+L,FT,LFT,Fat or oil,ACTIVE
+L,PR,LPR,Protein or peptide preparation,ACTIVE
+L,GM,LGM,Gum or hydrocolloid,ACTIVE
+L,99,L99,OTHER consumable (see facet OT),RESERVED-OTHER
+L,XX,LXX,UNKNOWN consumable,RESERVED-UNKNOWN
+9,99,999,OTHER (see facet OT),RESERVED-OTHER
+X,XX,XXX,UNKNOWN,RESERVED-UNKNOWN
+0,00,000,NOT APPLICABLE,RESERVED-NOT-APPLICABLE

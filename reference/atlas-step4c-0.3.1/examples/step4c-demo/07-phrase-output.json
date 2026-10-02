@@ -1,0 +1,25 @@
+{
+  "review": "2f2b314e-07b0-460f-bac6-92f55ae508b3",
+  "phrase": "PET cups 500 ml",
+  "proposed": {
+    "criteria": [
+      {
+        "field": "MA_GRADE",
+        "value": "APT"
+      },
+      {
+        "field": "AR_CLASS",
+        "value": "CU"
+      },
+      {
+        "field": "CA",
+        "value": {
+          "value": "500",
+          "unit": "mL"
+        }
+      }
+    ]
+  },
+  "unsupported": [],
+  "executed": false
+}

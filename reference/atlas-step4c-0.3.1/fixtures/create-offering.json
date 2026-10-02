@@ -1,0 +1,48 @@
+[
+  {
+    "name": "supplier",
+    "operation": "add",
+    "arguments": {
+      "kind": "supplier",
+      "data": {
+        "name": "ILLUSTRATIVE manual vendor"
+      },
+      "actor": "Local example author",
+      "reason": "Explicit illustrative offering; not workbook fact",
+      "provenance": "illustrative"
+    }
+  },
+  {
+    "name": "product",
+    "operation": "add",
+    "arguments": {
+      "kind": "product",
+      "data": {
+        "reference": "ILLUSTRATIVE manual product",
+        "sku": "DEMO-MANUAL"
+      },
+      "links": {
+        "supplier": "$supplier"
+      },
+      "actor": "Local example author",
+      "reason": "Explicit illustrative offering; not workbook fact",
+      "provenance": "illustrative"
+    }
+  },
+  {
+    "name": "version",
+    "operation": "add",
+    "arguments": {
+      "kind": "version",
+      "data": {
+        "label": "1"
+      },
+      "links": {
+        "product": "$product"
+      },
+      "actor": "Local example author",
+      "reason": "Explicit illustrative offering; not workbook fact",
+      "provenance": "illustrative"
+    }
+  }
+]

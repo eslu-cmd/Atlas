@@ -1,0 +1,41 @@
+{
+  "dictionary": "b8b7b515-061f-4a59-9c2f-ce023efb8dc2",
+  "specification": "c9a299ec-7a9d-4bef-9b5f-f3fbc9f23346",
+  "source": "ccc07b1d-a196-4a6c-bb85-3113ea304298",
+  "evidence": "65ce2379-67a1-4810-9a23-fc85b6cd1773",
+  "client": "ac256011-b0be-4835-adb5-05c9da15c752",
+  "A": {
+    "supplier": "cb116b14-ae57-4cae-b632-5f44f484ffdf",
+    "product": "03a4ccd2-8d4a-4417-b7ee-609cf891abbc",
+    "version": "20c7f7e1-eae2-454e-aa7b-6f1bfe63edb8",
+    "association": "26b7e48d-fa55-4c26-a084-e3d27d00a466",
+    "customization": "c40dc0e2-2e48-4960-baa8-80401eaf9958",
+    "packing": "a7b886d0-f70c-42b6-b831-95b508c9e5f9",
+    "context": "30a742da-8742-435f-bac7-72815205e0e4",
+    "quote": "e7473793-beb1-408b-a286-a2548607626f",
+    "sequence": "1b892fb8-1b4a-4915-87c4-6b83bd2e6e68",
+    "sample": "081da9b0-abd3-40b6-ab6c-eb54b9ab1da5",
+    "approval": "fe56846b-6b2d-4c92-ae82-a2c0ef1e863a"
+  },
+  "B": {
+    "supplier": "d1e661b5-e13d-4fd2-8024-41b3f0c2f821",
+    "product": "a38c51f5-1770-414f-827e-993cbb7b4b4f",
+    "version": "8ae316ba-b984-4651-bc21-6b618af17d62",
+    "association": "5a051525-304e-4c04-96bb-b44b413a57a1",
+    "customization": "d14a7f1b-c602-4bfd-829e-0626f88e6818",
+    "packing": "9a840882-4a6b-4222-995a-b9f605390ad4",
+    "context": "eede1041-4e09-46be-a86b-f2dc71674ca1",
+    "quote": "a82cfb0a-f9bc-4da0-947b-81ee117710af",
+    "sequence": "5528d0ce-0c95-4ed3-9630-48c1b843a74e",
+    "sample": "a221b0f6-656d-45c9-bd56-e3bb4ac05547",
+    "approval": "d3100271-3f0a-4131-abe8-95080a878d93"
+  },
+  "clarification": {
+    "record": "cccc321f-fa20-43c3-b656-dc99ae425e48",
+    "event": "c6347a8b-f86b-4d29-8c91-594dba3a3e77"
+  },
+  "withdrawal": {
+    "record": null,
+    "event": "68ff4105-c02d-4878-bd9d-d7fc43667517"
+  }
+}

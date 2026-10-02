@@ -1,0 +1,143 @@
+--- 0.1.0/atlas/engine.py
++++ 0.1.1/atlas/engine.py
+@@ -4,7 +4,7 @@
+ from pathlib import Path
+ from urllib.parse import unquote_to_bytes
+ 
+-VERSION='0.1.0'
++VERSION='0.1.1'
+ class SpecError(ValueError): pass
+ 
+ def require(ok,message):
+@@ -262,9 +262,15 @@
+             elif self.f.get(key,{}).get('type') in ['list','features']:result[key]=sorted(set(old+value))
+             else:raise SpecError('Conflicting repeated scope field '+key)
+         return result
++    @staticmethod
++    def validate_node_structure(node):
++        """Check raw containers before merging; defer meaning to the merged node."""
++        require(isinstance(node,dict) and set(node)<={'fields','groups'},'Node accepts only fields and groups; separate context explicitly')
++        require(isinstance(node.get('fields',{}),dict),'Fields must be object; duplicates are forbidden')
++        require(isinstance(node.get('groups',[]),list),'Groups must be list')
+     def fragment(self,node,root=False,depth=0):
+         require(depth<=self.d['policy']['limits']['depth'],'Resource limit exceeded; retained input requires review')
+-        require(isinstance(node,dict) and set(node)<={'fields','groups'},'Node accepts only fields and groups; separate context explicitly')
++        self.validate_node_structure(node)
+         fields=self.normalize_fields(node.get('fields',{}),root)
+         groups=node.get('groups',[]);require(isinstance(groups,list),'Groups must be list')
+         scopes={};layers=[]
+@@ -272,6 +278,7 @@
+             require(isinstance(group,dict),'Group must be object')
+             if 'scope' in group:
+                 require(set(group)=={'scope','node'},'Scope group requires scope and node');name=group['scope'];require(name in self.d['scopes'],'Unsupported scope')
++                self.validate_node_structure(group['node'])
+                 child=copy.deepcopy(group['node'])
+                 if name not in scopes:scopes[name]=child
+                 else:
+@@ -416,9 +423,16 @@
+     subset(old['tables'],new['tables']);subset(old['units'],new['units'])
+     for k,v in old['fields'].items():
+         require(k in new['fields'],'Removed field');w=new['fields'][k]
+-        for key in ['type','unit','applicability','dependencies','contradictions','normalization']:require(v[key]==w[key],f'Redefined field {k}')
+-        if v['domain']:require(set(v['domain'])<=set(w['domain']),'Removed field value')
+-    for key in ['grammar','policy','qualifiers','construction_rules','validation_rules','feature_rules']:
++        # Preserve every field rule, including bounds and newly introduced
++        # constraints. Only lifecycle/editorial metadata may change freely.
++        metadata={'description','source','introduced','retired','replacement'}
++        for key in (set(v)|set(w))-metadata-{'domain'}:
++            require(key in v and key in w and v[key]==w[key],f'Redefined field {k}.{key}')
++        old_domain,new_domain=v.get('domain'),w.get('domain')
++        if isinstance(old_domain,list):
++            require(isinstance(new_domain,list) and set(old_domain)<=set(new_domain),f'Removed field value {k}')
++        else:require(old_domain==new_domain,f'Redefined field domain {k}')
++    for key in ['grammar','policy','qualifiers','construction_rules','validation_rules','feature_rules','reference_only_roles','excluded_fields']:
+         require(old[key]==new[key],f'Changed semantic rules {key}; requires namespace review')
+     for key in ['scopes','dimensions','lid_bearing','slot_targets','unresolved_targets']:
+         require(set(old[key])<=set(new[key]),f'Removed vocabulary {key}')
+--- 0.1.0/tests/test_engine.py
++++ 0.1.1/tests/test_engine.py
+@@ -210,4 +210,65 @@
+    r=subprocess.run([sys.executable,'-m','atlas','--dictionary',str(D),'encode',str(p)],cwd=ROOT,capture_output=True,text=True)
+    self.assertEqual(r.returncode,2);self.assertIn('Duplicate JSON key',r.stderr)
+ 
++class RepairRegressionTests(unittest.TestCase):
++ def setUp(self):self.e=Engine(D)
++ def test_restrictive_numeric_maximum_is_incompatible(self):
++  code='A1!APTX.XXX.XXX.X.X+PR:100'
++  self.assertEqual(self.e.decode(code)['fields']['PR'],'100')
++  changed=copy.deepcopy(self.e.d);changed['fields']['PR']['maximum']='50'
++  with self.assertRaisesRegex(SpecError,'Quantity above maximum'):Engine(changed).decode(code)
++  with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
++ def test_numeric_minimum_and_new_bound_are_incompatible(self):
++  cases=[('PR','minimum','positive','A1!APTX.XXX.XXX.X.X+PR:0'),
++         ('GW','maximum','1','A1!APTX.XXX.XXX.X.X+GW:2')]
++  for field,key,value,code in cases:
++   with self.subTest(field=field,key=key):
++    self.e.decode(code);changed=copy.deepcopy(self.e.d);changed['fields'][field][key]=value
++    with self.assertRaises(SpecError):Engine(changed).decode(code)
++    with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
++ def test_other_field_semantic_properties_are_preserved(self):
++  for key in ['ordering','unknown','not_applicable']:
++   with self.subTest(key=key):
++    changed=copy.deepcopy(self.e.d);changed['fields']['PR'][key]='changed rule'
++    with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
++  changed=copy.deepcopy(self.e.d);del changed['fields']['PR']['maximum']
++  with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
++ def test_new_reference_only_role_cannot_disable_existing_code(self):
++  code='A1!APTX.CUB.XXX.X.X';self.e.decode(code)
++  changed=copy.deepcopy(self.e.d);changed['reference_only_roles'].append('B')
++  with self.assertRaises(SpecError):Engine(changed).decode(code)
++  with self.assertRaises(SpecError):check_compatible(self.e.d,changed)
++ def test_supported_field_additions_and_retirement_remain_compatible(self):
++  changed=copy.deepcopy(self.e.d)
++  changed['fields']['CL']['domain'].append('PURPLE')
++  changed['fields']['ZZ']=copy.deepcopy(changed['fields']['NC'])
++  changed['fields']['CL']['retired']=True
++  self.assertTrue(check_compatible(self.e.d,changed))
++  e2=Engine(changed)
++  self.assertEqual(e2.decode('A1!APTX.XXX.XXX.X.X+CL:WHITE'),self.e.decode('A1!APTX.XXX.XXX.X.X+CL:WHITE'))
++  e2.decode('A1!APTX.XXX.XXX.X.X+CL:PURPLE.ZZ:illustrative')
++ def scope_groups(self):
++  return [{'scope':'BODY','node':node({'CL':'WHITE'})},
++          {'scope':'BODY','node':{'fields':{'OP':'OPAQUE'},'unsupported_extra':'must not disappear'}}]
++ def test_repeated_scope_unsupported_child_rejected_both_orders(self):
++  groups=self.scope_groups()
++  for ordered in [groups,list(reversed(groups))]:
++   with self.subTest(order=ordered),self.assertRaisesRegex(SpecError,'Node accepts only fields and groups'):
++    self.e.encode(node({'MA':'APTX'},ordered))
++ def test_standalone_unsupported_child_rejected(self):
++  with self.assertRaisesRegex(SpecError,'Node accepts only fields and groups'):
++   self.e.encode(node({'MA':'APTX'},self.scope_groups()[1:]))
++ def test_valid_scope_merge_still_allowed_both_orders(self):
++  groups=self.scope_groups();del groups[1]['node']['unsupported_extra']
++  for ordered in [groups,list(reversed(groups))]:
++   self.assertEqual(self.e.encode(node({'MA':'APTX'},ordered)),
++                    'A1!APTX.XXX.XXX.X.X~S(BODY){CL:WHITE.OP:OPAQUE}')
++ def test_raw_scope_container_types_rejected_before_merge(self):
++  for bad in [{'fields':[]},{'groups':{}},[]]:
++   for reverse in [False,True]:
++    groups=[{'scope':'BODY','node':node({'CL':'WHITE'})},{'scope':'BODY','node':bad}]
++    if reverse:groups.reverse()
++    with self.subTest(bad=bad,reverse=reverse),self.assertRaises(SpecError):
++     self.e.encode(node({'MA':'APTX'},groups))
++
+ if __name__=='__main__':unittest.main()
+--- 0.1.0/run_tests.py
++++ 0.1.1/run_tests.py
+@@ -5,6 +5,7 @@
+ ROOT=Path(__file__).resolve().parent
+ sys.path.insert(0,str(ROOT/'tests'))
+ import test_engine
++from atlas import VERSION
+ vectors=[]
+ original=test_engine.EngineTests.assertCode
+ def record(self,facts,expected):
+@@ -22,7 +23,7 @@
+     def addError(self,test,err):super().addError(test,err);self.rows.append({'test':test.id(),'status':'error','actual':self._exc_info_to_string(err,test)})
+ suite=unittest.defaultTestLoader.loadTestsFromModule(test_engine)
+ r=unittest.TextTestRunner(verbosity=2,resultclass=Result).run(suite)
+-report={'time_utc':datetime.now(timezone.utc).isoformat(),'python':platform.python_version(),'implementation':'0.1.0','dictionary_release':'0.1.0-local-candidate','dictionary_sha256':hashlib.sha256((ROOT/'dictionary/atlas-A1-0.1.0.json').read_bytes()).hexdigest(),'tests_run':r.testsRun,'failures':len(r.failures),'errors':len(r.errors),'test_results':r.rows,'known_answers':vectors,'scope':'Local identifier/dictionary only. No application, history, concurrency, approval, recovery or production validation.'}
++report={'time_utc':datetime.now(timezone.utc).isoformat(),'python':platform.python_version(),'implementation':VERSION,'dictionary_release':'0.1.0-local-candidate','dictionary_sha256':hashlib.sha256((ROOT/'dictionary/atlas-A1-0.1.0.json').read_bytes()).hexdigest(),'tests_run':r.testsRun,'failures':len(r.failures),'errors':len(r.errors),'test_results':r.rows,'known_answers':vectors,'scope':'Local identifier/dictionary only. No application, history, concurrency, approval, recovery or production validation.'}
+ (ROOT/'test-results.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+ lines=['# Step 4A test execution','',f"{r.testsRun} test methods; {len(r.failures)} failures; {len(r.errors)} errors.",'',report['scope'],'','Fresh run: `python3 run_tests.py`. Full inputs and expected versus actual codes: `test-results.json`.','', '| Test | Result |','|---|---|']
+ lines += ['| '+x['test'].split('.')[-1]+' | '+x['status']+' |' for x in r.rows]

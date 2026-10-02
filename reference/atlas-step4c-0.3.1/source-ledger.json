@@ -1,0 +1,128 @@
+[
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/closing up/Step three results.md",
+    "inspection": "Read completely in sections before implementation; authoritative Documents 1\u20134.",
+    "execution": "Not executable",
+    "sha256": "7d87c43c47ba4e3e2c30a1b1de6177faf1dd21656dd5cf2560c2c82520287821"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries.py",
+    "inspection": "Read registries and reservation/scoping logic. Copied locally before importing data into release builder.",
+    "execution": "Only the local copy imported; historical self-check/test totals not adopted",
+    "sha256": "e7f32a2e9460134566d8c7fdcc70c9737c20a7360a6070ebc2b0376a0eac53fa"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/REGISTRY-BOOK.md",
+    "inspection": "Inspected classification, scale/default, reserved and scoped-role references; not a full reread of all generated entries.",
+    "execution": "Not executed",
+    "sha256": "92b419492d4d909476d05e01317ff79ee4086c5c824684b9db1344fe7cec041a"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/specid.py",
+    "inspection": "Inspected block/slot validation, measurements, tail parsing, encode/decode, resolve_legacy and capacity_matches.",
+    "execution": "Not executed",
+    "sha256": "1a935a1093f185c6d847f9c74d57afae35a04023388274c317b7f81fa272366d"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/roundtrip.py",
+    "inspection": "Inspected test organization, fixture vocabulary and historical claim boundaries.",
+    "execution": "Not executed; old totals not reproduced or claimed",
+    "sha256": "63c5369b6221261e77e82d47f4d37b4c4ae9af5544dd94b63e5499c8c1654287"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/search.py",
+    "inspection": "Inspected parse() measurement inference and lexical matching. Bare-mm rim inference and assumed fluid ounces excluded.",
+    "execution": "Not executed",
+    "sha256": "96522076f0025d88cc06873ab0fb3c8fa3ab0b76f6be3f21555913ff44d650a2"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/evolve.py",
+    "inspection": "Inspected register_generation, migration and truncation behavior; incompatible with complete A1 decoding.",
+    "execution": "Not executed",
+    "sha256": "2e32c88fa0a4aa52ba76c8932d0bf462a1a45baee0089fa24c4ba06a94cda84d"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+    "inspection": "Read Main Table headers, merged structure, formulas, supplier blocks and selected rows. Broader row scan for batch selection only.",
+    "execution": "Read-only extraction with openpyxl; no formula recalculation or original document re-extraction",
+    "sha256": "f858d35441a039c42e44731df571d78f39c46e6907e3cf5e57e9b05573ac4d75"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/01_material_family.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "ccce0456278d04c1040e320ebbb11d19df573b0746e50bcd5f0f886836465567"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/02_material_grade.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "b5c87b40bd2c7eac4168e58bbd1146e6decc20136e80e8cb509c719b2db3aa5d"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/03_treatment.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "12223cd46efc29832e4090c14028c44951ac636a233b045054127c563c5fa256"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/04_article_class.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "ed68f02515de8f86768f38806ac5a2b1bb51c7d5907fa78cad381ba3a40393b9"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/05_article_role.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "5ce58434027bb82d76d1d28ec061d3f23237410146b238a27ca5ae382d9338c4"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/06_shape.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "c5924ec68d0496532ffc0e3388ab22cbe49d04f61ea8a0c2af565cc603dcb052"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/07_construction.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "472e0ebc905e8e7f939ec7d3e13c4a8b2a3bc9b9dfa01dc23b0675e9daf6d35c"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/08_feature.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "e29b59503fe3b5c2daf232a26c98b24cae52ed95591cfaecf8fd78846b9b4231"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/09_capacity_measure.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "eb186c614e20b5e577e6a1385c298144ebeae89c3fe3241c6cb400e392a3293b"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/10_fitment_kind.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "dff78d4e03c5bf0bf2fb71cff56770b33ce3f152c42705f5d48fb83374342500"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/11_tail_facets.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "80bc049d1d4564f7c31a25b7ce689d3be464640a2f15584e4592fc04f92cbb06"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/12_banned_from_spec_id.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "701c2d49c498552b93b7fc14790f4cf7c3afd84d9617b5005fbcc0adc3fbc9ea"
+  },
+  {
+    "path": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/03-proposals/Proposal #4 (v1.2.0)/system/registries/13_vessel_disambiguation.csv",
+    "inspection": "All rows parsed into local release/disposition export; scoped entries checked against source vocabulary.",
+    "execution": "CSV parsing only",
+    "sha256": "10b26857bc9e9f62a0e61a08948518d0bdec45105729435adaecde2e9cb89aad"
+  }
+]

@@ -1,0 +1,19 @@
+code,canonical_phrase,status
+S,single wall,ACTIVE
+D,double wall,ACTIVE
+R,ripple / embossed wall,ACTIVE
+F,foamed wall,ACTIVE
+T,thermoformed,ACTIVE
+J,injection molded,ACTIVE
+P,pressed molded fiber,ACTIVE
+C,corrugated,ACTIVE
+L,laminated multilayer,ACTIVE
+W,wound / spiral,ACTIVE
+B,blow molded,ACTIVE
+E,extruded,ACTIVE
+N,nonwoven web,ACTIVE
+V,woven,ACTIVE
+M,formed or stamped sheet metal,ACTIVE
+9,OTHER construction (see facet OT),RESERVED-OTHER
+0,construction NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+X,UNKNOWN construction,RESERVED-UNKNOWN

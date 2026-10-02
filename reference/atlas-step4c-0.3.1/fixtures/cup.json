@@ -1,0 +1,8 @@
+{
+  "fields": {
+    "MA": "APTX",
+    "AR": "CUB",
+    "CA": {"value": "0.5", "unit": "L"},
+    "FI": {"value": "98.125", "unit": "mm"}
+  }
+}

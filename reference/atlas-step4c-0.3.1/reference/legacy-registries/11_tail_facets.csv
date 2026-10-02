@@ -1,0 +1,47 @@
+code,name,value_kind,unit_or_domain,domain_enforcement
+AP,Lid aperture,enum,NONE/STRAW_HOLE/CROSS_SLOT/SIP_THROUGH/PUSH_BACK/PEEL/SPOUT,ENFORCED
+BL,Bleach state,enum,BLEACHED/UNBLEACHED/SEMI_BLEACHED,ENFORCED
+CL,Base colour,enum,CLEAR/WHITE/BLACK/BROWN/NATURAL/KRAFT/GREEN/BLUE/RED/SILVER/GOLD/PRINTED/MIXED,ENFORCED
+CM,Compartment count,int,compartments,free
+CO,Compostability certification,list,BPI/TUV_IND/TUV_HOME/OK_COMPOST/DIN/NONE,ENFORCED
+DM,Dimensions,dim,"mm, canonical order per article class",free
+EC,Edge crush test,num,ECT,free
+EL,Film elongation,num,percent,free
+FC,Food-contact certification,list,FDA/EU1935/LFGB/HALAL/KOSHER/NONE,ENFORCED
+FD,Fold pattern,str,"e.g. 1/4, 1/8, interfold",free
+FF,Footprint fitment family,str,registered non-circular fitment key,free
+FL,Flute profile,enum,A/B/C/E/F/BC/EB/BE/CB,ENFORCED
+FS,Feedstock,enum,VIRGIN/RECYCLED/PCR/MIXED,ENFORCED
+FZ,Freezer safe,enum,YES/NO,ENFORCED
+GA,Film gauge,num,gauge,free
+GS,Basis weight,num,gsm,free
+GW,Unit weight,num,grams,free
+HL,Handle detail,str,handle construction and dimensions,free
+IC,Ink coverage,num,percent,free
+LM,Liner / medium combination,str,e.g. TL175/M140/TL175,free
+LS,Laminate structure,str,"layer stack, outer to inner",free
+MW,Microwave safe,enum,YES/NO,ENFORCED
+NC,Nominal capacity as quoted,str,the vendor's trade designation,free
+OP,Optical class,enum,CLEAR/TRANSLUCENT/OPAQUE/TINTED,ENFORCED
+OT,Verbatim value for an OTHER (9) code,str,SLOT=value; one entry per 9 in the core,free
+OV,Oven safe,enum,YES/NO,ENFORCED
+PC,Print colour count,int,colours,free
+PF,PFAS status,enum,FREE/PRESENT/UNTESTED,ENFORCED
+PM,Print method,enum,FLEXO/OFFSET/SILK/DIGITAL/HOTFOIL/GRAVURE,ENFORCED
+PR,Post-consumer recycled content,num,percent,free
+PS,Printed sides,int,sides,free
+PY,Ply count,int,plies,free
+RC,Recyclability stream,enum,PET1/HDPE2/PVC3/LDPE4/PP5/PS6/OTHER7/FIBER/METAL/GLASS/NONE,ENFORCED
+RS,Rim style,enum,ROLLED/FLANGE/CUT/CURLED/BEADED,ENFORCED
+SF,Surface finish,enum,SMOOTH/WRINKLE/EMBOSSED/MATTE/GLOSS/RIBBED,ENFORCED
+SG,Gusset detail,str,gusset construction,free
+SK,Vendor SKU as quoted,str,vendor's own item code,free
+SR,Scoring detail,str,score and crease pattern,free
+SZ,Nominal trade size,str,as quoted; NEVER authoritative -- DM is,free
+TF,Neck thread finish,str,"e.g. 38-400, PCO1881",free
+TH,Material thickness,num,microns,free
+TR,Service temperature range,str,e.g. -20C..100C,free
+TT,Tin tie,str,tin tie dimensions,free
+VT,Venting,enum,VENTED/ANTIFOG/SEALED,ENFORCED
+WN,Window panel,str,window material and size,free
+WP,Individual wrapping,enum,NONE/PAPER/PLASTIC/COMPOSTABLE_FILM,ENFORCED

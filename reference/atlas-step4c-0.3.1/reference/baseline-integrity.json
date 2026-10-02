@@ -1,0 +1,15 @@
+{
+  "engine_version": "0.1.1",
+  "dictionary": "A1 / 0.1.0-local-candidate",
+  "baseline_test_count": 47,
+  "known_answer_count": 44,
+  "sha256": {
+    "atlas/engine.py": "4e12c7212192a86bc50c0577f0d809da2dbc2e7c8d9cd73bdc3a5473c4b7ba04",
+    "atlas/__init__.py": "e191a34f8bd2bf6ef4baefb584c103affcff317515fa374bd4a97d6826dd8310",
+    "atlas/__main__.py": "9d95c9b13613c252d1d041296e4a376474ff9f7c40f7afbc627db0137d983821",
+    "tests/test_engine.py": "d66dcb70ed7931b84f110f65e37ade050f04f9b30adcdcb8cb50487605b45553",
+    "dictionary/atlas-A1-0.1.0.json": "87ce94a1e79e34d31def4d504f3be0cb8496e1c589dbda5ad5f12a6ae751b559",
+    "fixtures/verified-batch.json": "a9544fb2490e24e7ff190d61bccb3810f5cc6db8af7a57844654281f99ccafdb",
+    "fixtures/verified-results.json": "1fcb7059a2613cd7c1e2460af35f019eda5947768f69efefdb65f7136cc131e0"
+  }
+}

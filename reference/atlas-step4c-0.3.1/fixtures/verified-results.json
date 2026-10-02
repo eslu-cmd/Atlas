@@ -1,0 +1,504 @@
+[
+  {
+    "record": "V4",
+    "expected": "A1!APSX.BWX.XXX.X.X+FR:CLOSURE.GW:3_3.LP:D.NC:6oz.OP:CLEAR.UT:DM=90%20mm%3B%20dimension%20role%20unspecified",
+    "actual": "A1!APSX.BWX.XXX.X.X+FR:CLOSURE.GW:3_3.LP:D.NC:6oz.OP:CLEAR.UT:DM=90%20mm%3B%20dimension%20role%20unspecified",
+    "decode": {
+      "dictionary_release": "0.1.0-local-candidate",
+      "complete": true,
+      "facts": {
+        "fields": {
+          "MA": "APSX",
+          "AR": "BWX",
+          "CF": "XXX",
+          "CA": "X",
+          "FI": "X",
+          "FR": "CLOSURE",
+          "GW": "3_3",
+          "LP": "D",
+          "NC": "6oz",
+          "OP": "CLEAR",
+          "UT": [
+            [
+              "DM",
+              "90 mm; dimension role unspecified"
+            ]
+          ]
+        }
+      },
+      "description": [
+        "product: material = Polymer; PS (polystyrene, general purpose); UNKNOWN treatment",
+        "product: article = Bowl; UNKNOWN role",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+        "product: Local capacity = unknown",
+        "product: Local fitment = unknown",
+        "product: Functional role = \"CLOSURE\"",
+        "product: Unit weight = \"3_3\" g",
+        "product: Lid profile = dome lid",
+        "product: Nominal capacity as quoted = \"6oz\"",
+        "product: Optical class = \"CLEAR\"",
+        "product: Unresolved specification statements = [[\"DM\", \"90 mm; dimension role unspecified\"]]"
+      ],
+      "boundary": "Description equality does not establish product identity, fit, or approval."
+    },
+    "status": "encoded"
+  },
+  {
+    "record": "V7",
+    "expected": "A1!APSX.BWX.XXX.X.X+FR:CLOSURE.GW:3_3.NC:6oz.OP:CLEAR.UT:DM=90%20mm%3B%20dimension%20role%20unspecified,LP=Half%20Dome",
+    "actual": "A1!APSX.BWX.XXX.X.X+FR:CLOSURE.GW:3_3.NC:6oz.OP:CLEAR.UT:DM=90%20mm%3B%20dimension%20role%20unspecified,LP=Half%20Dome",
+    "decode": {
+      "dictionary_release": "0.1.0-local-candidate",
+      "complete": true,
+      "facts": {
+        "fields": {
+          "MA": "APSX",
+          "AR": "BWX",
+          "CF": "XXX",
+          "CA": "X",
+          "FI": "X",
+          "FR": "CLOSURE",
+          "GW": "3_3",
+          "NC": "6oz",
+          "OP": "CLEAR",
+          "UT": [
+            [
+              "DM",
+              "90 mm; dimension role unspecified"
+            ],
+            [
+              "LP",
+              "Half Dome"
+            ]
+          ]
+        }
+      },
+      "description": [
+        "product: material = Polymer; PS (polystyrene, general purpose); UNKNOWN treatment",
+        "product: article = Bowl; UNKNOWN role",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+        "product: Local capacity = unknown",
+        "product: Local fitment = unknown",
+        "product: Functional role = \"CLOSURE\"",
+        "product: Unit weight = \"3_3\" g",
+        "product: Nominal capacity as quoted = \"6oz\"",
+        "product: Optical class = \"CLEAR\"",
+        "product: Unresolved specification statements = [[\"DM\", \"90 mm; dimension role unspecified\"], [\"LP\", \"Half Dome\"]]"
+      ],
+      "boundary": "Description equality does not establish product identity, fit, or approval."
+    },
+    "status": "encoded"
+  },
+  {
+    "record": "V18",
+    "expected": "A1!JMPX.POX.XXS.X.X+NC:20%20Serve.UT:DM=216%20x%20278%20x%2076mm%3B%20dimension%20roles%20unspecified",
+    "actual": "A1!JMPX.POX.XXS.X.X+NC:20%20Serve.UT:DM=216%20x%20278%20x%2076mm%3B%20dimension%20roles%20unspecified",
+    "decode": {
+      "dictionary_release": "0.1.0-local-candidate",
+      "complete": true,
+      "facts": {
+        "fields": {
+          "MA": "JMPX",
+          "AR": "POX",
+          "CF": "XXS",
+          "CA": "X",
+          "FI": "X",
+          "NC": "20 Serve",
+          "UT": [
+            [
+              "DM",
+              "216 x 278 x 76mm; dimension roles unspecified"
+            ]
+          ]
+        }
+      },
+      "description": [
+        "product: material = Multi-Material Laminate; Metallized polyester laminate (mylar); UNKNOWN treatment",
+        "product: article = Pouch; UNKNOWN role",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; stand-up gusset",
+        "product: Local capacity = unknown",
+        "product: Local fitment = unknown",
+        "product: Nominal capacity as quoted = \"20 Serve\"",
+        "product: Unresolved specification statements = [[\"DM\", \"216 x 278 x 76mm; dimension roles unspecified\"]]"
+      ],
+      "boundary": "Description equality does not establish product identity, fit, or approval."
+    },
+    "status": "encoded"
+  },
+  {
+    "record": "V961",
+    "expected": "A1!BKWX.BGX.XXX.X.X+DM:GUSSET=34_925,HEIGHT=190_5,WIDTH=146_05.GS:30",
+    "actual": "A1!BKWX.BGX.XXX.X.X+DM:GUSSET=34_925,HEIGHT=190_5,WIDTH=146_05.GS:30",
+    "decode": {
+      "dictionary_release": "0.1.0-local-candidate",
+      "complete": true,
+      "facts": {
+        "fields": {
+          "MA": "BKWX",
+          "AR": "BGX",
+          "CF": "XXX",
+          "CA": "X",
+          "FI": "X",
+          "DM": {
+            "GUSSET": "34_925",
+            "HEIGHT": "190_5",
+            "WIDTH": "146_05"
+          },
+          "GS": "30"
+        }
+      },
+      "description": [
+        "product: material = Paper and Paperboard; White bleached kraft; UNKNOWN treatment",
+        "product: article = Bag; UNKNOWN role",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+        "product: Local capacity = unknown",
+        "product: Local fitment = unknown",
+        "product: Named dimensions = {\"GUSSET\": \"34_925\", \"HEIGHT\": \"190_5\", \"WIDTH\": \"146_05\"} mm",
+        "product: Basis weight = \"30\" g/m2"
+      ],
+      "boundary": "Description equality does not establish product identity, fit, or approval."
+    },
+    "status": "encoded"
+  },
+  {
+    "record": "V962",
+    "expected": "A1!BWXX.WRX.XXX.X.X+GS:60.UT:DM=12x12%20mm%3B%20dimension%20roles%20unspecified",
+    "actual": "A1!BWXX.WRX.XXX.X.X+GS:60.UT:DM=12x12%20mm%3B%20dimension%20roles%20unspecified",
+    "decode": {
+      "dictionary_release": "0.1.0-local-candidate",
+      "complete": true,
+      "facts": {
+        "fields": {
+          "MA": "BWXX",
+          "AR": "WRX",
+          "CF": "XXX",
+          "CA": "X",
+          "FI": "X",
+          "GS": "60",
+          "UT": [
+            [
+              "DM",
+              "12x12 mm; dimension roles unspecified"
+            ]
+          ]
+        }
+      },
+      "description": [
+        "product: material = Paper and Paperboard; Wax-base paper; UNKNOWN treatment",
+        "product: article = Wrap or sheet; UNKNOWN role",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+        "product: Local capacity = unknown",
+        "product: Local fitment = unknown",
+        "product: Basis weight = \"60\" g/m2",
+        "product: Unresolved specification statements = [[\"DM\", \"12x12 mm; dimension roles unspecified\"]]"
+      ],
+      "boundary": "Description equality does not establish product identity, fit, or approval."
+    },
+    "status": "encoded"
+  },
+  {
+    "record": "V963",
+    "expected": "A1!BWXX.WRX.XXX.X.X+GS:60.UT:DM=12x12%20mm%3B%20dimension%20roles%20unspecified",
+    "actual": "A1!BWXX.WRX.XXX.X.X+GS:60.UT:DM=12x12%20mm%3B%20dimension%20roles%20unspecified",
+    "decode": {
+      "dictionary_release": "0.1.0-local-candidate",
+      "complete": true,
+      "facts": {
+        "fields": {
+          "MA": "BWXX",
+          "AR": "WRX",
+          "CF": "XXX",
+          "CA": "X",
+          "FI": "X",
+          "GS": "60",
+          "UT": [
+            [
+              "DM",
+              "12x12 mm; dimension roles unspecified"
+            ]
+          ]
+        }
+      },
+      "description": [
+        "product: material = Paper and Paperboard; Wax-base paper; UNKNOWN treatment",
+        "product: article = Wrap or sheet; UNKNOWN role",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+        "product: Local capacity = unknown",
+        "product: Local fitment = unknown",
+        "product: Basis weight = \"60\" g/m2",
+        "product: Unresolved specification statements = [[\"DM\", \"12x12 mm; dimension roles unspecified\"]]"
+      ],
+      "boundary": "Description equality does not establish product identity, fit, or approval."
+    },
+    "status": "encoded"
+  },
+  {
+    "record": "V993",
+    "expected": null,
+    "actual": null,
+    "decode": null,
+    "status": "triage"
+  },
+  {
+    "record": "V1000",
+    "expected": "A1!BKCX.XXX.XXX.X.X+CL:WHITE.FS:RECYCLED.GS:60.UT:DM=4%2E25%20x%202%2E5%20x%203%2E75%20inches%3B%20dimension%20roles%20unspecified,FS=100%25%20recycled%3B%20post-consumer%20share%20unspecified~S(INSIDE){MA:XXXG}",
+    "actual": "A1!BKCX.XXX.XXX.X.X+CL:WHITE.FS:RECYCLED.GS:60.UT:DM=4%2E25%20x%202%2E5%20x%203%2E75%20inches%3B%20dimension%20roles%20unspecified,FS=100%25%20recycled%3B%20post-consumer%20share%20unspecified~S(INSIDE){MA:XXXG}",
+    "decode": {
+      "dictionary_release": "0.1.0-local-candidate",
+      "complete": true,
+      "facts": {
+        "fields": {
+          "MA": "BKCX",
+          "AR": "XXX",
+          "CF": "XXX",
+          "CA": "X",
+          "FI": "X",
+          "CL": "WHITE",
+          "FS": "RECYCLED",
+          "GS": "60",
+          "UT": [
+            [
+              "DM",
+              "4.25 x 2.5 x 3.75 inches; dimension roles unspecified"
+            ],
+            [
+              "FS",
+              "100% recycled; post-consumer share unspecified"
+            ]
+          ]
+        },
+        "groups": [
+          {
+            "scope": "INSIDE",
+            "node": {
+              "fields": {
+                "MA": "XXXG"
+              }
+            }
+          }
+        ]
+      },
+      "description": [
+        "product: material = Paper and Paperboard; Recycled kraft; UNKNOWN treatment",
+        "product: article = UNKNOWN article class; UNKNOWN role",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+        "product: Local capacity = unknown",
+        "product: Local fitment = unknown",
+        "product: Base colour = \"WHITE\"",
+        "product: Feedstock = \"RECYCLED\"",
+        "product: Basis weight = \"60\" g/m2",
+        "product: Unresolved specification statements = [[\"DM\", \"4.25 x 2.5 x 3.75 inches; dimension roles unspecified\"], [\"FS\", \"100% recycled; post-consumer share unspecified\"]]",
+        "product/INSIDE: material = UNKNOWN material family; UNKNOWN; greaseproof treated"
+      ],
+      "boundary": "Description equality does not establish product identity, fit, or approval."
+    },
+    "status": "encoded"
+  },
+  {
+    "record": "V1088",
+    "expected": "A1!BKRX.BGX.XXX.X.X+CL:WHITE.DM:DEPTH=120_65,HEIGHT=406_4,WIDTH=196_85.GS:80.NC:16LB.UT:CF=SOS",
+    "actual": "A1!BKRX.BGX.XXX.X.X+CL:WHITE.DM:DEPTH=120_65,HEIGHT=406_4,WIDTH=196_85.GS:80.NC:16LB.UT:CF=SOS",
+    "decode": {
+      "dictionary_release": "0.1.0-local-candidate",
+      "complete": true,
+      "facts": {
+        "fields": {
+          "MA": "BKRX",
+          "AR": "BGX",
+          "CF": "XXX",
+          "CA": "X",
+          "FI": "X",
+          "CL": "WHITE",
+          "DM": {
+            "DEPTH": "120_65",
+            "HEIGHT": "406_4",
+            "WIDTH": "196_85"
+          },
+          "GS": "80",
+          "NC": "16LB",
+          "UT": [
+            [
+              "CF",
+              "SOS"
+            ]
+          ]
+        }
+      },
+      "description": [
+        "product: material = Paper and Paperboard; Kraft paper, bleach state unspecified; UNKNOWN treatment",
+        "product: article = Bag; UNKNOWN role",
+        "product: configuration = UNKNOWN shape; UNKNOWN construction; UNKNOWN feature",
+        "product: Local capacity = unknown",
+        "product: Local fitment = unknown",
+        "product: Base colour = \"WHITE\"",
+        "product: Named dimensions = {\"DEPTH\": \"120_65\", \"HEIGHT\": \"406_4\", \"WIDTH\": \"196_85\"} mm",
+        "product: Basis weight = \"80\" g/m2",
+        "product: Nominal capacity as quoted = \"16LB\"",
+        "product: Unresolved specification statements = [[\"CF\", \"SOS\"]]"
+      ],
+      "boundary": "Description equality does not establish product identity, fit, or approval."
+    },
+    "status": "encoded"
+  },
+  {
+    "record": "V1141",
+    "expected": "A1!BKRX.CUX.XSX.X.X+CL:WHITE.DM:HEIGHT=152,TOP_DIA=90.UT:CA=20oz,MA_TREATMENT=18PE%20%2B18PE%3B%20side%2Forder%20and%20quantity%20units%20unspecified,TR=cold%20beverage%20use~L(X){GS:260.MA:BKRX;MA:APEX;MA:APEX}",
+    "actual": "A1!BKRX.CUX.XSX.X.X+CL:WHITE.DM:HEIGHT=152,TOP_DIA=90.UT:CA=20oz,MA_TREATMENT=18PE%20%2B18PE%3B%20side%2Forder%20and%20quantity%20units%20unspecified,TR=cold%20beverage%20use~L(X){GS:260.MA:BKRX;MA:APEX;MA:APEX}",
+    "decode": {
+      "dictionary_release": "0.1.0-local-candidate",
+      "complete": true,
+      "facts": {
+        "fields": {
+          "MA": "BKRX",
+          "AR": "CUX",
+          "CF": "XSX",
+          "CA": "X",
+          "FI": "X",
+          "CL": "WHITE",
+          "DM": {
+            "HEIGHT": "152",
+            "TOP_DIA": "90"
+          },
+          "UT": [
+            [
+              "CA",
+              "20oz"
+            ],
+            [
+              "MA_TREATMENT",
+              "18PE +18PE; side/order and quantity units unspecified"
+            ],
+            [
+              "TR",
+              "cold beverage use"
+            ]
+          ]
+        },
+        "groups": [
+          {
+            "direction": "X",
+            "layers": [
+              {
+                "fields": {
+                  "GS": "260",
+                  "MA": "BKRX"
+                }
+              },
+              {
+                "fields": {
+                  "MA": "APEX"
+                }
+              },
+              {
+                "fields": {
+                  "MA": "APEX"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "description": [
+        "product: material = Paper and Paperboard; Kraft paper, bleach state unspecified; UNKNOWN treatment",
+        "product: article = Cup; UNKNOWN role",
+        "product: configuration = UNKNOWN shape; single wall; UNKNOWN feature",
+        "product: Local capacity = unknown",
+        "product: Local fitment = unknown",
+        "product: Base colour = \"WHITE\"",
+        "product: Named dimensions = {\"HEIGHT\": \"152\", \"TOP_DIA\": \"90\"} mm",
+        "product: Unresolved specification statements = [[\"CA\", \"20oz\"], [\"MA_TREATMENT\", \"18PE +18PE; side/order and quantity units unspecified\"], [\"TR\", \"cold beverage use\"]]",
+        "product: layers unknown order (display sorted; repeats retained)",
+        "product/layer[1]: material = Paper and Paperboard; Kraft paper, bleach state unspecified; UNKNOWN treatment",
+        "product/layer[1]: Basis weight = \"260\" g/m2",
+        "product/layer[2]: material = Polymer; PE (polyethylene, grade unspecified); UNKNOWN treatment",
+        "product/layer[3]: material = Polymer; PE (polyethylene, grade unspecified); UNKNOWN treatment"
+      ],
+      "boundary": "Description equality does not establish product identity, fit, or approval."
+    },
+    "status": "encoded"
+  },
+  {
+    "record": "V1142",
+    "expected": "A1!BKRX.CUX.XSX.X.X+CL:WHITE.DM:HEIGHT=178,TOP_DIA=105.UT:CA=32oz,MA_TREATMENT=18PE%20%2B18PE%3B%20side%2Forder%20and%20quantity%20units%20unspecified,TR=cold%20beverage%20use~L(X){GS:280.MA:BKRX;MA:APEX;MA:APEX}",
+    "actual": "A1!BKRX.CUX.XSX.X.X+CL:WHITE.DM:HEIGHT=178,TOP_DIA=105.UT:CA=32oz,MA_TREATMENT=18PE%20%2B18PE%3B%20side%2Forder%20and%20quantity%20units%20unspecified,TR=cold%20beverage%20use~L(X){GS:280.MA:BKRX;MA:APEX;MA:APEX}",
+    "decode": {
+      "dictionary_release": "0.1.0-local-candidate",
+      "complete": true,
+      "facts": {
+        "fields": {
+          "MA": "BKRX",
+          "AR": "CUX",
+          "CF": "XSX",
+          "CA": "X",
+          "FI": "X",
+          "CL": "WHITE",
+          "DM": {
+            "HEIGHT": "178",
+            "TOP_DIA": "105"
+          },
+          "UT": [
+            [
+              "CA",
+              "32oz"
+            ],
+            [
+              "MA_TREATMENT",
+              "18PE +18PE; side/order and quantity units unspecified"
+            ],
+            [
+              "TR",
+              "cold beverage use"
+            ]
+          ]
+        },
+        "groups": [
+          {
+            "direction": "X",
+            "layers": [
+              {
+                "fields": {
+                  "GS": "280",
+                  "MA": "BKRX"
+                }
+              },
+              {
+                "fields": {
+                  "MA": "APEX"
+                }
+              },
+              {
+                "fields": {
+                  "MA": "APEX"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "description": [
+        "product: material = Paper and Paperboard; Kraft paper, bleach state unspecified; UNKNOWN treatment",
+        "product: article = Cup; UNKNOWN role",
+        "product: configuration = UNKNOWN shape; single wall; UNKNOWN feature",
+        "product: Local capacity = unknown",
+        "product: Local fitment = unknown",
+        "product: Base colour = \"WHITE\"",
+        "product: Named dimensions = {\"HEIGHT\": \"178\", \"TOP_DIA\": \"105\"} mm",
+        "product: Unresolved specification statements = [[\"CA\", \"32oz\"], [\"MA_TREATMENT\", \"18PE +18PE; side/order and quantity units unspecified\"], [\"TR\", \"cold beverage use\"]]",
+        "product: layers unknown order (display sorted; repeats retained)",
+        "product/layer[1]: material = Paper and Paperboard; Kraft paper, bleach state unspecified; UNKNOWN treatment",
+        "product/layer[1]: Basis weight = \"280\" g/m2",
+        "product/layer[2]: material = Polymer; PE (polyethylene, grade unspecified); UNKNOWN treatment",
+        "product/layer[3]: material = Polymer; PE (polyethylene, grade unspecified); UNKNOWN treatment"
+      ],
+      "boundary": "Description equality does not establish product identity, fit, or approval."
+    },
+    "status": "encoded"
+  },
+  {
+    "record": "V1143",
+    "expected": null,
+    "actual": null,
+    "decode": null,
+    "status": "triage"
+  }
+]

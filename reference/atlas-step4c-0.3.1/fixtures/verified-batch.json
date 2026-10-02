@@ -1,0 +1,1876 @@
+{
+  "metadata": {
+    "workbook_sha256": "f858d35441a039c42e44731df571d78f39c46e6907e3cf5e57e9b05573ac4d75",
+    "sheets": [
+      "Main Table"
+    ],
+    "physical_max_row": 1860,
+    "physical_max_column": 26,
+    "nonempty_rows_after_headers": 1100,
+    "nonempty_description_cells": 1072,
+    "selected_records": 12,
+    "selected_physical_rows": 16,
+    "selected_nonempty_rows": 13,
+    "headers": {
+      "A1": "MANUFACTURER",
+      "C1": "PRODUCT DETAILS",
+      "H1": "CASE DETAILS",
+      "O1": "PRICING AND PRODUCTION",
+      "C2": "Item Name / Description",
+      "D2": "Category",
+      "E2": "Material",
+      "F2": "Dimension (mm)",
+      "G2": "Product\nWeight (grams)\n/\nThickness (gsm)",
+      "H2": "Case Packing",
+      "K2": "Case Weight",
+      "L2": "Case Dimension (mm)",
+      "O2": "FOB Price (USD)",
+      "R2": "Mold",
+      "S2": "/",
+      "T2": "Lead Time\n(Days)",
+      "A3": "COMPANY",
+      "B3": "COUNTRY",
+      "C3": "/",
+      "D3": "/",
+      "E3": "/",
+      "F3": "/",
+      "G3": "/",
+      "H3": "Unit per Case",
+      "I3": "Unit Per Pack",
+      "J3": "Pack Per Case",
+      "K3": "Gross Weight\n(kg)",
+      "L3": "Length",
+      "M3": "Width",
+      "N3": "Height",
+      "O3": "Per Unit",
+      "P3": "Per Case",
+      "Q3": "Total",
+      "R3": "Cost",
+      "S3": "Mold Lead Time",
+      "T3": "Sample Lead Time",
+      "U3": "Production Lead Time"
+    },
+    "merges_intersecting_batch": [
+      "L993:L997",
+      "B4:B15",
+      "I993:I997",
+      "K993:K997",
+      "D993:D995",
+      "J993:J997",
+      "A4:A15",
+      "F993:F997",
+      "H993:H997",
+      "A1086:A1093",
+      "C993:C996",
+      "A18:A20",
+      "B961:B964",
+      "E993:E997",
+      "N993:N997",
+      "B18:B20",
+      "M993:M997",
+      "A961:A964",
+      "B993:B997",
+      "A993:A997"
+    ],
+    "coverage_note": "Counts are physical rows/description cells, not inferred product counts. Pending records need boundary review. Formula caches are preserved, not recalculated."
+  },
+  "records": [
+    {
+      "id": "V4",
+      "rows": [
+        4,
+        4
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "A4": {
+          "value": "Sowinpak",
+          "kind": "supplied",
+          "cached": null
+        },
+        "B4": {
+          "value": "CN",
+          "kind": "supplied",
+          "cached": null
+        },
+        "C4": {
+          "value": "6oz Clear PS Dome Lids",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D4": {
+          "value": "Plastic - PS",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E4": {
+          "value": "Bowl Lid",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F4": {
+          "value": 90,
+          "kind": "supplied",
+          "cached": null
+        },
+        "G4": {
+          "value": "3.3g",
+          "kind": "supplied",
+          "cached": null
+        },
+        "H4": {
+          "value": 1000,
+          "kind": "supplied",
+          "cached": null
+        },
+        "I4": {
+          "value": 50,
+          "kind": "supplied",
+          "cached": null
+        },
+        "J4": {
+          "value": 20,
+          "kind": "supplied",
+          "cached": null
+        },
+        "K4": {
+          "value": 4,
+          "kind": "supplied",
+          "cached": null
+        },
+        "L4": {
+          "value": 490,
+          "kind": "supplied",
+          "cached": null
+        },
+        "M4": {
+          "value": 205,
+          "kind": "supplied",
+          "cached": null
+        },
+        "N4": {
+          "value": 485,
+          "kind": "supplied",
+          "cached": null
+        },
+        "O4": {
+          "value": 0.01281,
+          "kind": "supplied",
+          "cached": null
+        },
+        "P4": {
+          "value": 12.81,
+          "kind": "supplied",
+          "cached": null
+        },
+        "Q4": {
+          "value": 92232,
+          "kind": "supplied",
+          "cached": null
+        },
+        "R4": {
+          "value": 3500,
+          "kind": "supplied",
+          "cached": null
+        },
+        "S4": {
+          "value": 20,
+          "kind": "supplied",
+          "cached": null
+        },
+        "T4": {
+          "value": "14 days",
+          "kind": "supplied",
+          "cached": null
+        },
+        "U4": {
+          "value": "30 days",
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A4",
+          "value": "Sowinpak",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B4",
+          "value": "CN",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "D identifies PS, E and C identify bowl closure; role X does not assert separate sale.",
+        "Clear becomes optical class. G explicitly supplies grams. F header supplies mm but no dimension role; not promoted to rim.",
+        "6oz is a lid trade designation, not lid capacity. Half Dome remains unresolved rather than equated to Dome."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H4",
+          "I4",
+          "J4",
+          "K4",
+          "L4",
+          "M4",
+          "N4",
+          "O4",
+          "P4",
+          "Q4",
+          "R4",
+          "S4",
+          "T4",
+          "U4"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A4",
+            "value": "Sowinpak",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B4",
+            "value": "CN",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification"
+      },
+      "uncertainty": [
+        "Saleability, treatment, measurement role and ounce standard not supplied."
+      ],
+      "facts": {
+        "fields": {
+          "MA": "APSX",
+          "AR": "BWX",
+          "FR": "CLOSURE",
+          "OP": "CLEAR",
+          "GW": {
+            "value": "3.3",
+            "unit": "g"
+          },
+          "NC": "6oz",
+          "UT": [
+            [
+              "DM",
+              "90 mm; dimension role unspecified"
+            ]
+          ],
+          "LP": "D"
+        }
+      },
+      "expected_code": "A1!APSX.BWX.XXX.X.X+FR:CLOSURE.GW:3_3.LP:D.NC:6oz.OP:CLEAR.UT:DM=90%20mm%3B%20dimension%20role%20unspecified"
+    },
+    {
+      "id": "V7",
+      "rows": [
+        7,
+        7
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "C7": {
+          "value": "6oz Clear PS Half Dome Lids",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D7": {
+          "value": "Plastic - PS",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E7": {
+          "value": "Bowl Lid",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F7": {
+          "value": 90,
+          "kind": "supplied",
+          "cached": null
+        },
+        "G7": {
+          "value": "3.3g",
+          "kind": "supplied",
+          "cached": null
+        },
+        "H7": {
+          "value": 1000,
+          "kind": "supplied",
+          "cached": null
+        },
+        "I7": {
+          "value": 50,
+          "kind": "supplied",
+          "cached": null
+        },
+        "J7": {
+          "value": 20,
+          "kind": "supplied",
+          "cached": null
+        },
+        "K7": {
+          "value": 4,
+          "kind": "supplied",
+          "cached": null
+        },
+        "L7": {
+          "value": 490,
+          "kind": "supplied",
+          "cached": null
+        },
+        "M7": {
+          "value": 205,
+          "kind": "supplied",
+          "cached": null
+        },
+        "N7": {
+          "value": 485,
+          "kind": "supplied",
+          "cached": null
+        },
+        "O7": {
+          "value": 0.01281,
+          "kind": "supplied",
+          "cached": null
+        },
+        "P7": {
+          "value": 12.81,
+          "kind": "supplied",
+          "cached": null
+        },
+        "Q7": {
+          "value": 92232,
+          "kind": "supplied",
+          "cached": null
+        },
+        "R7": {
+          "value": 3500,
+          "kind": "supplied",
+          "cached": null
+        },
+        "S7": {
+          "value": 20,
+          "kind": "supplied",
+          "cached": null
+        },
+        "T7": {
+          "value": "14 days",
+          "kind": "supplied",
+          "cached": null
+        },
+        "U7": {
+          "value": "30 days",
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A4",
+          "value": "Sowinpak",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B4",
+          "value": "CN",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "D identifies PS, E and C identify bowl closure; role X does not assert separate sale.",
+        "Clear becomes optical class. G explicitly supplies grams. F header supplies mm but no dimension role; not promoted to rim.",
+        "6oz is a lid trade designation, not lid capacity. Half Dome remains unresolved rather than equated to Dome."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H7",
+          "I7",
+          "J7",
+          "K7",
+          "L7",
+          "M7",
+          "N7",
+          "O7",
+          "P7",
+          "Q7",
+          "R7",
+          "S7",
+          "T7",
+          "U7"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A4",
+            "value": "Sowinpak",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B4",
+            "value": "CN",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification"
+      },
+      "uncertainty": [
+        "Saleability, treatment, measurement role and ounce standard not supplied."
+      ],
+      "facts": {
+        "fields": {
+          "MA": "APSX",
+          "AR": "BWX",
+          "FR": "CLOSURE",
+          "OP": "CLEAR",
+          "GW": {
+            "value": "3.3",
+            "unit": "g"
+          },
+          "NC": "6oz",
+          "UT": [
+            [
+              "DM",
+              "90 mm; dimension role unspecified"
+            ],
+            [
+              "LP",
+              "Half Dome"
+            ]
+          ]
+        }
+      },
+      "expected_code": "A1!APSX.BWX.XXX.X.X+FR:CLOSURE.GW:3_3.NC:6oz.OP:CLEAR.UT:DM=90%20mm%3B%20dimension%20role%20unspecified,LP=Half%20Dome"
+    },
+    {
+      "id": "V18",
+      "rows": [
+        18,
+        18
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "A18": {
+          "value": "Paharpur 3P",
+          "kind": "supplied",
+          "cached": null
+        },
+        "B18": {
+          "value": "India",
+          "kind": "supplied",
+          "cached": null
+        },
+        "C18": {
+          "value": "20 Serve Mylar Bags",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D18": {
+          "value": "Stand up Pouch",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E18": {
+          "value": "/",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F18": {
+          "value": "216 x 278 x 76mm",
+          "kind": "supplied",
+          "cached": null
+        },
+        "G18": {
+          "value": "/",
+          "kind": "supplied",
+          "cached": null
+        },
+        "H18": {
+          "value": 1000,
+          "kind": "supplied",
+          "cached": null
+        },
+        "I18": {
+          "value": 5800,
+          "kind": "supplied",
+          "cached": null
+        },
+        "J18": {
+          "value": "/",
+          "kind": "supplied",
+          "cached": null
+        },
+        "K18": {
+          "value": "/",
+          "kind": "supplied",
+          "cached": null
+        },
+        "L18": {
+          "value": 450,
+          "kind": "supplied",
+          "cached": null
+        },
+        "M18": {
+          "value": 330,
+          "kind": "supplied",
+          "cached": null
+        },
+        "N18": {
+          "value": 220,
+          "kind": "supplied",
+          "cached": null
+        },
+        "O18": {
+          "value": "=P18/H18",
+          "kind": "formula",
+          "cached": null
+        },
+        "P18": {
+          "value": 76.15,
+          "kind": "supplied",
+          "cached": null
+        },
+        "Q18": {
+          "value": "/",
+          "kind": "supplied",
+          "cached": null
+        },
+        "R18": {
+          "value": "/",
+          "kind": "supplied",
+          "cached": null
+        },
+        "S18": {
+          "value": "/",
+          "kind": "supplied",
+          "cached": null
+        },
+        "T18": {
+          "value": "/",
+          "kind": "supplied",
+          "cached": null
+        },
+        "U18": {
+          "value": "/",
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A18",
+          "value": "Paharpur 3P",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B18",
+          "value": "India",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "Mylar maps to retained J/MP; Stand up Pouch supplies PO and stand-up gusset S.",
+        "20 Serve stays a trade designation; no count-capacity inference.",
+        "O18 formula and cached result retained separately; no recalculation or quote correction."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H18",
+          "I18",
+          "J18",
+          "K18",
+          "L18",
+          "M18",
+          "N18",
+          "O18",
+          "P18",
+          "Q18",
+          "R18",
+          "S18",
+          "T18",
+          "U18"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A18",
+            "value": "Paharpur 3P",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B18",
+            "value": "India",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification"
+      },
+      "uncertainty": [
+        "No exhaustive layers, order or named dimension roles supplied."
+      ],
+      "facts": {
+        "fields": {
+          "MA": "JMPX",
+          "AR": "POX",
+          "CF": "XXS",
+          "NC": "20 Serve",
+          "UT": [
+            [
+              "DM",
+              "216 x 278 x 76mm; dimension roles unspecified"
+            ]
+          ]
+        }
+      },
+      "expected_code": "A1!JMPX.POX.XXS.X.X+NC:20%20Serve.UT:DM=216%20x%20278%20x%2076mm%3B%20dimension%20roles%20unspecified"
+    },
+    {
+      "id": "V961",
+      "rows": [
+        961,
+        961
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "A961": {
+          "value": "MPC Paper",
+          "kind": "supplied",
+          "cached": null
+        },
+        "B961": {
+          "value": "Canada",
+          "kind": "supplied",
+          "cached": null
+        },
+        "C961": {
+          "value": "Large Cookie Bag",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D961": {
+          "value": "Paper Container",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E961": {
+          "value": "Bleached / White Kraft",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F961": {
+          "value": "7.5 (H) x 5.75 (W) x 1.375 (G) inches",
+          "kind": "supplied",
+          "cached": null
+        },
+        "G961": {
+          "value": "30gsm",
+          "kind": "supplied",
+          "cached": null
+        },
+        "H961": {
+          "value": 1500,
+          "kind": "supplied",
+          "cached": null
+        },
+        "L961": {
+          "value": 9,
+          "kind": "supplied",
+          "cached": null
+        },
+        "M961": {
+          "value": 5.5,
+          "kind": "supplied",
+          "cached": null
+        },
+        "N961": {
+          "value": 12,
+          "kind": "supplied",
+          "cached": null
+        },
+        "P961": {
+          "value": 72,
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A961",
+          "value": "MPC Paper",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B961",
+          "value": "Canada",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "C identifies bag despite generic D category. E explicitly states Bleached / White Kraft, supporting KW.",
+        "F explicitly labels H/W/G and inches: exact conversion; G supplies basis weight."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H961",
+          "L961",
+          "M961",
+          "N961",
+          "P961"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A961",
+            "value": "MPC Paper",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B961",
+            "value": "Canada",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification"
+      },
+      "uncertainty": [
+        "Treatment, construction and saleability unspecified."
+      ],
+      "facts": {
+        "fields": {
+          "MA": "BKWX",
+          "AR": "BGX",
+          "DM": {
+            "HEIGHT": {
+              "value": "7.5",
+              "unit": "in"
+            },
+            "WIDTH": {
+              "value": "5.75",
+              "unit": "in"
+            },
+            "GUSSET": {
+              "value": "1.375",
+              "unit": "in"
+            }
+          },
+          "GS": {
+            "value": "30",
+            "unit": "gsm"
+          }
+        }
+      },
+      "expected_code": "A1!BKWX.BGX.XXX.X.X+DM:GUSSET=34_925,HEIGHT=190_5,WIDTH=146_05.GS:30"
+    },
+    {
+      "id": "V962",
+      "rows": [
+        962,
+        962
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "C962": {
+          "value": "Wax Paper Wrap Non Printed",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D962": {
+          "value": "Paper Wrap",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E962": {
+          "value": "Wax Paper",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F962": {
+          "value": "12x12",
+          "kind": "supplied",
+          "cached": null
+        },
+        "G962": {
+          "value": "60gsm",
+          "kind": "supplied",
+          "cached": null
+        },
+        "H962": {
+          "value": 5000,
+          "kind": "supplied",
+          "cached": null
+        },
+        "L962": {
+          "value": 12.5,
+          "kind": "supplied",
+          "cached": null
+        },
+        "M962": {
+          "value": 12.5,
+          "kind": "supplied",
+          "cached": null
+        },
+        "N962": {
+          "value": 9,
+          "kind": "supplied",
+          "cached": null
+        },
+        "P962": {
+          "value": 46.63,
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A961",
+          "value": "MPC Paper",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B961",
+          "value": "Canada",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "Wax Paper uses retained B/WX grade; coating mechanism not inferred from grade.",
+        "F2 explicitly labels dimension mm. Tuple roles remain unknown even though plausible inches are not assumed.",
+        "Printing separated; base descriptions must compare equal."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H962",
+          "L962",
+          "M962",
+          "N962",
+          "P962"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A961",
+            "value": "MPC Paper",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B961",
+            "value": "Canada",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification",
+        "customization": {
+          "source": "C962",
+          "print_state": "non-printed"
+        }
+      },
+      "uncertainty": [
+        "Dimension roles unknown; header/cell plausibility is not permission to change units."
+      ],
+      "facts": {
+        "fields": {
+          "MA": "BWXX",
+          "AR": "WRX",
+          "GS": "60",
+          "UT": [
+            [
+              "DM",
+              "12x12 mm; dimension roles unspecified"
+            ]
+          ]
+        }
+      },
+      "expected_code": "A1!BWXX.WRX.XXX.X.X+GS:60.UT:DM=12x12%20mm%3B%20dimension%20roles%20unspecified"
+    },
+    {
+      "id": "V963",
+      "rows": [
+        963,
+        963
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "C963": {
+          "value": "Wax Paper Wrap Printed",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D963": {
+          "value": "Paper Wrap",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E963": {
+          "value": "Wax Paper",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F963": {
+          "value": "12x12",
+          "kind": "supplied",
+          "cached": null
+        },
+        "G963": {
+          "value": "60gsm",
+          "kind": "supplied",
+          "cached": null
+        },
+        "H963": {
+          "value": 5000,
+          "kind": "supplied",
+          "cached": null
+        },
+        "L963": {
+          "value": 12.5,
+          "kind": "supplied",
+          "cached": null
+        },
+        "M963": {
+          "value": 12.5,
+          "kind": "supplied",
+          "cached": null
+        },
+        "N963": {
+          "value": 9,
+          "kind": "supplied",
+          "cached": null
+        },
+        "P963": {
+          "value": 60.31,
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A961",
+          "value": "MPC Paper",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B961",
+          "value": "Canada",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "Wax Paper uses retained B/WX grade; coating mechanism not inferred from grade.",
+        "F2 explicitly labels dimension mm. Tuple roles remain unknown even though plausible inches are not assumed.",
+        "Printing separated; base descriptions must compare equal."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H963",
+          "L963",
+          "M963",
+          "N963",
+          "P963"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A961",
+            "value": "MPC Paper",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B961",
+            "value": "Canada",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification",
+        "customization": {
+          "source": "C963",
+          "print_state": "printed"
+        }
+      },
+      "uncertainty": [
+        "Dimension roles unknown; header/cell plausibility is not permission to change units."
+      ],
+      "facts": {
+        "fields": {
+          "MA": "BWXX",
+          "AR": "WRX",
+          "GS": "60",
+          "UT": [
+            [
+              "DM",
+              "12x12 mm; dimension roles unspecified"
+            ]
+          ]
+        }
+      },
+      "expected_code": "A1!BWXX.WRX.XXX.X.X+GS:60.UT:DM=12x12%20mm%3B%20dimension%20roles%20unspecified"
+    },
+    {
+      "id": "V993",
+      "rows": [
+        993,
+        997
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "A993": {
+          "value": "PAK2ECO PACKAGING LIMITED",
+          "kind": "supplied",
+          "cached": null
+        },
+        "B993": {
+          "value": "TH",
+          "kind": "supplied",
+          "cached": null
+        },
+        "C993": {
+          "value": "BAG PAPER BROWN 6#",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D993": {
+          "value": "Paper - Virgin Kraft ",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E993": {
+          "value": "Bag - Without Handle\n",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F993": {
+          "value": "150X280X90",
+          "kind": "supplied",
+          "cached": null
+        },
+        "H993": {
+          "value": 500,
+          "kind": "supplied",
+          "cached": null
+        },
+        "K993": {
+          "value": 5.9,
+          "kind": "supplied",
+          "cached": null
+        },
+        "L993": {
+          "value": 300,
+          "kind": "supplied",
+          "cached": null
+        },
+        "M993": {
+          "value": 170,
+          "kind": "supplied",
+          "cached": null
+        },
+        "N993": {
+          "value": 420,
+          "kind": "supplied",
+          "cached": null
+        },
+        "D996": {
+          "value": "Paper - Recyced Kraft",
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A993",
+          "value": "PAK2ECO PACKAGING LIMITED",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B993",
+          "value": "TH",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "C993:C996 and shared dimensions/packing span continuation rows; D993:D995 says virgin kraft and D996 says recycled kraft.",
+        "All cells in rows 993–997 retained, including empty continuation rows and overlapping merged structures.",
+        "It is unresolved whether these are alternatives or a conflict. No resolved Spec ID or invented SKU split."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H993",
+          "K993",
+          "L993",
+          "M993",
+          "N993"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A993",
+            "value": "PAK2ECO PACKAGING LIMITED",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B993",
+            "value": "TH",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification"
+      },
+      "uncertainty": [
+        "Resolve record/alternative boundary and material statements before association."
+      ],
+      "facts": null,
+      "expected_code": null,
+      "triage_known_facts": {
+        "article": "bag",
+        "handle": "without handle",
+        "original_material_statements": [
+          "Paper - Virgin Kraft  ",
+          "Paper - Recyced Kraft"
+        ]
+      }
+    },
+    {
+      "id": "V1000",
+      "rows": [
+        1000,
+        1000
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "A1000": {
+          "value": "Redstar",
+          "kind": "supplied",
+          "cached": null
+        },
+        "B1000": {
+          "value": "Vietnam",
+          "kind": "supplied",
+          "cached": null
+        },
+        "C1000": {
+          "value": "100% Recycled White Kraft Paper 60 gsm With Greaseproof coating inside 4.25 x 2.5 x 3.75 inches Note: Kindly quote us with 2 color print",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D1000": {
+          "value": "Others (Specified in Item Name)",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E1000": {
+          "value": "Paper - Greaseproof",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F1000": {
+          "value": "4.25 x 2.5 x 3.75 inches",
+          "kind": "supplied",
+          "cached": null
+        },
+        "G1000": {
+          "value": 60,
+          "kind": "supplied",
+          "cached": null
+        },
+        "H1000": {
+          "value": 1000,
+          "kind": "supplied",
+          "cached": null
+        },
+        "I1000": {
+          "value": 200,
+          "kind": "supplied",
+          "cached": null
+        },
+        "J1000": {
+          "value": 5,
+          "kind": "supplied",
+          "cached": null
+        },
+        "K1000": {
+          "value": 3.7,
+          "kind": "supplied",
+          "cached": null
+        },
+        "L1000": {
+          "value": 235,
+          "kind": "supplied",
+          "cached": null
+        },
+        "M1000": {
+          "value": 210,
+          "kind": "supplied",
+          "cached": null
+        },
+        "N1000": {
+          "value": 230,
+          "kind": "supplied",
+          "cached": null
+        },
+        "O1000": {
+          "value": 0.01,
+          "kind": "supplied",
+          "cached": null
+        },
+        "P1000": {
+          "value": 10.37,
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A1000",
+          "value": "Redstar",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B1000",
+          "value": "Vietnam",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "C explicitly supplies recycled white kraft and 60 gsm. KC and FS RECYCLED retain recycled material; no PR=100 because post-consumer basis unspecified.",
+        "Inside greaseproof coating is local treatment; no parent-to-child material inheritance.",
+        "No article type inferred from packing/dimensions. Printing request moved to customization."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H1000",
+          "I1000",
+          "J1000",
+          "K1000",
+          "L1000",
+          "M1000",
+          "N1000",
+          "O1000",
+          "P1000"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A1000",
+            "value": "Redstar",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B1000",
+            "value": "Vietnam",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification",
+        "customization": {
+          "source": "C1000",
+          "request": "Kindly quote us with 2 color print"
+        }
+      },
+      "uncertainty": [
+        "Bleaching, article and dimension roles unknown; no independent coating verification."
+      ],
+      "facts": {
+        "fields": {
+          "MA": "BKCX",
+          "CL": "WHITE",
+          "FS": "RECYCLED",
+          "GS": "60",
+          "UT": [
+            [
+              "DM",
+              "4.25 x 2.5 x 3.75 inches; dimension roles unspecified"
+            ],
+            [
+              "FS",
+              "100% recycled; post-consumer share unspecified"
+            ]
+          ]
+        },
+        "groups": [
+          {
+            "scope": "INSIDE",
+            "node": {
+              "fields": {
+                "MA": "XXXG"
+              }
+            }
+          }
+        ]
+      },
+      "expected_code": "A1!BKCX.XXX.XXX.X.X+CL:WHITE.FS:RECYCLED.GS:60.UT:DM=4%2E25%20x%202%2E5%20x%203%2E75%20inches%3B%20dimension%20roles%20unspecified,FS=100%25%20recycled%3B%20post-consumer%20share%20unspecified~S(INSIDE){MA:XXXG}"
+    },
+    {
+      "id": "V1088",
+      "rows": [
+        1088,
+        1088
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "B1088": {
+          "value": "India",
+          "kind": "supplied",
+          "cached": null
+        },
+        "C1088": {
+          "value": "Bag, Paper 16LB White SOS (80GSM Kraft)",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D1088": {
+          "value": "Bag",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E1088": {
+          "value": "White Kraft Paper, 80gsm",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F1088": {
+          "value": "7.75 W x 4.75 D x 16 H inches",
+          "kind": "supplied",
+          "cached": null
+        },
+        "G1088": {
+          "value": "80gsm",
+          "kind": "supplied",
+          "cached": null
+        },
+        "H1088": {
+          "value": 500,
+          "kind": "supplied",
+          "cached": null
+        },
+        "L1088": {
+          "value": 41,
+          "kind": "supplied",
+          "cached": null
+        },
+        "M1088": {
+          "value": 41,
+          "kind": "supplied",
+          "cached": null
+        },
+        "N1088": {
+          "value": 38,
+          "kind": "supplied",
+          "cached": null
+        },
+        "O1088": {
+          "value": 0.06,
+          "kind": "supplied",
+          "cached": null
+        },
+        "P1088": {
+          "value": 28.14,
+          "kind": "supplied",
+          "cached": null
+        },
+        "U1088": {
+          "value": "30–40 days after order confirmation",
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A1086",
+          "value": "ProPac Solution",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B1088",
+          "value": "India",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "White Kraft does not establish bleaching: KR plus WHITE.",
+        "Explicit W/D/H inches normalized exactly. 16LB retained as trade designation rather than load.",
+        "SOS remains targeted unresolved construction."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H1088",
+          "L1088",
+          "M1088",
+          "N1088",
+          "O1088",
+          "P1088",
+          "U1088"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A1086",
+            "value": "ProPac Solution",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B1088",
+            "value": "India",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification"
+      },
+      "uncertainty": [
+        "Bleaching, treatment, saleability and interpretation of SOS unspecified."
+      ],
+      "facts": {
+        "fields": {
+          "MA": "BKRX",
+          "AR": "BGX",
+          "CL": "WHITE",
+          "GS": "80",
+          "NC": "16LB",
+          "UT": [
+            [
+              "CF",
+              "SOS"
+            ]
+          ],
+          "DM": {
+            "WIDTH": {
+              "value": "7.75",
+              "unit": "in"
+            },
+            "DEPTH": {
+              "value": "4.75",
+              "unit": "in"
+            },
+            "HEIGHT": {
+              "value": "16",
+              "unit": "in"
+            }
+          }
+        }
+      },
+      "expected_code": "A1!BKRX.BGX.XXX.X.X+CL:WHITE.DM:DEPTH=120_65,HEIGHT=406_4,WIDTH=196_85.GS:80.NC:16LB.UT:CF=SOS"
+    },
+    {
+      "id": "V1141",
+      "rows": [
+        1141,
+        1141
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "A1141": {
+          "value": "TBH Industries",
+          "kind": "supplied",
+          "cached": null
+        },
+        "B1141": {
+          "value": "Malaysia",
+          "kind": "supplied",
+          "cached": null
+        },
+        "C1141": {
+          "value": "20oz SINGLE WALL PAPER COLD CUP",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D1141": {
+          "value": "Cup (Single-Wall)",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E1141": {
+          "value": "Paper - White Kraft",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F1141": {
+          "value": "(T) 90 MM X (H)152MM (260gsm +18PE +18PE)",
+          "kind": "supplied",
+          "cached": null
+        },
+        "H1141": {
+          "value": "1000PCS",
+          "kind": "supplied",
+          "cached": null
+        },
+        "I1141": {
+          "value": 50,
+          "kind": "supplied",
+          "cached": null
+        },
+        "J1141": {
+          "value": 20,
+          "kind": "supplied",
+          "cached": null
+        },
+        "O1141": {
+          "value": 0.035,
+          "kind": "supplied",
+          "cached": null
+        },
+        "T1141": {
+          "value": 10,
+          "kind": "supplied",
+          "cached": null
+        },
+        "U1141": {
+          "value": 14,
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A1141",
+          "value": "TBH Industries",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B1141",
+          "value": "Malaysia",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "Single wall is explicit; White Kraft does not establish bleaching. T/H are top diameter/height in cup context and explicit mm. Top diameter is not fitment.",
+        "Parenthetical gsm + PE + PE supplies paper basis weight and two PE occurrences; no PE weight/unit or layer order inferred.",
+        "Unknown-order multiset retains both PE layers. Ounces unresolved."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H1141",
+          "I1141",
+          "J1141",
+          "O1141",
+          "T1141",
+          "U1141"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A1141",
+            "value": "TBH Industries",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B1141",
+            "value": "Malaysia",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification"
+      },
+      "uncertainty": [
+        "PE quantity units, side/order, bleaching, capacity standard and saleability unresolved."
+      ],
+      "facts": {
+        "fields": {
+          "MA": "BKRX",
+          "AR": "CUX",
+          "CF": "XSX",
+          "CL": "WHITE",
+          "DM": {
+            "TOP_DIA": "90",
+            "HEIGHT": "152"
+          },
+          "UT": [
+            [
+              "CA",
+              "20oz"
+            ],
+            [
+              "TR",
+              "cold beverage use"
+            ],
+            [
+              "MA_TREATMENT",
+              "18PE +18PE; side/order and quantity units unspecified"
+            ]
+          ]
+        },
+        "groups": [
+          {
+            "direction": "X",
+            "layers": [
+              {
+                "fields": {
+                  "MA": "BKRX",
+                  "GS": "260"
+                }
+              },
+              {
+                "fields": {
+                  "MA": "APEX"
+                }
+              },
+              {
+                "fields": {
+                  "MA": "APEX"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "expected_code": "A1!BKRX.CUX.XSX.X.X+CL:WHITE.DM:HEIGHT=152,TOP_DIA=90.UT:CA=20oz,MA_TREATMENT=18PE%20%2B18PE%3B%20side%2Forder%20and%20quantity%20units%20unspecified,TR=cold%20beverage%20use~L(X){GS:260.MA:BKRX;MA:APEX;MA:APEX}"
+    },
+    {
+      "id": "V1142",
+      "rows": [
+        1142,
+        1142
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "A1142": {
+          "value": "TBH Industries",
+          "kind": "supplied",
+          "cached": null
+        },
+        "B1142": {
+          "value": "Malaysia",
+          "kind": "supplied",
+          "cached": null
+        },
+        "C1142": {
+          "value": "32oz SINGLE WALL PAPER COLD CUP",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D1142": {
+          "value": "Cup (Single-Wall)",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E1142": {
+          "value": "Paper - White Kraft",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F1142": {
+          "value": "(T) 105 MM X (H)178MM (280gsm +18PE +18PE)",
+          "kind": "supplied",
+          "cached": null
+        },
+        "H1142": {
+          "value": "500pcs",
+          "kind": "supplied",
+          "cached": null
+        },
+        "I1142": {
+          "value": 25,
+          "kind": "supplied",
+          "cached": null
+        },
+        "J1142": {
+          "value": 20,
+          "kind": "supplied",
+          "cached": null
+        },
+        "O1142": {
+          "value": 0.055,
+          "kind": "supplied",
+          "cached": null
+        },
+        "T1142": {
+          "value": 10,
+          "kind": "supplied",
+          "cached": null
+        },
+        "U1142": {
+          "value": 14,
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A1142",
+          "value": "TBH Industries",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B1142",
+          "value": "Malaysia",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "Single wall is explicit; White Kraft does not establish bleaching. T/H are top diameter/height in cup context and explicit mm. Top diameter is not fitment.",
+        "Parenthetical gsm + PE + PE supplies paper basis weight and two PE occurrences; no PE weight/unit or layer order inferred.",
+        "Unknown-order multiset retains both PE layers. Ounces unresolved."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H1142",
+          "I1142",
+          "J1142",
+          "O1142",
+          "T1142",
+          "U1142"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A1142",
+            "value": "TBH Industries",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B1142",
+            "value": "Malaysia",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification"
+      },
+      "uncertainty": [
+        "PE quantity units, side/order, bleaching, capacity standard and saleability unresolved."
+      ],
+      "facts": {
+        "fields": {
+          "MA": "BKRX",
+          "AR": "CUX",
+          "CF": "XSX",
+          "CL": "WHITE",
+          "DM": {
+            "TOP_DIA": "105",
+            "HEIGHT": "178"
+          },
+          "UT": [
+            [
+              "CA",
+              "32oz"
+            ],
+            [
+              "TR",
+              "cold beverage use"
+            ],
+            [
+              "MA_TREATMENT",
+              "18PE +18PE; side/order and quantity units unspecified"
+            ]
+          ]
+        },
+        "groups": [
+          {
+            "direction": "X",
+            "layers": [
+              {
+                "fields": {
+                  "MA": "BKRX",
+                  "GS": "280"
+                }
+              },
+              {
+                "fields": {
+                  "MA": "APEX"
+                }
+              },
+              {
+                "fields": {
+                  "MA": "APEX"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "expected_code": "A1!BKRX.CUX.XSX.X.X+CL:WHITE.DM:HEIGHT=178,TOP_DIA=105.UT:CA=32oz,MA_TREATMENT=18PE%20%2B18PE%3B%20side%2Forder%20and%20quantity%20units%20unspecified,TR=cold%20beverage%20use~L(X){GS:280.MA:BKRX;MA:APEX;MA:APEX}"
+    },
+    {
+      "id": "V1143",
+      "rows": [
+        1143,
+        1143
+      ],
+      "source": "/Users/luisdedios/Desktop/Projects/Proposals/Final Output/verified list.xlsx",
+      "worksheet": "Main Table",
+      "cells": {
+        "A1143": {
+          "value": "TBH Industries",
+          "kind": "supplied",
+          "cached": null
+        },
+        "B1143": {
+          "value": "Malaysia",
+          "kind": "supplied",
+          "cached": null
+        },
+        "C1143": {
+          "value": "Example: 32 oz Bleached Rectangular Bagasse Container",
+          "kind": "supplied",
+          "cached": null
+        },
+        "D1143": {
+          "value": "Container",
+          "kind": "supplied",
+          "cached": null
+        },
+        "E1143": {
+          "value": "Bagasse",
+          "kind": "supplied",
+          "cached": null
+        },
+        "F1143": {
+          "value": "204 Dia x 59.6",
+          "kind": "supplied",
+          "cached": null
+        },
+        "G1143": {
+          "value": 12.5,
+          "kind": "supplied",
+          "cached": null
+        },
+        "H1143": {
+          "value": 500,
+          "kind": "supplied",
+          "cached": null
+        }
+      },
+      "supplier_context": {
+        "A": {
+          "source": "A1143",
+          "value": "TBH Industries",
+          "basis": "explicit cell or containing merged range only"
+        },
+        "B": {
+          "source": "B1143",
+          "value": "Malaysia",
+          "basis": "explicit cell or containing merged range only"
+        }
+      },
+      "mapping": [
+        "Source labels this Example; it is not independently established supplier-product evidence.",
+        "C says rectangular while F supplies Dia. Preserve both and withhold resolved association.",
+        "G bare 12.5 sits under a mixed weight/thickness header; do not infer unit or role."
+      ],
+      "outside": {
+        "commercial_packing_evidence_cells": [
+          "H1143"
+        ],
+        "supplier": {
+          "A": {
+            "source": "A1143",
+            "value": "TBH Industries",
+            "basis": "explicit cell or containing merged range only"
+          },
+          "B": {
+            "source": "B1143",
+            "value": "Malaysia",
+            "basis": "explicit cell or containing merged range only"
+          }
+        },
+        "transcription": "User-confirmed accurate transcription; no independent certification"
+      },
+      "uncertainty": [
+        "Shape/dimension conflict and ambiguous measurement role."
+      ],
+      "facts": null,
+      "expected_code": null,
+      "triage_known_facts": {
+        "material": "bagasse",
+        "bleaching_statement": "Bleached",
+        "capacity_unresolved": "32 oz"
+      }
+    }
+  ]
+}

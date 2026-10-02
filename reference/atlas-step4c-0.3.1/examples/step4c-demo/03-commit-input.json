@@ -1,0 +1,15 @@
+{
+  "preview": "98b1bfa2-cf7e-4881-98ca-4d386ed9bc20",
+  "decision": {
+    "action": "offering",
+    "confirmed": true,
+    "evidence": [
+      "4a9514b9-144f-416c-a573-133ce64d7313"
+    ],
+    "supplier": "92950f2d-afae-43f8-9621-dcc01189aeaa",
+    "reference": "ILLUSTRATIVE-REVIEWED"
+  },
+  "actor": "ILLUSTRATIVE CLI reviewer",
+  "reason": "Explicit synthetic demonstration; not workbook product facts",
+  "provenance": "illustrative"
+}

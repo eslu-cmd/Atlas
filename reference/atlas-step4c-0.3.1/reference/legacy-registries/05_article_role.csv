@@ -1,0 +1,9 @@
+code,canonical_phrase,status
+B,base / body sold on its own,ACTIVE
+L,closure / lid sold on its own,ACTIVE
+C,combination: base and closure sold as one SKU,ACTIVE
+A,accessory or insert,ACTIVE
+K,kit of multiple distinct articles,ACTIVE
+P,"component part, not independently saleable",ACTIVE
+9,OTHER role (see facet OT),RESERVED-OTHER
+X,UNKNOWN role,RESERVED-UNKNOWN

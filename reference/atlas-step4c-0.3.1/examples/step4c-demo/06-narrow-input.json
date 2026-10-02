@@ -1,0 +1,21 @@
+{
+  "criteria": [
+    {
+      "field": "AR_CLASS",
+      "value": "CU"
+    },
+    {
+      "field": "CA",
+      "value": {
+        "value": "0.5",
+        "unit": "L"
+      }
+    }
+  ],
+  "types": [
+    "offering"
+  ],
+  "evidence": {
+    "approval": "client_approval"
+  }
+}

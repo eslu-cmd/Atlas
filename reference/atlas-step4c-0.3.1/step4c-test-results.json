@@ -1,0 +1,427 @@
+{
+  "version": "0.3.1",
+  "records_baseline": "0.2.1",
+  "engine": "0.1.1",
+  "dictionary": "A1 / 0.1.0-local-candidate",
+  "time_utc": "2026-10-01T16:42:22.088321+00:00",
+  "python": "3.9.6",
+  "sqlite": "3.43.2",
+  "inherited_tests": 84,
+  "previous_baseline_tests": 126,
+  "original_step4c_tests": 42,
+  "repair_regression_tests": 20,
+  "new_tests": 62,
+  "total_tests": 146,
+  "failures": 0,
+  "errors": 0,
+  "known_answers_unchanged": true,
+  "known_answers": 44,
+  "integrity": {
+    "atlas/engine.py": true,
+    "atlas/batch.py": true,
+    "atlas/records_cli.py": true,
+    "atlas/demo.py": true,
+    "schema/sqlite.sql": true,
+    "dictionary/atlas-A1-0.1.0.json": true,
+    "fixtures/verified-batch.json": true,
+    "fixtures/verified-results.json": true,
+    "fixtures/engine-known-answers-0.1.1.json": true,
+    "tests/test_engine.py": true,
+    "tests/test_records.py": true,
+    "tests/test_repairs_021.py": true,
+    "run_tests.py": true,
+    "run_all_tests.py": true
+  },
+  "repair_protected_integrity": {
+    "atlas/records.py": true,
+    "tests/test_step4c.py": true,
+    "atlas/phrases.py": true,
+    "atlas/workflow_cli.py": true,
+    "dictionary/atlas-A1-0.1.0.json": true,
+    "dictionary/REFERENCE.md": true,
+    "fixtures/create-offering.json": true,
+    "fixtures/engine-known-answers-0.1.1.json": true,
+    "fixtures/cup.json": true,
+    "fixtures/search-bags.json": true,
+    "fixtures/search-laminates.json": true,
+    "fixtures/verified-batch.json": true,
+    "fixtures/verified-results.json": true
+  },
+  "scenarios": [
+    {
+      "test": "test_step4c.Step4CTests.test_01_source_review_commit_search_history_reopen",
+      "status": "pass",
+      "expected": "AT-02/11/20: source \u2192 preview \u2192 exact reuse \u2192 offering \u2192 search \u2192 reopen.",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_02_broad_match_not_equality_or_silent_association",
+      "status": "pass",
+      "expected": "AT-02: broad matching cannot assert candidate's missing material and rim.",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_03_new_difference_and_close_values_remain_distinct",
+      "status": "pass",
+      "expected": "test_03_new_difference_and_close_values_remain_distinct",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_04_rejected_commit_is_atomic",
+      "status": "pass",
+      "expected": "test_04_rejected_commit_is_atomic",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_05_repeat_submission_after_reopen_no_duplicates",
+      "status": "pass",
+      "expected": "test_05_repeat_submission_after_reopen_no_duplicates",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_06_client_requirement_never_supplier_claim",
+      "status": "pass",
+      "expected": "test_06_client_requirement_never_supplier_claim",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_07_triage_resolution_append_and_original_preserved",
+      "status": "pass",
+      "expected": "test_07_triage_resolution_append_and_original_preserved",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_08_explicit_narrowing_only_selected_fields",
+      "status": "pass",
+      "expected": "test_08_explicit_narrowing_only_selected_fields",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_09_missing_negative_na_contradictory",
+      "status": "pass",
+      "expected": "test_09_missing_negative_na_contradictory",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_10_exact_units_quantity_roles_and_dimensions",
+      "status": "pass",
+      "expected": "test_10_exact_units_quantity_roles_and_dimensions",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_11_interval_containment_not_overlap",
+      "status": "pass",
+      "expected": "test_11_interval_containment_not_overlap",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_12_tolerance_and_approximate",
+      "status": "pass",
+      "expected": "test_12_tolerance_and_approximate",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_13_measurement_basis_and_conditions",
+      "status": "pass",
+      "expected": "test_13_measurement_basis_and_conditions",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_14_inside_does_not_satisfy_outside",
+      "status": "pass",
+      "expected": "test_14_inside_does_not_satisfy_outside",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_15_layers_never_fictional_combination",
+      "status": "pass",
+      "expected": "test_15_layers_never_fictional_combination",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_16_capability_contains_target_not_product_semantics",
+      "status": "pass",
+      "expected": "test_16_capability_contains_target_not_product_semantics",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_17_capability_alternatives_cannot_be_combined",
+      "status": "pass",
+      "expected": "test_17_capability_alternatives_cannot_be_combined",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_18_two_suppliers_no_cross_evidence_join",
+      "status": "pass",
+      "expected": "test_18_two_suppliers_no_cross_evidence_join",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_19_client_customization_sample_scope",
+      "status": "pass",
+      "expected": "test_19_client_customization_sample_scope",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_20_approval_forms_withdrawn_and_rejected",
+      "status": "pass",
+      "expected": "test_20_approval_forms_withdrawn_and_rejected",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_21_quotation_sampling_photos_selected_only",
+      "status": "pass",
+      "expected": "test_21_quotation_sampling_photos_selected_only",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_22_kit_browsing_membership_no_component_approval_inheritance",
+      "status": "pass",
+      "expected": "test_22_kit_browsing_membership_no_component_approval_inheritance",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_23_kit_revision_evidence_scope",
+      "status": "pass",
+      "expected": "test_23_kit_revision_evidence_scope",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_24_clarification_changes_current_retains_original_quote",
+      "status": "pass",
+      "expected": "test_24_clarification_changes_current_retains_original_quote",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_25_correction_and_physical_change",
+      "status": "pass",
+      "expected": "test_25_correction_and_physical_change",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_26_add_information_does_not_create_physical_version",
+      "status": "pass",
+      "expected": "test_26_add_information_does_not_create_physical_version",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_27_phrase_requires_confirmation_and_preserves_unrecognized",
+      "status": "pass",
+      "expected": "test_27_phrase_requires_confirmation_and_preserves_unrecognized",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_28_phrase_edit_explicit_narrowing_no_unit_guess",
+      "status": "pass",
+      "expected": "test_28_phrase_edit_explicit_narrowing_no_unit_guess",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_29_empty_unsupported_and_failed_are_distinct",
+      "status": "pass",
+      "expected": "test_29_empty_unsupported_and_failed_are_distinct",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_30_preserved_batch_no_promotion_and_structured_triage",
+      "status": "pass",
+      "expected": "test_30_preserved_batch_no_promotion_and_structured_triage",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_31_cli_visible_errors_and_structured_search",
+      "status": "pass",
+      "expected": "test_31_cli_visible_errors_and_structured_search",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_32_equivalent_business_context_evidence_join",
+      "status": "pass",
+      "expected": "test_32_equivalent_business_context_evidence_join",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_33_photos_and_approval_cannot_cross_sample_iterations",
+      "status": "pass",
+      "expected": "test_33_photos_and_approval_cannot_cross_sample_iterations",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_34_membership_search_needs_no_commercial_context",
+      "status": "pass",
+      "expected": "test_34_membership_search_needs_no_commercial_context",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_35_unresolved_raw_assertion_blocks_commit",
+      "status": "pass",
+      "expected": "test_35_unresolved_raw_assertion_blocks_commit",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_36_explicit_no_handle_and_surface_negative",
+      "status": "pass",
+      "expected": "test_36_explicit_no_handle_and_surface_negative",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_37_unknown_states_remain_explicit_and_not_matches",
+      "status": "pass",
+      "expected": "test_37_unknown_states_remain_explicit_and_not_matches",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_38_current_withdrawal_and_historical_search",
+      "status": "pass",
+      "expected": "test_38_current_withdrawal_and_historical_search",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_39_lids_bags_and_complete_code_inspection",
+      "status": "pass",
+      "expected": "test_39_lids_bags_and_complete_code_inspection",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_40_broad_selection_cannot_override_known_conflict",
+      "status": "pass",
+      "expected": "test_40_broad_selection_cannot_override_known_conflict",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_41_capability_legacy_unstructured_remains_visible",
+      "status": "pass",
+      "expected": "test_41_capability_legacy_unstructured_remains_visible",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_step4c.Step4CTests.test_42_contradiction_not_hidden_by_another_missing_field",
+      "status": "pass",
+      "expected": "test_42_contradiction_not_hidden_by_another_missing_field",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R1_amended_supported_preview_and_exact_reuse",
+      "status": "pass",
+      "expected": "test_R1_amended_supported_preview_and_exact_reuse",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R1_candidate_preview_explains_known_other_difference",
+      "status": "pass",
+      "expected": "test_R1_candidate_preview_explains_known_other_difference",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R1_other_exact_reuse_and_unknown_enrichment",
+      "status": "pass",
+      "expected": "test_R1_other_exact_reuse_and_unknown_enrichment",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R1_reject_other_substitution_atomic_source_retained",
+      "status": "pass",
+      "expected": "Known OTHER is not unknown: reject PET substitution with no partial commit.",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R2_absent_compatible_window_is_gap",
+      "status": "pass",
+      "expected": "test_R2_absent_compatible_window_is_gap",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R2_article_stackable_is_not_sipper",
+      "status": "pass",
+      "expected": "test_R2_article_stackable_is_not_sipper",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R2_core_lid_and_missing_lp_do_not_borrow_article_features",
+      "status": "pass",
+      "expected": "test_R2_core_lid_and_missing_lp_do_not_borrow_article_features",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R2_explicit_lp_dome_is_searchable",
+      "status": "pass",
+      "expected": "test_R2_explicit_lp_dome_is_searchable",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R2_explicit_negative_exclusion_na_and_valid_fx",
+      "status": "pass",
+      "expected": "test_R2_explicit_negative_exclusion_na_and_valid_fx",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R2_intake_preview_keeps_article_and_lid_features_separate",
+      "status": "pass",
+      "expected": "test_R2_intake_preview_keeps_article_and_lid_features_separate",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R3_ca_fi_applicability_unchanged",
+      "status": "pass",
+      "expected": "test_R3_ca_fi_applicability_unchanged",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R3_nonzero_does_not_equal_zero",
+      "status": "pass",
+      "expected": "test_R3_nonzero_does_not_equal_zero",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R3_zero_percent_is_numeric",
+      "status": "pass",
+      "expected": "test_R3_zero_percent_is_numeric",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R4_broad_approval_uses_approved_v2_despite_rejected_v1",
+      "status": "pass",
+      "expected": "test_R4_broad_approval_uses_approved_v2_despite_rejected_v1",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R4_explicit_iterations_and_sampling",
+      "status": "pass",
+      "expected": "test_R4_explicit_iterations_and_sampling",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R4_independent_sampling_efforts_with_reused_labels",
+      "status": "pass",
+      "expected": "test_R4_independent_sampling_efforts_with_reused_labels",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R4_no_cross_supplier_client_or_customization_transfer",
+      "status": "pass",
+      "expected": "test_R4_no_cross_supplier_client_or_customization_transfer",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R4_physical_and_kit_revisions_do_not_inherit_approval",
+      "status": "pass",
+      "expected": "test_R4_physical_and_kit_revisions_do_not_inherit_approval",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R4_same_iteration_conflict_and_withdrawal_remain_negative",
+      "status": "pass",
+      "expected": "test_R4_same_iteration_conflict_and_withdrawal_remain_negative",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    },
+    {
+      "test": "test_repairs_031.Repair031Tests.test_R4_unsampled_decisions_have_separate_scope",
+      "status": "pass",
+      "expected": "test_R4_unsampled_decisions_have_separate_scope",
+      "actual": "All explicit expected and prohibited-outcome assertions passed on persistent SQLite"
+    }
+  ],
+  "source_fixture": "test_30 uses the preserved batch; other tests are illustrative",
+  "success": true,
+  "boundary": "Local intake/search evidence only; not all AT-01\u201324 workflows, shared editing, cloud deployment or recovery."
+}

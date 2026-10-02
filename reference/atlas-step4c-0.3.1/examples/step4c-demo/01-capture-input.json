@@ -1,0 +1,37 @@
+{
+  "document": {
+    "label": "ILLUSTRATIVE intake: 500 mL PET cup",
+    "kind": "supplier_statement",
+    "source": {
+      "title": "ILLUSTRATIVE quotation",
+      "uri": "illustrative://step4c/quote"
+    },
+    "locator": {
+      "page": 1,
+      "paragraph": 2
+    },
+    "statements": [
+      {
+        "statement": "500 mL PET cup body; 98 mm rim; offering reference ILLUSTRATIVE-REVIEWED",
+        "uncertainty": "stated",
+        "supplied": {
+          "capacity": "500 mL",
+          "rim": "98 mm",
+          "formula": null,
+          "cached": null
+        }
+      }
+    ],
+    "facts": {
+      "fields": {
+        "MA": "APTX",
+        "AR": "CUB",
+        "CA": "M500",
+        "FI": "R98"
+      }
+    }
+  },
+  "actor": "ILLUSTRATIVE CLI reviewer",
+  "reason": "Explicit synthetic demonstration; not workbook product facts",
+  "provenance": "illustrative"
+}

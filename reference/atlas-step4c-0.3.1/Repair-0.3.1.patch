@@ -1,0 +1,346 @@
+--- a/atlas/intake.py
++++ b/atlas/intake.py
+@@ -3,7 +3,7 @@
+ import hashlib
+ from .records import ROOT, UNCERTAINTY, need, dump
+ from .engine import Engine
+-from .search import Search, SLOTS
++from .search import Search, SLOTS, outcome, classification
+ 
+ class Intake:
+     def __init__(self,store):
+@@ -49,9 +49,9 @@
+                 if 'X' not in value and '9' not in value: result.append({'field':field,'value':value,'scope':path})
+             ar=fs.get('AR','XXX'); feature=fs.get('CF','XXX')[2]
+             if feature not in ('X','9') and ar[:2]!='XX':
+-                result.append({'field':'CF_FEATURE','value':{'article':ar[:2],'closure':ar[2]=='L' or fs.get('FR')=='CLOSURE','token':feature},'scope':path})
++                result.append({'field':'CF_FEATURE','value':{'article':ar[:2],'closure':ar[2]=='L','token':feature},'scope':path})
+             for feature in fs.get('FX',[]):
+-                result.append({'field':'CF_FEATURE','value':{'article':ar[:2],'closure':ar[2]=='L' or fs.get('FR')=='CLOSURE','token':feature},'scope':path})
++                result.append({'field':'CF_FEATURE','value':{'article':ar[:2],'closure':ar[2]=='L','token':feature},'scope':path})
+             for k,v in fs.items():
+                 if k in ('MA','AR','CF','QC','TO','UT','OT','FX'): continue
+                 rows=[('DM_'+name,value) for name,value in v.items()] if k=='DM' else [(k,v)]
+@@ -70,6 +70,24 @@
+                 if 'scope' in g: walk(g['node'],path+[g['scope']])
+         walk(node,[])
+         return result
++
++    def other_comparisons(self, original, candidate):
++        """OTHER is a known slot plus its exact explanation, not an unknown wildcard.
++
++        Scoped/layer groups already require unchanged recorded groups at selection.
++        This handles root OT, including CF_FEATURE which has no scalar search slot.
++        """
++        checks=[]
++        fields=candidate.get('fields',{})
++        slots={**SLOTS,'CF_FEATURE':('CF',2,3,'FEATURE')}
++        for target,wording in original.get('fields',{}).get('OT',[]):
++            block,start,end,_=slots[target]
++            default={'MA':'XXXX','AR':'XXX','CF':'XXX'}[block]
++            token=fields.get(block,default)[start:end]
++            preserved=[target,wording] in fields.get('OT',[])
++            state='satisfies' if preserved else 'gap' if set(token)=={'X'} else 'contradiction'
++            checks.append(outcome(state,'Known OTHER slot and exact explanation must be retained; reinterpretation needs an amended preview',criterion={'field':target,'other':wording},recorded_token=token,recorded_other=fields.get('OT',[])))
++        return checks
+ 
+     def preview(self,intake,*,facts=None,uncertainty_facts=None,actor,reason,provenance='operational'):
+         record=self.s.get(intake,'triage'); snap=record['data']['snapshot']
+@@ -92,6 +110,8 @@
+         for row in candidates['results']:
+             # Include contradicted candidates, with explicit differences, for review.
+             entries.append({k:row[k] for k in ('id','code','readable','facts','classification','explanations')})
++            entries[-1]['explanations']=entries[-1]['explanations']+self.other_comparisons(node,row['facts'])
++            entries[-1]['classification']=classification(entries[-1]['explanations'])
+             entries[-1]['equal_description']=row['code']==code
+         differences=[{'specification':r['id'],'equal_description':r['equal_description'],
+                       'intake_facts':node,'candidate_facts':r['facts'],
+@@ -138,7 +158,7 @@
+                         current=self.e.decode(chosen)
+                         need(all(g in current.get('groups',[]) for g in p['data']['facts'].get('groups',[])), 'Scoped/layer construction differs; create a fully supported revised preview')
+                         need(all(x in current['fields'].get('UT',[]) for x in p['data']['facts']['fields'].get('UT',[])), 'Unresolved wording changes require an explicitly amended preview')
+-                        checks=[Search(self.s).evaluate(current,c) for c in self.criteria(p['data']['facts'])]
++                        checks=[Search(self.s).evaluate(current,c) for c in self.criteria(p['data']['facts'])]+self.other_comparisons(p['data']['facts'],current)
+                         need(all(x['state']=='satisfies' for x in checks),'Selected description contradicts or cannot support interpreted facts; amend preview with evidence')
+                     code=chosen
+                 equal=[r for r in self.s.all('specification') if r['data']['code']==code]
+--- a/atlas/search.py
++++ b/atlas/search.py
+@@ -4,7 +4,7 @@
+ from .engine import Engine, SpecError, exact
+ from .records import ROOT, RecordError
+ 
+-VERSION = '0.3.0'
++VERSION = '0.3.1'
+ SLOTS = {'MA_FAMILY':('MA',0,1,'FAMILY'), 'MA_GRADE':('MA',1,3,'GRADE'),
+          'MA_TREATMENT':('MA',3,4,'TREATMENT'), 'AR_CLASS':('AR',0,2,'ARTICLE'),
+          'AR_ROLE':('AR',2,3,'ROLE'), 'CF_SHAPE':('CF',0,1,'SHAPE'),
+@@ -150,14 +150,28 @@
+                 actual=False if ar[:2] not in (cl,'XX') or role=='CLOSURE' else True if ar[:2]==cl and (want=='bag' or role=='BODY') else None
+             return outcome('gap' if actual is None else 'satisfies' if actual else 'contradiction','Article/function classification; unknown role does not prove body or saleability')
+         if field=='CF_FEATURE':
+-            ar=f.get('AR','XXX'); closure=ar[2]=='L' or f.get('FR')=='CLOSURE'
++            ar=f.get('AR','XXX')
+             if ar[:2]=='XX': return outcome('gap','Feature article scope is unknown')
+             if ar[:2]!=want['article']: return outcome('contradiction','Feature belongs to a different article scope')
+-            if closure!=want['closure']:
+-                return outcome('contradiction' if ar[2] in ('B','L','A') or f.get('FR') else 'gap','Feature closure/body scope differs or is unknown')
+-            tokens=[f.get('CF','XXX')[2]]+f.get('FX',[])
+-            if tokens==['X']: return outcome('gap','Feature not supplied')
+-            return outcome('satisfies' if want['token'] in tokens else 'contradiction','Scoped feature comparison, including explicit negative feature',recorded=tokens)
++            # Core/FX dictionary is selected by the encoded role, not FR.
++            # A closure with role X still has article-scoped core/FX and a separate LP.
++            if want['closure']:
++                if ar[2]=='L': tokens=[f.get('CF','XXX')[2]]+f.get('FX',[])
++                elif f.get('FR')=='CLOSURE': tokens=[f.get('LP','X')]
++                else:
++                    return outcome('contradiction' if ar[2] in ('B','A') or f.get('FR') else 'gap','Closure function differs or is unknown')
++                rules=self.e.d['feature_rules']['LID']
++            else:
++                if ar[2]=='L': return outcome('gap','Core/FX use the lid dictionary; no article-scoped feature recorded')
++                tokens=[f.get('CF','XXX')[2]]+f.get('FX',[])
++                rules=self.e.d['feature_rules'].get(ar[:2],self.e.d['feature_rules']['_DEFAULT'])
++            requested=want['token']
++            if requested in tokens: return outcome('satisfies','Feature recorded in the selected dictionary scope',recorded=tokens)
++            known=set(tokens)-{'X','9'}
++            exclusive=any(requested in group and known.intersection(group) for group in rules['exclusive_sets'])
++            negative=set(rules['negative'])
++            contradiction=bool('0' in known or requested=='0' and known or exclusive or known.intersection(negative) or requested in negative and known)
++            return outcome('contradiction' if contradiction else 'gap','Explicit negative, non-applicability or mutually exclusive feature' if contradiction else 'Compatible optional feature not supplied in this dictionary scope',recorded=tokens)
+         if field in SLOTS:
+             block,start,end,_=SLOTS[field]; default={'MA':'XXXX','AR':'XXX','CF':'XXX'}[block]
+             actual=f.get(block,default)[start:end]
+@@ -173,7 +187,7 @@
+         if field in SLOTS and 'X' in actual: return outcome('gap','Incomplete slot',recorded=actual)
+         if self.is_numeric(field):
+             request=self.numeric_request(c)
+-            if actual=='0' or request is None:
++            if field in ('CA','FI') and (actual=='0' or request is None):
+                 return outcome('satisfies' if actual=='0' and request is None else 'contradiction','Explicit applicability comparison',recorded=actual)
+             raw,unit,_=self.e.numeric_target(field,f)
+             vals=self.e.unit(raw,unit); lo,hi=vals[0],vals[-1]
+@@ -230,8 +244,19 @@
+             same=[c['id'] for c in contexts if self.s.same_context(c['id'],cid)]
+             samples=[s for id in same for s in self.s.referring(id,'context','sample') if not scope.get('sample') or s['id']==scope['sample']]
+             # Sample evidence is evaluated per iteration, never photo V1 + approval V2.
+-            sample_scoped=bool(scope.get('sample') or filters.get('sampling') or filters.get('photos'))
+-            iterations=samples or [None] if sample_scoped else [None]
++            sample_required=bool(scope.get('sample') or filters.get('sampling') or filters.get('photos'))
++            sample_scoped=sample_required or 'approval' in filters
++            if sample_required:
++                iterations=samples or [None]
++            elif 'approval' in filters:
++                # Exact sample IDs also identify their sequence; repeated V1 labels
++                # across independent efforts must never pool decisions.
++                approvals=[a for id in same for a in self.s.referring(id,'context','approval') if a['data']['type']==filters['approval']]
++                iterations=[sample for sample in samples if any(self.s.one(a['id'],'sample')==sample['id'] for a in approvals)]
++                if any(self.s.one(a['id'],'sample') is None for a in approvals): iterations.append(None)
++                if not iterations: iterations=[None]
++            else:
++                iterations=[None]
+             for iteration in iterations:
+                 sample_id=iteration['id'] if iteration else None
+                 checks=[]
+@@ -244,7 +269,7 @@
+                     elif k=='photos':
+                         ids=[n['id'] for n in self.s.referring(sample_id,'sample','sample_note') if n['data']['type']=='photo' and n['links'].get('attachments')] if sample_id else []
+                     elif k=='approval':
+-                        approvals=[a for id in same for a in self.s.referring(id,'context','approval') if a['data']['type']==v and (not sample_scoped or sample_id and self.s.one(a['id'],'sample')==sample_id)]
++                        approvals=[a for id in same for a in self.s.referring(id,'context','approval') if a['data']['type']==v and (not sample_scoped or self.s.one(a['id'],'sample')==sample_id and (not sample_required or sample_id is not None))]
+                         active_rejections=[a for a in approvals if self.s.is_active(a['id']) and a['data']['decision']=='rejected']
+                         ids=[a['id'] for a in approvals if self.s.is_active(a['id']) and a['data']['decision']==APPROVALS[v]] if not active_rejections else []
+                         rejected=bool(approvals) and not ids
+--- a/run_step4c_tests.py
++++ b/run_step4c_tests.py
+@@ -11,6 +11,7 @@
+ ROOT=Path(__file__).resolve().parent
+ sys.path.insert(0,str(ROOT/'tests'))
+ import test_step4c
++import test_repairs_031
+ 
+ class Result(unittest.TextTestResult):
+     def __init__(self,*a,**kw): super().__init__(*a,**kw); self.rows=[]
+@@ -24,12 +25,14 @@
+ baseline=subprocess.run([sys.executable,'run_all_tests.py'],cwd=ROOT,capture_output=True,text=True)
+ (ROOT/'Step-4C-Inherited-Test-Run.txt').write_text(baseline.stdout+baseline.stderr)
+ b=json.loads((ROOT/'record-test-results.json').read_text())
+-suite=unittest.defaultTestLoader.loadTestsFromModule(test_step4c)
++suite=unittest.TestSuite([unittest.defaultTestLoader.loadTestsFromModule(m) for m in (test_step4c,test_repairs_031)])
+ with (ROOT/'Step-4C-Test-Run.txt').open('w') as log:
+     result=unittest.TextTestRunner(stream=log,verbosity=2,resultclass=Result).run(suite)
+ pinned=json.loads((ROOT/'reference/Step-4C-inherited-integrity.json').read_text())
+ integrity={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in pinned['sha256'].items()}
+-report={'version':'0.3.0','records_baseline':'0.2.1','engine':'0.1.1','dictionary':'A1 / 0.1.0-local-candidate','time_utc':datetime.now(timezone.utc).isoformat(),'python':platform.python_version(),'sqlite':sqlite3.sqlite_version,'inherited_tests':b['total_tests'],'new_tests':result.testsRun,'total_tests':b['total_tests']+result.testsRun,'failures':b['failures']+len(result.failures),'errors':b['errors']+len(result.errors),'known_answers_unchanged':b['known_answers_unchanged'],'known_answers':b['known_answers'],'integrity':integrity,'scenarios':result.rows,'source_fixture':'test_30 uses the preserved batch; other tests are illustrative','success':baseline.returncode==0 and result.wasSuccessful() and all(integrity.values()),'boundary':'Local intake/search evidence only; not all AT-01–24 workflows, shared editing, cloud deployment or recovery.'}
++repair_pinned=json.loads((ROOT/'reference/Repair-0.3.1-protected-integrity.json').read_text())
++repair_integrity={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in repair_pinned['sha256'].items()}
++report={'version':'0.3.1','records_baseline':'0.2.1','engine':'0.1.1','dictionary':'A1 / 0.1.0-local-candidate','time_utc':datetime.now(timezone.utc).isoformat(),'python':platform.python_version(),'sqlite':sqlite3.sqlite_version,'inherited_tests':b['total_tests'],'previous_baseline_tests':126,'original_step4c_tests':42,'repair_regression_tests':20,'new_tests':result.testsRun,'total_tests':b['total_tests']+result.testsRun,'failures':b['failures']+len(result.failures),'errors':b['errors']+len(result.errors),'known_answers_unchanged':b['known_answers_unchanged'],'known_answers':b['known_answers'],'integrity':integrity,'repair_protected_integrity':repair_integrity,'scenarios':result.rows,'source_fixture':'test_30 uses the preserved batch; other tests are illustrative','success':baseline.returncode==0 and result.wasSuccessful() and all(integrity.values()) and all(repair_integrity.values()),'boundary':'Local intake/search evidence only; not all AT-01–24 workflows, shared editing, cloud deployment or recovery.'}
+ (ROOT/'step4c-test-results.json').write_text(json.dumps(report,indent=2)+'\n')
+-print(json.dumps({k:v for k,v in report.items() if k not in ('integrity','scenarios')},indent=2))
++print(json.dumps({k:v for k,v in report.items() if k not in ('integrity','repair_protected_integrity','scenarios')},indent=2))
+ sys.exit(0 if report['success'] else 1)
+--- a/tools/package_step4c.py
++++ b/tools/package_step4c.py
+@@ -16,9 +16,9 @@
+     for p in sorted(ROOT.rglob('*')):
+         if p.is_file() and p.name!='.DS_Store' and '__pycache__' not in p.parts and 'work' not in p.relative_to(ROOT).parts and p!=ROOT/'manifest.json':
+             files[p.relative_to(ROOT).as_posix()]=digest(p.read_bytes())
+-    manifest={'version':'0.3.0','baseline_records':'0.2.1','engine':'0.1.1','dictionary':'A1 / 0.1.0-local-candidate','algorithm':'SHA-256','exclusion':'manifest.json excludes itself; generated Python caches, .DS_Store and local work/ excluded','files':files}
++    manifest={'version':'0.3.1','baseline_records':'0.2.1','engine':'0.1.1','dictionary':'A1 / 0.1.0-local-candidate','algorithm':'SHA-256','exclusion':'manifest.json excludes itself; generated Python caches, .DS_Store and local work/ excluded','files':files}
+     (ROOT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+-    archive=OUT/'Atlas-Step-4C-0.3.0.zip'
++    archive=OUT/'Atlas-Step-4C-0.3.1.zip'
+     with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED) as z:
+         for name in list(files)+['manifest.json']: z.write(ROOT/name,'atlas-step4c/'+name)
+     checksum=digest(archive.read_bytes())
+@@ -27,8 +27,8 @@
+         bad=z.testzip()
+         actual=set(z.namelist()); expected={'atlas-step4c/'+n for n in list(files)+['manifest.json']}
+         mismatches=[name for name,h in files.items() if digest(z.read('atlas-step4c/'+name))!=h]
+-    report={'version':'0.3.0','archive':archive.name,'sha256':checksum,'manifested_files':len(files),'archive_entries':len(actual),'crc_error':bad,'missing_entries':sorted(expected-actual),'extra_entries':sorted(actual-expected),'content_mismatches':mismatches,'passed':not bad and actual==expected and not mismatches}
+-    (OUT/'Package-Verification-0.3.0.json').write_text(json.dumps(report,indent=2)+'\n')
++    report={'version':'0.3.1','archive':archive.name,'sha256':checksum,'manifested_files':len(files),'archive_entries':len(actual),'crc_error':bad,'missing_entries':sorted(expected-actual),'extra_entries':sorted(actual-expected),'content_mismatches':mismatches,'passed':not bad and actual==expected and not mismatches}
++    (OUT/'Package-Verification-0.3.1.json').write_text(json.dumps(report,indent=2)+'\n')
+     print(json.dumps(report,indent=2)); return 0 if report['passed'] else 1
+ 
+ if __name__=='__main__': sys.exit(main())
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,4 @@
+-# Source One Atlas — Step 4C 0.3.0
++# Source One Atlas — Step 4C 0.3.1
+ 
+ Persistent intake, review and explicit-criteria search, extending records **0.2.1**, engine **0.1.1**, and dictionary **A1 / 0.1.0-local-candidate**. Standard-library Python and local SQLite; no installation, AI or network required. Executed on Python 3.9.6 / SQLite 3.43.2.
+ 
+@@ -11,7 +11,7 @@
+ python3 run_step4c_tests.py
+ ```
+ 
+-The combined runner executes **126 tests: 84 inherited + 42 new**, checks all **44 unchanged known answers**, and verifies 14 pinned inherited files. Original commands remain available; `python3 run_all_tests.py` intentionally runs only the inherited 84. `python3 -m unittest discover -s tests -v` runs all tests without generating reports.
++The combined runner executes **146 tests: 84 inherited + 42 original Step 4C + 20 repair regressions**, checks all **44 unchanged known answers**, and verifies 14 pinned inherited files plus the repair-specific protected files. See `Repair-0.3.1-Notes.md` for the four reproduced defects and before/after evidence. Original commands remain available; `python3 run_all_tests.py` intentionally runs only the inherited 84. `python3 -m unittest discover -s tests -v` runs all tests without generating reports.
+ 
+ ## End-to-end CLI demonstration
+ 
+--- a/Workflow-Reference.md
++++ b/Workflow-Reference.md
+@@ -1,4 +1,4 @@
+-# Step 4C workflow and query reference
++# Step 4C 0.3.1 workflow and query reference
+ 
+ ## Source capture and review
+ 
+@@ -32,7 +32,7 @@
+ | `add_information` | Existing `subject` product/version/association/kit/revision; appends sourced assertions without changing physical identity. |
+ | `request` | Only client-requirement intake; optional client ID. Preserves requirements/source separately from supplier statements. |
+ 
+-All description decisions accept optional `selected_specification`. A broad match alone is rejected. To affirm a more complete existing candidate, the reviewer must explicitly supply its complete `supported_code` and supporting evidence. Known facts must agree; different scoped/layer constructions or changed unresolved statements require a new, fully supported preview. The action is a recorded human assessment, not machine verification of source truth. Conflict/ambiguity/unsupported markers must be addressed in an explicitly amended preview before a resolved description/association commit.
++All description decisions accept optional `selected_specification`. A broad match alone is rejected. To affirm a more complete existing candidate, the reviewer must explicitly supply its complete `supported_code` and supporting evidence. Known facts must agree, including known OTHER slots and their exact OT explanations. Dropping or changing an OTHER characteristic, changing scoped/layer constructions, or changing unresolved statements requires a new, fully supported preview. Preview comparisons expose the OTHER difference, and commit rechecks it. Filling unknowns while retaining the same OTHER explanation remains supported. The action is a recorded human assessment, not machine verification of source truth. Conflict/ambiguity/unsupported markers must be addressed in an explicitly amended preview before a resolved description/association commit.
+ 
+ Ordinary facts do not trigger a clarification-versus-change question. Only review of changed existing offering information selects H01, H06 or H02. Printing/artwork, quotes, packing and sampling continue through their established Store operations; this milestone does not duplicate those workflows.
+ 
+@@ -61,7 +61,7 @@
+ ### Supported fields
+ 
+ - Core slots: MA_FAMILY, MA_GRADE, MA_TREATMENT, AR_CLASS, AR_ROLE, CF_SHAPE, CF_CONSTRUCTION. Values are dictionary tokens. MA_GRADE includes its family (`APT`, `APP`, `BKR`) to preserve meaning.
+-- `CF_FEATURE`: `{"article":"BG","closure":false,"token":"N"}` selects the correct scoped feature dictionary, including no-handle/plain negatives and additional features.
++- `CF_FEATURE`: `{"article":"BG","closure":false,"token":"N"}` selects the article feature dictionary, including no-handle/plain negatives and additional features. `closure: true` selects the lid-profile dictionary: core/FX when the encoded role is L, otherwise LP when FR establishes closure. `closure: false` reads article-scoped core/FX only for roles other than L, including a role-X closure with separate LP. FR alone never reinterprets article tokens as lid tokens. A missing compatible optional feature is a gap; explicit negatives, non-applicability and dictionary-defined mutually exclusive features are contradictions.
+ - `CA` and `FI`: encoded quantity (`M500`, `M480-520`, `R98`, `0`) or `{value,unit}`. Capacity volume, mass/load and count roles remain distinct.
+ - `DM_HEIGHT`, DM_WIDTH, DM_LENGTH, DM_DEPTH, DM_GUSSET, DM_DIAMETER, DM_TOP_DIA and DM_BOTTOM_DIA: named dimensions. No inference from TOP_DIA to FI.
+ - Dictionary numeric/integer fields including GW, GS, TH, EL, PY, CM, PR; dictionary enum/list fields including colour, optics, bleaching, feedstock, treatment-related characteristics, aperture and explicit yes/no/none values. A list criterion selects one recorded member.
+@@ -82,7 +82,7 @@
+ 
+ Each selected criterion has an explanation: satisfies, gap, or contradiction. Any known contradiction dominates gaps within that evaluated description/alternative. Unknown never satisfies a required fact. Explicit negative/not-applicable values contradict incompatible positives. Source conflicts stay unresolved; a conflict is not arbitrarily resolved to one competing value. Targeted UT wording is conservatively treated as a gap for that target and remains inspectable.
+ 
+-Exact conversions use the inherited dictionary and rational arithmetic. Canonical-unit numbers are allowed in structured criteria; noncanonical units require `{value,unit}`. Bare `oz` is unsupported. Numeric `qualifier` is `[mode,basis,condition]`, default `["REPORTED","UNKNOWN","-"]`. Mode, basis and condition must agree; unknown/incompatible qualifications never become matches. Approximate values do not automatically satisfy exact requirements.
++Exact conversions use the inherited dictionary and rational arithmetic. Canonical-unit numbers are allowed in structured criteria; noncanonical units require `{value,unit}`. Bare `oz` is unsupported. The not-applicable `0` sentinel applies only to CA/FI; ordinary numeric facets such as PR retain numeric zero and compare it numerically. Numeric `qualifier` is `[mode,basis,condition]`, default `["REPORTED","UNKNOWN","-"]`. Mode, basis and condition must agree; unknown/incompatible qualifications never become matches. Approximate values do not automatically satisfy exact requirements.
+ 
+ `tolerance: [minus,plus]` applies only to that scalar criterion, in its canonical units or explicit unit objects. Recorded TO tolerances also expand only their named quantity. A product's full stated interval must be wholly inside the requested acceptable interval. Overlap is insufficient. Equality still compares the full canonical description, not containment.
+ 
+@@ -92,7 +92,7 @@
+ 
+ Select any of quotation, photos, sampling, kit_membership (`true`) and approval (`proof_agreement`, `source_one_acceptance`, `client_approval`). Scope may select existing client/request/job/version/association/customization/packing/sample/kit_revision IDs.
+ 
+-Quotation, sample and approval filters must jointly hold in one exact supplier context; resolved equivalent redundant client/request links are accepted. Distinct/missing business scope is not combined. When photos/sampling or an explicit sample are selected, all sample-dependent evidence must concern one iteration. Quotation records remain pinned to their original context. Rejected, withdrawn or conflicting approval decisions do not count as current positive evidence. Missing evidence is a gap, not proof that evidence cannot exist.
++Quotation, sample and approval filters must jointly hold in one exact supplier context; resolved equivalent redundant client/request links are accepted. Distinct/missing business scope is not combined. Approval decisions are always partitioned by exact sample ID within the exact context, even without a selected sampling filter; sample IDs retain sequence ownership, so labels reused across efforts do not combine decisions. Unsampled approvals form a separate group. A V1 rejection cannot veto V2 approval. A rejection/conflict in the same group still prevents that group from supplying positive approval. When photos/sampling or an explicit sample are selected, all sample-dependent evidence must concern that iteration; unsampled approval cannot supply its approval. Quotation records remain pinned to their original context. Rejected, withdrawn or conflicting approval decisions do not count as current positive evidence. Missing evidence is a gap, not proof that evidence cannot exist.
+ 
+ Kit membership works without a quote/context and uses a current kit revision's exact component association. Photos require a photo note with attachment references. Context alternatives are returned separately; no supplier-wide or shared-specification evidence union occurs. Evidence filters on specification/capability/triage results are gaps rather than borrowed supplier evidence.
+ 
+--- a/Step-4C-Results.md
++++ b/Step-4C-Results.md
+@@ -1,14 +1,25 @@
+ # Source One Atlas — Step 4C Results
+ 
+-**Delivery:** intake/search **0.3.0**, local candidate, 1 October 2026, Asia/Manila. **Baseline:** records **0.2.1**, engine **0.1.1**, dictionary **A1 / 0.1.0-local-candidate**. The inherited records version and engine/dictionary identifiers intentionally remain distinct from this workflow release.
++**Delivery:** intake/search **0.3.1**, local candidate, 2 October 2026, Asia/Manila. **Baseline:** records **0.2.1**, engine **0.1.1**, dictionary **A1 / 0.1.0-local-candidate**. The inherited records version and engine/dictionary identifiers intentionally remain distinct from this workflow release.
+ 
+-Working persistent intake/review and deterministic explicit-criteria search are delivered. **126 tests pass: 84 inherited + 42 new; zero failures/errors. All 44 original known-answer results remain unchanged.** This is bounded local SQLite evidence, not completion of every AT-01–24 workflow, cloud deployment, shared editing or recovery.
++Working persistent intake/review and deterministic explicit-criteria search are delivered. **146 tests pass: 84 inherited + 42 original Step 4C + 20 repair regressions; zero failures/errors. All 44 original known-answer results remain unchanged.** This is bounded local SQLite evidence, not completion of every AT-01–24 workflow, cloud deployment, shared editing or recovery.
++
++## Bounded 0.3.1 repair
++
++All 126 existing tests were reproduced on the deposited 0.3.0 package before changes. Twenty new regressions were then executed before fixing code: **12 failures, zero errors, eight passes**. After repair all 20 pass, and the full suite passes 146 tests. `Repair-0.3.1-Notes.md` documents each reproduction, correction and limitation; before/after logs are included.
++
++1. Known OTHER slots and exact OT explanations now participate in intake candidate comparisons and commit validation. Incompatible substitution is rejected atomically; an explicitly amended supported preview remains available.
++2. Feature matching follows actual core/FX versus LP dictionary scope. Missing compatible features remain gaps; explicit negatives, non-applicability and mutual exclusions remain contradictions. Intake-generated criteria use the same correct namespace.
++3. Numeric zero on ordinary facets is numeric; only CA/FI use the not-applicable sentinel.
++4. Approval filters partition decisions by exact sample/sequence and business context even without a sampling filter. Unsampled approvals stay separate. Same-scope conflict, withdrawn approval and cross-context safeguards remain.
++
++The implementation changes are confined to `atlas/intake.py` and `atlas/search.py`. The engine, dictionary, source fixtures, Store implementation and all 126 original tests are unchanged. Test runners, package labels and current documentation identify 0.3.1. The deposited 0.3.0 delivery is archived under `archive/0.3.0/` during replacement; earlier steps and workbooks are untouched. No next-stage work was performed.
+ 
+ ## Baseline and implementation boundary
+ 
+ The current-baseline marker, complete four-document Step 3 specification, Step 4B results/repair notes/relationships, engine and Store interfaces, schema, dictionary, source reports and preserved fixtures governed the implementation. Historical instructions were source material only. No Step 1/2 redesign or workbook re-extraction was needed.
+ 
+-The current Step 4B package was copied into this workspace before executing any generator. Its original 84 tests and 44 known answers were reproduced before editing (`reference/Step-4C-Baseline-Reproduction.txt`). The source package remains unchanged: all 70 original manifested files still match (`reference/Step-4C-source-integrity.json`). No writes targeted Final Output.
++The current Step 4B package was copied into this workspace before executing any generator. Its original 84 tests and 44 known answers were reproduced before editing (`reference/Step-4C-Baseline-Reproduction.txt`). The source package remains unchanged: all 70 original manifested files still match (`reference/Step-4C-source-integrity.json`). The initial implementation left Final Output unchanged. The subsequent user-authorized deposits install this version only under Step 4C and preserve its superseded delivery.
+ 
+ `atlas/search.py`, `atlas/intake.py`, `atlas/phrases.py` and `atlas/workflow_cli.py` extend the existing implementation. The only Store edits add four immutable workflow record contracts and permit an absent description code on an intake preview. The executed SQLite schema, existing Store change/retrieval operations, batch loader, engine, original tests and dictionary are unchanged. Fourteen inherited files are independently pinned and checked by the new runner. No replacement record architecture, opaque product identifier, external AI dependency or cloud service was introduced.
+ 
+@@ -42,8 +53,9 @@
+ | Final inherited engine tests | 47 passed |
+ | Final inherited record tests | 25 passed |
+ | Final unchanged repair regressions | 12 passed |
+-| New persistent intake/search scenarios | 42 passed |
+-| Total | 126; zero failures/errors |
++| Original persistent intake/search scenarios | 42 passed |
++| New 0.3.1 repair regressions | 20 passed |
++| Total | 146; zero failures/errors |
+ | Known-answer stability | All 44 original input/expected/actual results unchanged |
+ | Inherited integrity | All 14 pinned files unchanged |
+ | Original source-package manifest | All 70 files match |
+@@ -52,7 +64,7 @@
+ 
+ Run `python3 run_step4c_tests.py`. `step4c-test-results.json` records versions, runtime, timestamp, individual scenarios and actual outcomes; `Step-4C-Test-Run.txt` and `Step-4C-Inherited-Test-Run.txt` preserve execution logs. Tests assert independent expected classifications, IDs, immutable history and prohibited outcomes, not just encoding round trips. The new scenarios are in `tests/test_step4c.py`. Reports generated by inherited runners remain baseline-specific historical evidence.
+ 
+-The first new-suite run exposed a nullable preview-code check rejecting source-only intake. It was corrected without weakening specification validation. Additional adversarial checks explicitly cover sample V1/V2 evidence separation, membership without a quotation, unsupported/conflicting source review and unchanged original triage. No demonstrated defect required changing the inherited engine, dictionary or existing Store revision operations.
++The first new-suite run exposed a nullable preview-code check rejecting source-only intake. It was corrected without weakening specification validation. Additional adversarial checks explicitly cover sample V1/V2 evidence separation, membership without a quotation, unsupported/conflicting source review and unchanged original triage. The four subsequently reproduced 0.3.0 defects are repaired in this patch; none required changing the inherited engine, dictionary or existing Store revision operations.
+ 
+ ## AT-01–24 coverage
+ 
+@@ -85,6 +97,8 @@
+ | AT-23 Shared corrections | Local transaction/retry protection only; 04–05 | Shared concurrency/conflict resolution not tested |
+ | AT-24 Recovery | Reopen/rollback tests only | Subscription/cost verification and records-plus-attachments restoration not performed |
+ 
++The R1 regressions extend AT-02/04/18/20 candidate review and source-preservation evidence; R2 extends AT-04/05/06 feature scope/uncertainty evidence; R3 extends AT-04/10 zero/applicability comparisons; R4 extends AT-15/19 iteration-specific approval evidence. These remain bounded local portions, not whole-workflow completion.
++
+ ## Limitations and remaining work
+ 
+ This is a trusted local Python/SQLite CLI and callable API. Search scans the small local store; indexing, pagination, permission infrastructure and shared concurrency are not supplied. The SQL schema still relies on the Python service for typed business validation. The unexecuted Postgres candidate remains a future migration aid, not a validated Supabase deployment.
+--- a/Next-Stage-Handoff.md
++++ b/Next-Stage-Handoff.md
+@@ -1,7 +1,7 @@
+-# Next-stage handoff from Step 4C 0.3.0
++# Next-stage handoff from Step 4C 0.3.1
+ 
+-1. Verify the archive SHA-256 and package manifest before generating reports. Read Step-4C-Results.md, Workflow-Reference.md and the four approved Step 3 documents in reference/Step-3.md. Run `python3 run_step4c_tests.py`: expected 126 tests, zero failures/errors, 44 unchanged known answers, all pinned inherited files unchanged.
+-2. Use this package, not Step 4B 0.2.0 or historical proposals. Keep the A1 engine/dictionary contract and immutable Store relationships. `atlas/records.py` changes are limited to four new review/phrase record contracts and nullable preview code. Existing operations and schema remain intact. Workflow version is 0.3.0; inherited records release remains identified as 0.2.1.
++1. Verify the archive SHA-256 and package manifest before generating reports. Read Step-4C-Results.md, Workflow-Reference.md and the four approved Step 3 documents in reference/Step-3.md. Run `python3 run_step4c_tests.py`: expected 146 tests, zero failures/errors, 44 unchanged known answers, all pinned inherited files unchanged.
++2. Use this package, not Step 4B 0.2.0 or historical proposals. Keep the A1 engine/dictionary contract and immutable Store relationships. `atlas/records.py` changes are limited to four new review/phrase record contracts and nullable preview code. Existing operations and schema remain intact. Workflow version is 0.3.1; inherited records release remains identified as 0.2.1.
+ 3. Conduct a focused human usability pass on the CLI's JSON review inputs, candidate comparisons and evidence-context explanations. A polished frontend is not delivered. Preserve explicit source/review/commit separation if forms are added; an editable phrase must still require confirmation. Avoid turning conservative potential results into automatic product claims.
+ 4. Continue Step 3 shared-update work before shared writes: conflict detection and resolution, transaction adapter, trusted service enforcement, and dictionary allocation. Port the service to the approved Supabase/Postgres direction and run the same negative and persistent tests there. The inherited Postgres SQL file is unexecuted; it does not by itself enforce the Python contracts.
+ 5. Extend acceptance coverage only for actual exercised workflows. Retain partial AT-01–24 mapping and the distinction between record, intake/search and whole-application tests. Pricing calculations, full workbook import, production execution and automatic identity merging remain excluded.
+@@ -9,4 +9,4 @@
+ 
+ Specific bounded implementation follow-ups: query indexing/pagination after measuring realistic local workload; richer reviewed capability-condition vocabulary; additional phrase vocabulary only with explicit semantics and unsupported-word retention; nested construction queries if approved. Specialized layer-thickness filtering remains deferred. Known GA/EC/FF vocabulary limitations do not authorize a dictionary redesign.
+ 
+-The reviewed workbook example still has 12 unresolved supplier-product associations. Use its immutable sources and fixtures; do not rerun extraction or promote products without supporting review. The demo and all new tests except the preserved-batch test are explicitly illustrative.
++The reviewed workbook example still has 12 unresolved supplier-product associations. Use its immutable sources and fixtures; do not rerun extraction or promote products without supporting review. The demo and all new tests except the preserved-batch test are explicitly illustrative. This patch repairs only the four defects in Repair-0.3.1-Notes.md; it performs none of the next-stage tasks listed above.

@@ -1,0 +1,26 @@
+test_R1_amended_supported_preview_and_exact_reuse (test_repairs_031.Repair031Tests) ... ok
+test_R1_candidate_preview_explains_known_other_difference (test_repairs_031.Repair031Tests) ... ok
+test_R1_other_exact_reuse_and_unknown_enrichment (test_repairs_031.Repair031Tests) ... ok
+test_R1_reject_other_substitution_atomic_source_retained (test_repairs_031.Repair031Tests)
+Known OTHER is not unknown: reject PET substitution with no partial commit. ... ok
+test_R2_absent_compatible_window_is_gap (test_repairs_031.Repair031Tests) ... ok
+test_R2_article_stackable_is_not_sipper (test_repairs_031.Repair031Tests) ... ok
+test_R2_core_lid_and_missing_lp_do_not_borrow_article_features (test_repairs_031.Repair031Tests) ... ok
+test_R2_explicit_lp_dome_is_searchable (test_repairs_031.Repair031Tests) ... ok
+test_R2_explicit_negative_exclusion_na_and_valid_fx (test_repairs_031.Repair031Tests) ... ok
+test_R2_intake_preview_keeps_article_and_lid_features_separate (test_repairs_031.Repair031Tests) ... ok
+test_R3_ca_fi_applicability_unchanged (test_repairs_031.Repair031Tests) ... ok
+test_R3_nonzero_does_not_equal_zero (test_repairs_031.Repair031Tests) ... ok
+test_R3_zero_percent_is_numeric (test_repairs_031.Repair031Tests) ... ok
+test_R4_broad_approval_uses_approved_v2_despite_rejected_v1 (test_repairs_031.Repair031Tests) ... ok
+test_R4_explicit_iterations_and_sampling (test_repairs_031.Repair031Tests) ... ok
+test_R4_independent_sampling_efforts_with_reused_labels (test_repairs_031.Repair031Tests) ... ok
+test_R4_no_cross_supplier_client_or_customization_transfer (test_repairs_031.Repair031Tests) ... ok
+test_R4_physical_and_kit_revisions_do_not_inherit_approval (test_repairs_031.Repair031Tests) ... ok
+test_R4_same_iteration_conflict_and_withdrawal_remain_negative (test_repairs_031.Repair031Tests) ... ok
+test_R4_unsampled_decisions_have_separate_scope (test_repairs_031.Repair031Tests) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.879s
+
+OK

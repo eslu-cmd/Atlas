@@ -1,0 +1,290 @@
+{
+  "time_utc": "2026-10-01T16:42:16.461073+00:00",
+  "implementation": "0.2.1",
+  "engine_version": "0.1.1",
+  "dictionary_release": "0.1.0-local-candidate",
+  "python": "3.9.6",
+  "sqlite": "3.43.2",
+  "storage": "on-disk SQLite; Supabase/Postgres not executed",
+  "engine_tests": 47,
+  "record_tests": 37,
+  "original_record_tests": 25,
+  "repair_regression_tests": 12,
+  "total_tests": 84,
+  "failures": 0,
+  "errors": 0,
+  "known_answers": 44,
+  "known_answers_unchanged": true,
+  "baseline_files_unchanged": {
+    "atlas/engine.py": true,
+    "atlas/__init__.py": true,
+    "atlas/__main__.py": true,
+    "tests/test_engine.py": true,
+    "dictionary/atlas-A1-0.1.0.json": true,
+    "fixtures/verified-batch.json": true,
+    "fixtures/verified-results.json": true
+  },
+  "record_results": [
+    {
+      "test": "test_records.RecordTests.test_01_shared_spec_separate_histories_and_cross_links_rejected",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-15/19, T04.1: equal descriptions never share vendor evidence.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_02_clarification_preserves_original_quote_and_other_vendor",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-13, T04.7: H01 keeps identity/version and old quote association.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_03_physical_artwork_and_sample_changes_are_distinct",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-16/15; H02, H03, H09 and T04.2/3.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_04_kit_revisions_retain_membership_and_unknown_quantity",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-07, H10, T04.4: no combined spec, quantity or sale inference.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_05_packing_and_commercial_revisions_preserve_supplied_values",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-17/08, H04/H05: retain discrepancies without recalculation.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_06_proof_internal_acceptance_client_approval_and_context",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-15/19: three evidence types; no cross-client/artwork transfer.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_07_misplaced_evidence_corrected_or_unresolved_with_trail",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-18/15, H07: withdrawal, explicit reassociation and no guessed destination.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_08_historical_retrieval_survives_reopen",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-13/18/21: original context and labelled corrections persist.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_09_atomic_rollback_references_and_immutable_storage",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "Transaction boundary; local persistence only, not AT-24 recovery.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_10_disproved_claim_correction_removes_current_indication",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-14, H06 preserves old meanings and claims, changes only association.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_11_pair_specific_compatibility_never_transfers",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-05/A12: exact version pair, claimed versus confirmed.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_12_source_batch_preserved_without_product_invention",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-04/08/20: exact reviewed batch, 10 descriptions, two triage cases.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_13_findings_uncertainty_attachments_and_sampling_notes",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "A04\u201306/H09: facts retain location, uncertainty and later findings.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_14_request_job_handoff_and_capability_scope",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-01/12/21 record coverage; no search or operations execution.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_15_identity_resolution_requires_evidence_and_keeps_references",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-18/H08: no equal-spec merge; explicit resolution retains old IDs.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_16_dictionary_release_preserved_and_duplicate_meaning_rejected",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "AT-22: full issued ID and supporting dictionary persist together.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_17_failed_correction_leaves_no_partial_replacement",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_18_cli_persistence_and_atomic_apply",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_19_revision_lineage_rejects_cross_product_and_cross_version",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_20_sku_and_sample_labels_are_locally_scoped",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_21_sampling_retrieval_exposes_photos_requests_and_decisions",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_22_later_dictionary_cannot_reinterpret_issued_meaning",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_23_failed_kit_revision_rolls_back_new_component",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_24_history_follows_multiple_corrections_without_rewriting_original",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_records.RecordTests.test_25_retrospective_quote_still_shows_prior_correction_to_its_context",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R1_approval_evidence_is_not_replaced_by_correction_note",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "H07: preserve signed approval evidence; reassociation evidence stays on event.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R1_failed_reassociation_preserves_evidence_and_active_state",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R1_replacement_retrieval_exposes_incoming_correction_provenance",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "Replacement opens the approval document and explicitly withdrawn predecessor.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R1_successive_corrections_and_handoff_provenance_survive_reopen",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "Successive explicit corrections keep both notes and the original signed evidence.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R2_exact_product_and_business_distinctions_are_not_erased",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "Missing scope and different job/request/client or snapshot links stay distinct.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R2_explicit_inherited_contradictions_remain_rejected",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R2_handoff_accepts_equivalent_quote_and_approval_context",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R2_sample_approval_accepts_redundant_resolved_scope",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "Same job/request/client via inheritance or explicit links is equivalent.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R3_changed_composition_does_not_inherit_approval",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R3_kit_samples_notes_acceptance_and_client_approval_persist",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "Kit sampling owns a permanent kit; samples/decisions retain the exact composition.",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R3_sequence_has_exactly_one_permanent_owner",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    },
+    {
+      "test": "test_repairs_021.RepairTests.test_R3_wrong_kit_client_customization_and_sequence_labels",
+      "fixture": "ILLUSTRATIVE, except test_12 uses preserved Step 4A workbook batch",
+      "expected": "All named scenario assertions and prohibited-outcome checks hold",
+      "actual": "All assertions held through on-disk SQLite",
+      "status": "pass"
+    }
+  ],
+  "success": true,
+  "boundary": "Record-layer evidence, not completion of all 24 acceptance workflows, shared editing, deployment or recovery."
+}

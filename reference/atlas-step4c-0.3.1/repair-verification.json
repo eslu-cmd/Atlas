@@ -1,0 +1,18 @@
+{
+  "implementation": "0.1.1",
+  "original_package_manifest_entries_unchanged": 32,
+  "unchanged_known_answer_vectors": 44,
+  "dictionary_and_fixture_files_unchanged": [
+    "dictionary/REFERENCE.md",
+    "dictionary/atlas-A1-0.1.0.json",
+    "fixtures/cup.json",
+    "fixtures/verified-batch.json",
+    "fixtures/verified-results.json"
+  ],
+  "workbook_records_compared": 12,
+  "encoded_workbook_outputs_and_decodes_unchanged": 10,
+  "triage_records_unchanged": 2,
+  "test_methods": 47,
+  "failures": 0,
+  "errors": 0
+}

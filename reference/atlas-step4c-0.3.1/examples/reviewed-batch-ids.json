@@ -1,0 +1,65 @@
+{
+  "source": "3611948e-b6a6-43c7-a4b5-0001dd9aed96",
+  "records": [
+    {
+      "source_record": "V4",
+      "triage": "3bd685f1-3704-49b5-a256-8734c45073d3",
+      "specification": "05ffc2d6-3e57-495f-9716-0be9db860ea5"
+    },
+    {
+      "source_record": "V7",
+      "triage": "7e45cd29-ba71-4605-bfba-22cba8dafc04",
+      "specification": "e4c7966b-82db-487d-9116-e39ae0f05eae"
+    },
+    {
+      "source_record": "V18",
+      "triage": "66570ad3-cdda-4481-b3d2-cf54ee29464d",
+      "specification": "aa417061-fb1f-43f8-8d83-225bf593b316"
+    },
+    {
+      "source_record": "V961",
+      "triage": "21c6be2f-f024-41f7-a479-2af0f99703cf",
+      "specification": "b0de89ac-aed8-4975-8dcd-c4b954d3ea2a"
+    },
+    {
+      "source_record": "V962",
+      "triage": "d9f29367-f384-49e1-a05b-acb104a2875f",
+      "specification": "a5e2de28-c0fd-431d-a7a8-b31b77db6355"
+    },
+    {
+      "source_record": "V963",
+      "triage": "16d2b1c7-4c5b-4b6b-a8b0-9594611c1a3f",
+      "specification": "a5e2de28-c0fd-431d-a7a8-b31b77db6355"
+    },
+    {
+      "source_record": "V993",
+      "triage": "33fd12b9-fa4c-4e77-a339-e1d6112f3fed",
+      "specification": null
+    },
+    {
+      "source_record": "V1000",
+      "triage": "7e746f28-6efa-4190-8fd6-7e4f8586d9d4",
+      "specification": "117c6b28-c8cb-4ddf-ae03-4905cbe2aeed"
+    },
+    {
+      "source_record": "V1088",
+      "triage": "72f7ef9e-01e8-4c87-bf19-69d016069819",
+      "specification": "812c2fa5-af2c-4158-a5e2-375412ba8fd0"
+    },
+    {
+      "source_record": "V1141",
+      "triage": "05fe60de-4533-4927-a4b6-0b7041a4d154",
+      "specification": "5da7a9bb-28a5-4eb4-8f7a-6bc5dfa33b75"
+    },
+    {
+      "source_record": "V1142",
+      "triage": "462d432a-1264-49c4-b993-369efdc6e4a1",
+      "specification": "ac59777c-7139-4a5d-8aeb-7b1fc516cd29"
+    },
+    {
+      "source_record": "V1143",
+      "triage": "13548505-827c-41a2-b042-82dd5ec6ab08",
+      "specification": null
+    }
+  ]
+}

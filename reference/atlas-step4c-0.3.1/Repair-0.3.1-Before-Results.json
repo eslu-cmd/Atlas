@@ -1,0 +1,24 @@
+{
+  "implementation": "0.3.0",
+  "new_regressions": 20,
+  "failures": 12,
+  "errors": 0,
+  "passes": 8,
+  "failed_tests": [
+    "test_R1_candidate_preview_explains_known_other_difference",
+    "test_R1_other_exact_reuse_and_unknown_enrichment",
+    "test_R1_reject_other_substitution_atomic_source_retained",
+    "test_R2_absent_compatible_window_is_gap",
+    "test_R2_article_stackable_is_not_sipper",
+    "test_R2_core_lid_and_missing_lp_do_not_borrow_article_features",
+    "test_R2_explicit_lp_dome_is_searchable",
+    "test_R2_explicit_negative_exclusion_na_and_valid_fx",
+    "test_R3_zero_percent_is_numeric",
+    "test_R4_broad_approval_uses_approved_v2_despite_rejected_v1",
+    "test_R4_independent_sampling_efforts_with_reused_labels",
+    "test_R4_unsampled_decisions_have_separate_scope"
+  ],
+  "baseline_existing_tests": 126,
+  "baseline_existing_passed": true,
+  "purpose": "Expected failures recorded before implementation changes; not a release success claim"
+}

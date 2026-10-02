@@ -1,0 +1,27 @@
+{
+  "fixture": "ILLUSTRATIVE only; no workbook products promoted",
+  "database": "/Users/luisdedios/Documents/Codex/2026-10-01/files-mentioned-by-the-user-final-3/outputs/atlas-step4c/examples/step4c-demo/atlas.sqlite",
+  "intake": "1178ddff-bf41-4812-9a66-d8c0ea3e0e87",
+  "preview": "98b1bfa2-cf7e-4881-98ca-4d386ed9bc20",
+  "committed": {
+    "decision": "db86044b-0d76-43c9-8342-44b02d8ff36d",
+    "specification": "f1da532c-9274-4531-a3ab-57ee62519250",
+    "product": "e39420de-44e6-4f24-b818-95241335b97b",
+    "version": "0c409540-b168-42bc-9453-5c6af9e4d088",
+    "association": "360b76a2-1240-4728-8a23-264347fc3fca",
+    "repeated": false
+  },
+  "repeated_without_duplicates": true,
+  "broad_counts": {
+    "match": 5,
+    "potential": 0,
+    "contradiction": 0
+  },
+  "narrow_counts": {
+    "match": 2,
+    "potential": 1,
+    "contradiction": 0
+  },
+  "phrase_confirmation": "76163622-22fc-4f49-99db-5b1cb15584db",
+  "old_quote": "93e8bc3d-a24d-40fa-a348-2482b054a7b3"
+}

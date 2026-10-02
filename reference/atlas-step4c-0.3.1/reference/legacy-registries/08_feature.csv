@@ -1,0 +1,162 @@
+scope_article_class,scope_role,code,canonical_phrase,status
+_DEFAULT,any role except L,N,no distinguishing feature,ACTIVE
+_DEFAULT,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+_DEFAULT,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+_DEFAULT,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+CU,any role except L,N,plain wall,ACTIVE
+CU,any role except L,T,tabbed,ACTIVE
+CU,any role except L,H,handled,ACTIVE
+CU,any role except L,P,pedestal / footed,ACTIVE
+CU,any role except L,S,stackable lip,ACTIVE
+CU,any role except L,G,graduated / measure-marked,ACTIVE
+CU,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+CU,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+CU,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+CT,any role except L,H,hinged one-piece,ACTIVE
+CT,any role except L,2,two-piece separate lid,ACTIVE
+CT,any role except L,N,"open, no lid interface",ACTIVE
+CT,any role except L,S,stackable / nestable,ACTIVE
+CT,any role except L,V,vented,ACTIVE
+CT,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+CT,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+CT,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+CL,any role except L,H,hinged one-piece,ACTIVE
+CL,any role except L,L,latching,ACTIVE
+CL,any role except L,V,vented,ACTIVE
+CL,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+CL,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+CL,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+BW,any role except L,N,plain,ACTIVE
+BW,any role except L,S,stackable lip,ACTIVE
+BW,any role except L,R,rolled rim,ACTIVE
+BW,any role except L,2,two-piece separate lid,ACTIVE
+BW,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+BW,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+BW,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+TB,any role except L,N,plain,ACTIVE
+TB,any role except L,2,two-piece separate lid,ACTIVE
+TB,any role except L,S,stackable / nestable,ACTIVE
+TB,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+TB,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+TB,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+BK,any role except L,N,plain,ACTIVE
+BK,any role except L,2,two-piece separate lid,ACTIVE
+BK,any role except L,H,bail handle,ACTIVE
+BK,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+BK,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+BK,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+BO,any role except L,N,plain,ACTIVE
+BO,any role except L,H,handled,ACTIVE
+BO,any role except L,G,graduated,ACTIVE
+BO,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+BO,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+BO,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+BG,any role except L,T,twisted paper handle,ACTIVE
+BG,any role except L,F,flat tape handle,ACTIVE
+BG,any role except L,D,die-cut handle,ACTIVE
+BG,any role except L,S,soft-loop handle,ACTIVE
+BG,any role except L,V,vest / t-shirt handle,ACTIVE
+BG,any role except L,R,drawstring,ACTIVE
+BG,any role except L,N,no handle,ACTIVE
+BG,any role except L,W,window panel,ACTIVE
+BG,any role except L,Z,tin tie closure,ACTIVE
+BG,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+BG,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+BG,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+PO,any role except L,S,stand-up gusset,ACTIVE
+PO,any role except L,F,flat lay,ACTIVE
+PO,any role except L,Z,zipper reclose,ACTIVE
+PO,any role except L,P,spout,ACTIVE
+PO,any role except L,N,plain,ACTIVE
+PO,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+PO,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+PO,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+BX,any role except L,R,RSC / shipper,ACTIVE
+BX,any role except L,F,folding carton,ACTIVE
+BX,any role except L,P,pop-up / auto-bottom,ACTIVE
+BX,any role except L,T,tuck-top takeout,ACTIVE
+BX,any role except L,W,window panel,ACTIVE
+BX,any role except L,N,plain,ACTIVE
+BX,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+BX,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+BX,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+CR,any role except L,F,folding carton,ACTIVE
+CR,any role except L,T,tuck-top,ACTIVE
+CR,any role except L,N,plain,ACTIVE
+CR,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+CR,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+CR,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+BB,any role except L,N,plain,ACTIVE
+BB,any role except L,P,spout / tap,ACTIVE
+BB,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+BB,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+BB,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+CY,any role except L,S,spoon,ACTIVE
+CY,any role except L,F,fork,ACTIVE
+CY,any role except L,N,knife,ACTIVE
+CY,any role except L,P,spork,ACTIVE
+CY,any role except L,T,tongs,ACTIVE
+CY,any role except L,C,chopsticks,ACTIVE
+CY,any role except L,M,mixed kit,ACTIVE
+CY,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+CY,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+CY,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+SR,any role except L,S,straight,ACTIVE
+SR,any role except L,B,bent / flex,ACTIVE
+SR,any role except L,U,U-shape,ACTIVE
+SR,any role except L,T,tapered / boba,ACTIVE
+SR,any role except L,P,pointed,ACTIVE
+SR,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+SR,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+SR,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+NP,any role except L,D,dispenser napkin,ACTIVE
+NP,any role except L,B,beverage napkin,ACTIVE
+NP,any role except L,L,luncheon napkin,ACTIVE
+NP,any role except L,N,dinner napkin,ACTIVE
+NP,any role except L,V,interfolded sheet,ACTIVE
+NP,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+NP,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+NP,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+GV,any role except L,P,powdered,ACTIVE
+GV,any role except L,F,powder free,ACTIVE
+GV,any role except L,T,textured grip,ACTIVE
+GV,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+GV,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+GV,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+TR,any role except L,C,compartmented,ACTIVE
+TR,any role except L,N,plain,ACTIVE
+TR,any role except L,S,stackable,ACTIVE
+TR,any role except L,2,two-piece separate lid,ACTIVE
+TR,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+TR,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+TR,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+PL,any role except L,C,compartmented,ACTIVE
+PL,any role except L,N,plain,ACTIVE
+PL,any role except L,S,stackable,ACTIVE
+PL,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+PL,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+PL,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+WR,any role except L,S,sheet,ACTIVE
+WR,any role except L,P,pre-cut pop-up,ACTIVE
+WR,any role except L,V,interfolded,ACTIVE
+WR,any role except L,N,plain,ACTIVE
+WR,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+WR,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+WR,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+FM,any role except L,N,plain,ACTIVE
+FM,any role except L,P,perforated,ACTIVE
+FM,any role except L,C,cling,ACTIVE
+FM,any role except L,9,OTHER feature (see facet OT),RESERVED-OTHER
+FM,any role except L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+FM,any role except L,X,UNKNOWN feature,RESERVED-UNKNOWN
+(any lid-bearing class),L,F,flat lid,ACTIVE
+(any lid-bearing class),L,D,dome lid,ACTIVE
+(any lid-bearing class),L,B,bubble / high dome lid,ACTIVE
+(any lid-bearing class),L,S,sipper / raised drink-through lid,ACTIVE
+(any lid-bearing class),L,T,lift-tab lid,ACTIVE
+(any lid-bearing class),L,P,peel / seal film lid,ACTIVE
+(any lid-bearing class),L,R,reclosable lid,ACTIVE
+(any lid-bearing class),L,N,plain lid,ACTIVE
+(any lid-bearing class),L,9,OTHER feature (see facet OT),RESERVED-OTHER
+(any lid-bearing class),L,0,NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+(any lid-bearing class),L,X,UNKNOWN feature,RESERVED-UNKNOWN

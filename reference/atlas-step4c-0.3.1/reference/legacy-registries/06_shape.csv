@@ -1,0 +1,14 @@
+code,canonical_phrase,status
+R,round,ACTIVE
+S,square,ACTIVE
+E,rectangular,ACTIVE
+V,oval,ACTIVE
+T,triangular,ACTIVE
+H,hexagonal,ACTIVE
+C,conical,ACTIVE
+F,flat sheet,ACTIVE
+U,tubular,ACTIVE
+G,irregular or contoured,ACTIVE
+9,OTHER shape (see facet OT),RESERVED-OTHER
+0,shape NOT APPLICABLE,RESERVED-NOT-APPLICABLE
+X,UNKNOWN shape,RESERVED-UNKNOWN

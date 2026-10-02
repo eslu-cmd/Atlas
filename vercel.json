@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/*.py": {
+      "maxDuration": 30,
+      "includeFiles": "reference/atlas-step4c-0.3.1/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/", "destination": "/web/index.html" }
+  ],
+  "cleanUrls": true,
+  "regions": ["iad1"]
+}

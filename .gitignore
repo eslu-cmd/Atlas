@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.vercel/
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+*.sqlite
+*.sqlite-journal
+work/
+.pytest_cache/
